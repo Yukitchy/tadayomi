@@ -1,0 +1,102 @@
+{
+ "run": "2026-11-21T00:00:17+09:00",
+ "sources": {
+  "ebookjapan": {
+   "ok": true,
+   "count": 26
+  },
+  "ピッコマ": {
+   "ok": true,
+   "count": 40
+  },
+  "マガポケ": {
+   "ok": true,
+   "count": 9
+  },
+  "X告知": {
+   "ok": true,
+   "count": 10,
+   "failed": {},
+   "kept_from_previous": 0,
+   "items": [
+    [
+     "チャンピオンクロス",
+     "ヤクザにお風呂で働かされてます。",
+     "site",
+     "https://x.com/championcross/status/2123627573695619404"
+    ],
+    [
+     "チャンピオンクロス",
+     "光る君の妻に転生したのですが 呪われないために夜伽を拒否しています【心恋】",
+     "site",
+     "https://x.com/championcross/status/2123619911909962207"
+    ],
+    [
+     "チャンピオンクロス",
+     "Villainな奥さま",
+     "site",
+     "https://x.com/championcross/status/2123612375622324378"
+    ],
+    [
+     "チャンピオンクロス",
+     "ちひろさん",
+     "site",
+     "https://x.com/championcross/status/2123431108025209180"
+    ],
+    [
+     "チャンピオンクロス",
+     "名探偵マーニー",
+     "site",
+     "https://x.com/championcross/status/2123265191081115718"
+    ],
+    [
+     "チャンピオンクロス",
+     "旦那に秘密で配信者に捧げました",
+     "site",
+     "https://x.com/championcross/status/2123257547113091321"
+    ],
+    [
+     "チャンピオンクロス",
+     "ひとり部屋のカギあずけます~すてきな第一発見者~",
+     "site",
+     "https://x.com/championcross/status/2122963050135253502"
+    ],
+    [
+     "少年ジャンプ＋",
+     "Thisコミュニケーション",
+     "x",
+     "https://x.com/shonenjump_plus/status/2123733108155462117"
+    ],
+    [
+     "少年ジャンプ＋",
+     "早乙女姉妹は漫画のためなら!?",
+     "x",
+     "https://x.com/shonenjump_plus/status/2123370709971767734"
+    ],
+    [
+     "コミックDAYS",
+     "あせとせっけん",
+     "x",
+     "https://x.com/comicdays_team/status/2123431104527155526"
+    ]
+   ]
+  },
+  "manual": {
+   "ok": true,
+   "count": 2
+  }
+ },
+ "not_covered": {
+  "Kindle": "amazon.co.jp は自動取得に対しロボット確認ページ（1.4KB）を返す。公式APIはアソシエイト審査が前提",
+  "BOOK☆WALKER": "/free/ に作品は並ぶが終了日がHTMLに無い。キャンペーン一覧URLは404",
+  "コミックシーモア": "/freecontents/ のHTMLに終了日が無い（作品ごとの期限は取得できず）",
+  "LINEマンガ": "ページ本体がJavaScriptで描画され、HTMLにキャンペーン期限が無い",
+  "少年ジャンプ＋": "トップ・作品ページに無料期間の構造化された記載が無い。完結記念などは manual.json で手動追加",
+  "ヤンマガWeb": "トップに巻無料の告知はあるが終了日の記載が無い",
+  "サンデーうぇぶり": "トップに期間限定無料の告知が無い（取得時点）",
+  "ヤンチャンWeb": "ynjn.jp / yanchan.jp が接続を返さない（取得時点）"
+ },
+ "total": 80,
+ "allFree": 0,
+ "written": true
+}

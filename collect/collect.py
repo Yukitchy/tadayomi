@@ -99,26 +99,28 @@ def piccoma():
     _, t = get("https://piccoma.com/web/")
     ids = list(dict.fromkeys(re.findall(r'href="/web/product/(\d+)\?etype=volume"[^>]*data-gtm-label="(?:\d+|全)巻無料"', t)))
     if not ids: raise RuntimeError("トップに巻無料の作品が見つからない（ページ構造変更）")
-    def detail(pid):
-        url = "https://piccoma.com/web/product/%s" % pid
-        _, p = get(url)
-        x = text(re.sub(r"<script.*?</script>|<style.*?</style>", "", p, flags=re.S))
-        m = re.search(r"(全巻|\d+巻分)無料！\s*(\d{1,2}/\d{1,2})\(.\)\s*23:59まで", x)
-        if not m: return None  # 期限の書かれていない無料は載せない
-        ttl = meta(p, "og:title").split("｜")
-        title = re.sub(r"\s*(【[^】]*】|（分冊版）|\(分冊版\))\s*", "", ttl[0]).strip(); author = ttl[-1].strip() if len(ttl) >= 3 else ""
-        allfree = m.group(1) == "全巻"
-        vols = re.search(r"全(\d+)巻", x)
-        return dict(title=title, author=author, category="store", store="ピッコマ",
-                    freeVolumes=int(vols.group(1)) if allfree and vols else (0 if allfree else int(m.group(1)[:-2])),
-                    totalVolumes=int(vols.group(1)) if vols else None, allFree=allfree,
-                    completed="完結" in re.findall(r'<ul class="PCM-productStatus">(.*?)</ul>', p, re.S)[0] if '<ul class="PCM-productStatus">' in p else False,
-                    endDate=md_to_date(m.group(2)).isoformat(), catch=meta(p, "og:description")[:60], tags=[],
-                    cover=cover(p), url=url)
-    def cover(p):  # og:image は共有用の汎用画像なので、作品ページの表紙サムネを使う
-        m = re.search(r'class="PCM-productThum_img" src="([^"]+)"', p)
-        return ("https:" + m.group(1) if m.group(1).startswith("//") else m.group(1)) if m else ""
-    return run_details(detail, ids[:MAX_DETAIL])
+    return run_details(piccoma_detail, ids[:MAX_DETAIL])
+
+def piccoma_detail(pid):
+    url = "https://piccoma.com/web/product/%s" % pid
+    _, p = get(url)
+    x = text(re.sub(r"<script.*?</script>|<style.*?</style>", "", p, flags=re.S))
+    m = re.search(r"(全巻|\d+巻分)無料！\s*(\d{1,2}/\d{1,2})\(.\)\s*23:59まで", x)
+    if not m: return None  # 期限の書かれていない無料は載せない
+    ttl = meta(p, "og:title").split("｜")
+    title = re.sub(r"\s*(【[^】]*】|（分冊版）|\(分冊版\))\s*", "", ttl[0]).strip(); author = ttl[-1].strip() if len(ttl) >= 3 else ""
+    allfree = m.group(1) == "全巻"
+    vols = re.search(r"全(\d+)巻", x)
+    return dict(title=title, author=author, category="store", store="ピッコマ",
+                freeVolumes=int(vols.group(1)) if allfree and vols else (0 if allfree else int(m.group(1)[:-2])),
+                totalVolumes=int(vols.group(1)) if vols else None, allFree=allfree,
+                completed="完結" in re.findall(r'<ul class="PCM-productStatus">(.*?)</ul>', p, re.S)[0] if '<ul class="PCM-productStatus">' in p else False,
+                endDate=md_to_date(m.group(2)).isoformat(), catch=meta(p, "og:description")[:60], tags=[],
+                cover=piccoma_cover(p), url=url)
+def piccoma_cover(p):  # og:image は共有用の汎用画像なので、作品ページの表紙サムネを使う
+    m = re.search(r'class="PCM-productThum_img" src="([^"]+)"', p)
+    return ("https:" + m.group(1) if m.group(1).startswith("//") else m.group(1)) if m else ""
+
 
 # ---------- マガポケ（講談社）: トップの各作品カードの告知文「N巻分無料！MM/DDまで」
 def magapoke():
@@ -145,6 +147,109 @@ def magapoke():
         return it
     return run_details(detail, list(out.values())[:MAX_DETAIL])
 
+# ---------- 公式Xの告知（fxtwitter の公開API api.fxtwitter.com/2/profile/<id>/statuses。ログイン不要）
+# 公式アカウント本人の投稿だけを見る（リポスト・非公式は除外）。1投稿＝作品1つ（『』が1つ）・無料範囲・期限が全部読み取れるものだけ。
+# 告知内のリンク先に実サイトの検証器があればそこで裏取り（basis=site、値も実サイト優先・取れなければ載せない）。
+# 検証器の無い媒体（Kindle・シーモア等の直接巡回できない媒体）は公式Xの告知を一次情報として掲載（basis=x、リンクは告知ポスト）。
+X_ACCOUNTS = {  # handle: (媒体名, category, 投稿に必須の語)  2026-11-20 fxtwitter でプロフィール確認済み
+    "championcross": ("チャンピオンクロス", "publisher", ""), "shonenjump_plus": ("少年ジャンプ＋", "store", ""),
+    "magapoke": ("マガポケ", "publisher", ""), "ynjn_jp": ("ヤンジャン＋", "publisher", ""),
+    "sundaywebry": ("サンデーうぇぶり", "publisher", ""), "comicdays_team": ("コミックDAYS", "publisher", ""),
+    "comic_cmoa": ("コミックシーモア", "store", ""), "BOOK_WALKER": ("BOOK☆WALKER", "store", ""),
+    "LINEMANGA": ("LINEマンガ", "store", ""), "AmazonJP": ("Kindle", "store", "Kindle"),
+    "ebookjapan": ("ebookjapan", "store", ""), "piccoma_jp": ("ピッコマ", "store", ""),
+}
+X_DAYS = 5     # 何日前までの投稿を見るか
+X_PAGES = 2    # 1アカウントあたり 20件×2ページ
+X_FAILED = {}  # handle → エラー（main が前回分を引き継ぐ）
+
+def xposts(handle):
+    out, cur = [], ""
+    for _ in range(X_PAGES):
+        u = "https://api.fxtwitter.com/2/profile/%s/statuses%s" % (handle, "?cursor=" + cur if cur else "")
+        try: _, t = get(u)
+        except Exception: _, t = get(u)  # 1回だけ再試行（たまにTLSタイムアウトする）
+        d = json.loads(t)
+        if d.get("code") != 200: raise RuntimeError("fxtwitter code=%s" % d.get("code"))
+        out += d.get("results") or []
+        cur = (d.get("cursor") or {}).get("bottom")
+        if not cur: break
+    return out
+
+def x_parse(text_, posted):
+    """告知文 → (title, 無料範囲dict, endDate) / 読み取れなければ None"""
+    t = unicodedata.normalize("NFKC", text_)
+    titles = list(dict.fromkeys(re.sub(r"\s*#\s*", "", s).strip() for s in re.findall(r"『([^』]+)』", t)))
+    if len(titles) != 1: return None
+    fr = None
+    m = re.search(r"全(話|巻|エピソード)\s*(?:完全)?無料", t)
+    if m: fr = dict(allFree=m.group(1) == "巻", freeLabel="全%s無料" % ("巻" if m.group(1) == "巻" else "話"))
+    m = m or re.search(r"(?<![〜~\-\d])(\d+)\s*(巻|話|エピソード)分?\s*(?:完全)?無料", t)
+    if m and not fr:
+        n = int(m.group(1)); fr = dict(freeVolumes=n) if m.group(2) == "巻" else dict(freeEpisodes=n)
+    if not fr: return None
+    m = re.search(r"([^\s※・『』]{1,16}除く)", t)  # 「最終巻除く」「最新巻&以降の話を除く」等は表記に残す
+    base = lambda: fr.get("freeLabel") or ("%d話分無料" % fr["freeEpisodes"] if "freeEpisodes" in fr else "%d巻無料" % fr["freeVolumes"])
+    if m: fr["freeLabel"] = base() + "（%s）" % m.group(1)
+    m = re.search(r"ブラウザ版のみ|アプリ(?:版)?(?:のみ|限定)|待てば", t)  # 条件付きの無料は表記に残す
+    if m: fr["freeLabel"] = base() + "（%s）" % m.group(0)
+    end = None
+    m = re.search(r"(\d{1,2})/(\d{1,2})\s*(?:\(.\))?\s*(\d{1,2}:\d{2})?\s*(?:まで|迄)", t)
+    if m:
+        end = md_to_date("%s/%s" % (m.group(1), m.group(2)))
+        if m.group(3) in ("0:00", "00:00"): end -= datetime.timedelta(days=1)  # 0:00まで＝前日いっぱい
+    else:
+        m = re.search(r"(?:今から|(\d{1,2})/(\d{1,2})\s*(?:\(.\))?\s*から)\s*(\d+)\s*時間", t)
+        if m:
+            start = datetime.datetime.combine(md_to_date("%s/%s" % (m.group(1), m.group(2))), datetime.time(), JST) if m.group(1) else posted.replace(minute=0, second=0)  # 告知は毎正時開始の前提
+            end = (start + datetime.timedelta(hours=int(m.group(3)), seconds=-1)).date()
+    if not end: return None
+    return titles[0], fr, end.isoformat()
+
+def verify_championcross(url, it):  # comici の作品ページ「キャンペーンにつき N 話分無料 YYYY/MM/DD HH:MMまで」
+    final, p = get(url.split("?")[0].rstrip("/"))  # 末尾/付きは別ページ扱いになる
+    x = text(re.sub(r"<script.*?</script>|<style.*?</style>", "", p, flags=re.S))
+    m = re.search(r"キャンペーンにつき\s*(\d+)\s*話分無料\s*(\d{4})/(\d{2})/(\d{2})\s*(\d{2}:\d{2})まで", x)
+    if not m: return None
+    end = datetime.date(int(m.group(2)), int(m.group(3)), int(m.group(4)))
+    if m.group(5) == "00:00": end -= datetime.timedelta(days=1)
+    vols = re.search(r"全(\d+)冊", x)
+    it.update(freeEpisodes=int(m.group(1)), freeVolumes=0, allFree=False, endDate=end.isoformat(), url=final.split("?")[0],
+              totalVolumes=int(vols.group(1)) if vols else None, cover=meta(p, "og:image"),
+              catch=re.sub(r"^\S+・第\S+\s*", "", meta(p, "og:description"))[:60])
+    if "freeLabel" in it and "最終" not in it["freeLabel"]: it.pop("freeLabel")  # 実サイトの話数を優先
+    return it
+
+VERIFIERS = [(r"https://championcross\.jp/(?:episodes|series)/\w+[^\s]*", verify_championcross),
+             (r"https://piccoma\.com/web/product/(\d+)", lambda u, it: piccoma_detail(re.search(r"product/(\d+)", u).group(1)))]
+
+def xcheck():
+    out = []
+    for h, (store, cat, need) in X_ACCOUNTS.items():
+        try: posts = xposts(h)
+        except Exception as e:
+            X_FAILED[h] = "%s: %s" % (type(e).__name__, e); continue
+        for p in posts:
+            if (p.get("author") or {}).get("screen_name", "").lower() != h.lower() or p.get("reposted_by"): continue
+            posted = datetime.datetime.fromtimestamp(p["created_timestamp"], JST)
+            if posted < NOW - datetime.timedelta(days=X_DAYS) or (need and need not in p["text"]): continue
+            r = x_parse(p["text"], posted)
+            if not r: continue
+            title, fr, end = r
+            it = dict(title=title, author="", category=cat, store=store, freeVolumes=0, totalVolumes=None, allFree=False,
+                      completed=False, endDate=end, catch="", tags=[], cover="", url=p["url"], basis="x", xPost=p["url"], xAccount=h)
+            it.update(fr)
+            for pat, fn in VERIFIERS:
+                u = re.search(pat, p["text"])
+                if u:
+                    try: v = fn(u.group(0), dict(it))
+                    except Exception: v = None
+                    if not v: it = None; break  # 実サイトで確認できる媒体なのに確認できない → 載せない
+                    v.update(title=title, basis="site", xPost=p["url"], xAccount=h, store=v.get("store", store)); it = v; break
+            if it: out.append(it)
+    if len(X_FAILED) == len(X_ACCOUNTS): raise RuntimeError("全アカウント取得失敗: %s" % X_FAILED)
+    return out
+
 def run_details(fn, xs):
     with cf.ThreadPoolExecutor(4) as ex:
         res = list(ex.map(lambda x: _safe(fn, x), xs))
@@ -154,7 +259,7 @@ def _safe(fn, x):
     try: return fn(x)
     except Exception: return None
 
-SOURCES = {"ebookjapan": ebookjapan, "ピッコマ": piccoma, "マガポケ": magapoke}
+SOURCES = {"ebookjapan": ebookjapan, "ピッコマ": piccoma, "マガポケ": magapoke, "X告知": xcheck}
 # 自動収集していない媒体（理由は初回調査 2026-11-20 時点。結果ファイルにも同じ内容）
 NOT_COVERED = {
     "Kindle": "amazon.co.jp は自動取得に対しロボット確認ページ（1.4KB）を返す。公式APIはアソシエイト審査が前提",
@@ -190,10 +295,14 @@ def main():
     for name, fn in SOURCES.items():
         try:
             got = [i for i in fn() if valid(i)]
-            if not got: raise RuntimeError("0件（構造変更の可能性）")
+            if not got and name != "X告知": raise RuntimeError("0件（構造変更の可能性）")  # X は告知0件の日もある
             log["sources"][name] = {"ok": True, "count": len(got)}
+            if name == "X告知":  # 取得に失敗したアカウントは前回分を引き継ぐ
+                kept = [i for i in prev_real if i.get("xAccount") in X_FAILED and valid(i)]
+                got += kept; log["sources"][name].update(failed=X_FAILED, kept_from_previous=len(kept),
+                                                         items=[(i["store"], i["title"], i["basis"], i["xPost"]) for i in got])
         except Exception as e:
-            got = [i for i in prev_real if i.get("store") == name and valid(i)]
+            got = [i for i in prev_real if (i.get("source") or i.get("store")) == name and valid(i)]
             log["sources"][name] = {"ok": False, "count": 0, "error": "%s: %s" % (type(e).__name__, e), "kept_from_previous": len(got)}
         for i in got: i["source"] = name
         items += got
@@ -217,14 +326,31 @@ def main():
     print(json.dumps(log, ensure_ascii=False))
     if not ok:
         print("件数不足のため data.json は前回のまま", file=sys.stderr); return 2
-    auto = sorted({i["store"] for i in items if i.get("source") != "manual"})
-    man = sorted({i["store"] for i in items if i.get("source") == "manual"} - set(auto))
-    data = {"updated": TODAY.isoformat(), "sample": False, "sources": auto, "manual": man, "items": items}
+    auto = sorted({i["store"] for i in items if i.get("source") not in ("manual", "X告知")})
+    xs = sorted({i["store"] for i in items if i.get("source") == "X告知"} - set(auto))
+    man = sorted({i["store"] for i in items if i.get("source") == "manual"} - set(auto) - set(xs))
+    data = {"updated": TODAY.isoformat(), "sample": False, "sources": auto, "xSources": xs, "manual": man, "items": items}
     tmp = DATA + ".tmp"
     json.dump(data, open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.load(open(tmp, encoding="utf-8"))
     os.replace(tmp, DATA)
     return 0
 
+def x_test():  # python3 collect.py --test（実際の告知文で x_parse を確認）
+    P = datetime.datetime(2026, 11, 20, 0, 0, 2, tzinfo=JST)
+    assert x_parse("『ちひろさん』が今から96時間、全話無料です。", P)[2] == "2026-11-23"
+    assert x_parse("『ちひろさん』11/20から96時間 全話無料です", P)[2] == "2026-11-23"
+    assert x_parse("『Thisコミュニケーション』が 15話分無料‼️\n※12/3まで", P)[1:] == ({"freeEpisodes": 15}, "2026-12-03")
+    assert x_parse("12/4 18:00まで 1巻完全無料\n『Villainな奥さま』", P)[1] == {"freeVolumes": 1}
+    assert x_parse("『銀河英雄伝説』が今だけ5巻分無料", P) is None          # 期限なし
+    assert x_parse("『A』『B』 全巻無料 11/30まで", P) is None              # 作品が2つ
+    assert x_parse("『封神演義』11/27までは【第55〜70回】が無料", P) is None  # 範囲が読めない
+    assert x_parse("※最終巻除く『ちひろさん』全話完全無料 11/24 0:00まで", P)[1:] == ({"allFree": False, "freeLabel": "全話無料（最終巻除く）"}, "2026-11-23")
+    assert x_parse("『早乙女姉妹は漫画のためなら!?』が 全話無料‼️\n※ブラウザ版のみ・12/3まで", P)[1]["freeLabel"] == "全話無料（ブラウザ版のみ）"
+    assert x_parse("『あせとせっけん』\n72時間限定【全話無料公開中】です！！\n※最新巻&以降の話を除く\n※期間は11/20（金）〜11/22（日）まで", P)[1:] == ({"allFree": False, "freeLabel": "全話無料（最新巻&以降の話を除く）"}, "2026-11-22")
+    assert x_parse("『X』 15話無料 ※最終巻除く 12/3まで", P)[1]["freeLabel"] == "15話分無料（最終巻除く）"
+    print("x_test ok")
+
 if __name__ == "__main__":
+    if "--test" in sys.argv: x_test(); sys.exit(0)
     sys.exit(main())

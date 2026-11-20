@@ -17,7 +17,7 @@ const md=end=>{const[,m,d]=end.split("-");return `${+m}/${+d}`};
 const badge=it=>`<span class="badge${it.category==="publisher"?" pub":""}">${esc(it.store)}</span>`;
 // freeLabel（媒体の告知そのまま）> freeEpisodes（話単位）> 全巻 > 巻数。totalVolumes 不明なら「N巻無料」
 const freeText=it=>it.freeLabel||(it.freeEpisodes?it.freeEpisodes+"話分無料":it.allFree?(it.totalVolumes?"全"+it.totalVolumes+"巻":"全巻")+"無料":it.freeVolumes+(it.totalVolumes?"/"+it.totalVolumes:"")+"巻無料");
-const volChip=it=>`<span class="vol${it.allFree?" all":""}">${esc(freeText(it))}</span>`;
+const volChip=it=>`<span class="vol${it.allFree?" all":""}">${esc(freeText(it))}</span>`+(it.basis==="x"?'<span class="via">公式X告知</span>':"");
 const leftText=it=>(it.days===0?"今日まで":"あと"+it.days+"日")+`（${md(it.endDate)}）`;
 const leftChip=it=>`<span class="left${it.days<=3?" hot":""}">${leftText(it)}</span>`;
 const doneChip=it=>it.completed?'<span class="done">完結</span>':"";
@@ -63,7 +63,7 @@ fetch("data.json").then(r=>r.json()).then(d=>{
     .sort((a,b)=>b.allFree-a.allFree||a.days-b.days||a.title.localeCompare(b.title,"ja"));
   // ストアのチップは掲載のある媒体だけ出す（出版社Webは publisher が1件でもあれば）
   chips("storeRow","store",STORES.filter(([v])=>!v||(v==="@publisher"?items.some(i=>i.category==="publisher"):items.some(i=>i.store===v))),false);
-  if(d.sources&&$("srcList"))$("srcList").textContent=`${d.updated}更新。掲載は${d.sources.join("・")}の公式ページから毎朝自動収集した分${d.manual&&d.manual.length?"と、手動で確認した"+d.manual.join("・")+"の分":""}のみ（Kindle・BOOK☆WALKER・シーモア・LINEマンガ等は未対応）。`;
+  if(d.sources&&$("srcList"))$("srcList").textContent=`${d.updated}更新。掲載は${d.sources.join("・")}の公式ページから毎朝自動収集した分${d.xSources&&d.xSources.length?"、各媒体の公式Xの告知から拾った"+d.xSources.join("・")+"の分":""}${d.manual&&d.manual.length?"と、手動で確認した"+d.manual.join("・")+"の分":""}のみ（Kindle・BOOK☆WALKER・シーモア・LINEマンガ等は公式Xで告知された分だけ。「公式X告知」印は告知ポストへリンク）。`;
   $("count").textContent=items.length;
   render();
 });

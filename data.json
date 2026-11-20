@@ -1,52 +1,18 @@
 {
- "updated": "2026-11-20",
+ "updated": "2026-11-21",
  "sample": false,
  "sources": [
   "ebookjapan",
   "ピッコマ",
   "マガポケ"
  ],
- "manual": [
+ "xSources": [
+  "コミックDAYS",
+  "チャンピオンクロス",
   "少年ジャンプ＋"
  ],
+ "manual": [],
  "items": [
-  {
-   "title": "島に旅して14Pした話",
-   "author": "くる田",
-   "category": "store",
-   "store": "ebookjapan",
-   "freeVolumes": 0,
-   "totalVolumes": null,
-   "freeEpisodes": 14,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2026-11-20",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】島に旅して14Pした話。無料本・試し読みあり！元カレに会うため島を訪",
-   "tags": [
-    "女性マンガ"
-   ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/O7100539827061.jpg?1791535487000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/146575/",
-   "source": "ebookjapan",
-   "id": 1
-  },
-  {
-   "title": "色褪せ令嬢は似合わない婚約を破棄したい。",
-   "author": "Makiya 橘ハルシ",
-   "category": "store",
-   "store": "ピッコマ",
-   "freeVolumes": 6,
-   "totalVolumes": null,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2026-11-20",
-   "catch": "「私は今ここで、貴方との婚約を破棄するわ!」くすんだ灰色の髪に瞳。陰で色褪せ令嬢と呼ばれているエミーリア。幼い頃に決まっ",
-   "tags": [],
-   "cover": "https://piccoma.kakaocdn.net/dn/fwaKM/dJMcafvkA8X/yfUwkkEYK8rkGsv9uogKTK/cover_x2",
-   "url": "https://piccoma.com/web/product/175471",
-   "source": "ピッコマ",
-   "id": 2
-  },
   {
    "title": "転生貴族、鑑定スキルで成り上がる～弱小領地を受け継いだので、優秀な人材を増やしていたら、最強領地になってた～",
    "author": "原作/未来人A 漫画/井上菜摘 キャラクター原案/jimmy",
@@ -63,7 +29,28 @@
    "url": "https://pocket.shonenmagazine.com/title/01152",
    "freeLabel": "2巻分＆第113話〜第148話まで無料",
    "source": "マガポケ",
-   "id": 3
+   "id": 1
+  },
+  {
+   "title": "あせとせっけん",
+   "author": "",
+   "category": "publisher",
+   "store": "コミックDAYS",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-22",
+   "catch": "",
+   "tags": [],
+   "cover": "",
+   "url": "https://x.com/comicdays_team/status/2123431104527155526",
+   "basis": "x",
+   "xPost": "https://x.com/comicdays_team/status/2123431104527155526",
+   "xAccount": "comicdays_team",
+   "freeLabel": "全話無料（最新巻&以降の話を除く）",
+   "source": "X告知",
+   "id": 2
   },
   {
    "title": "おくることば",
@@ -80,6 +67,30 @@
    "cover": "https://mgpk-cdn.magazinepocket.com/static/titles/493/banner_201803051609412fb809f43921bd0869b1cd1853fa52fc.png",
    "url": "https://pocket.shonenmagazine.com/title/00493",
    "source": "マガポケ",
+   "id": 3
+  },
+  {
+   "title": "ちひろさん",
+   "author": "安田弘之",
+   "category": "publisher",
+   "store": "チャンピオンクロス",
+   "freeVolumes": 0,
+   "totalVolumes": 10,
+   "freeEpisodes": 123,
+   "allFree": false,
+   "completed": true,
+   "freeLabel": "全話無料（最終巻除く）",
+   "endDate": "2026-11-23",
+   "catch": "海辺の小さなお弁当屋さん。気ままでたゆたうように生きるひとの話。96時間限定（11/24 0:00まで）。",
+   "tags": [
+    "人生・生き方"
+   ],
+   "cover": "https://cdn-public.comici.jp/articlevisual/10590/1713454555077_chihirosan_1.webp",
+   "url": "https://championcross.jp/episodes/4ee973ac8533e",
+   "source": "manual",
+   "basis": "site",
+   "xPost": "https://x.com/championcross/status/2122987342344667186",
+   "evidence": "実サイト: キャンペーンにつき 123 話分無料 2026/11/24 00:00まで（全136話・全10冊） ／ 公式X告知画像: ※最終巻除く 全話完全無料 96時間限定 11/24 0:00まで",
    "id": 4
   },
   {
@@ -117,23 +128,6 @@
    "id": 6
   },
   {
-   "title": "女にはそれぞれ裏がある",
-   "author": "野宮りおん",
-   "category": "store",
-   "store": "ピッコマ",
-   "freeVolumes": 2,
-   "totalVolumes": null,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2026-11-25",
-   "catch": "父親が経営する会社で働く楠木楓は、上司の品川亜清に密かに想いを寄せていた。次期社長の妻としての将来が約束されている楓にと",
-   "tags": [],
-   "cover": "https://piccoma.kakaocdn.net/dn/g16Gm/dJMcai6sxZu/G1Vp27CEU1IV5XiPiiZPp1/cover_x2",
-   "url": "https://piccoma.com/web/product/209061",
-   "source": "ピッコマ",
-   "id": 7
-  },
-  {
    "title": "生まれた直後に捨てられたけど、前世が大賢者だったので余裕で生きてます　～最強赤ちゃん大暴走～",
    "author": "遠田マリモ 九頭七尾 鍋島テツヒロ",
    "category": "store",
@@ -148,27 +142,64 @@
    "cover": "https://piccoma.kakaocdn.net/dn/byc70F/dJMcafoB5Ua/he6lWFyt0ouZE5L9GewPd1/cover_x2",
    "url": "https://piccoma.com/web/product/113472",
    "source": "ピッコマ",
-   "id": 8
+   "id": 7
   },
   {
-   "title": "うちの弟どもがすみません",
-   "author": "オザキアキラ",
+   "title": "異世界転移して教師になったが、魔女と恐れられている件　～アオイ先生の学園奮闘日誌～",
+   "author": "咲良",
    "category": "store",
    "store": "ebookjapan",
    "freeVolumes": 0,
    "totalVolumes": null,
-   "freeEpisodes": 37,
+   "freeEpisodes": 10,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-25",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】異世界転移して教師になったが、魔女と恐れられている件　～アオイ先生の",
+   "tags": [
+    "青年マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/J0100547055161.jpg?1794387186000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/138738/",
+   "source": "ebookjapan",
+   "id": 8
+  },
+  {
+   "title": "Sランクモンスターの《ベヒーモス》だけど、猫と間違われてエルフ娘の騎士(ペット)として暮らしてます",
+   "author": "東雲太郎",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 12,
    "allFree": false,
    "completed": false,
    "endDate": "2026-11-26",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】うちの弟どもがすみません。無料本・試し読みあり！いきなり弟×4!!　",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】Sランクモンスターの《ベヒーモス》だけど、猫と間違われてエルフ娘の騎",
    "tags": [
-    "少女マンガ"
+    "青年マンガ"
    ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/X7100514723661.jpg?1782880855000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/119538/",
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/A5100494203161.jpg?1774518871000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/115123/",
    "source": "ebookjapan",
    "id": 9
+  },
+  {
+   "title": "Sランク冒険者である俺の娘たちは重度のファザコンでした",
+   "author": "しゅにち 友橋かめつ 希望つばめ",
+   "category": "store",
+   "store": "ピッコマ",
+   "freeVolumes": 3,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-26",
+   "catch": "将来を嘱望されていた最年少のＡランク冒険者カイゼルは自分のミスで守るべき村をドラゴンに焼き尽くされてしまう……。絶望の淵",
+   "tags": [],
+   "cover": "https://piccoma.kakaocdn.net/dn/dpEUBk/dJMcahtjyi9/7DrM1LGe04eEsk3bQltmxK/cover_x2",
+   "url": "https://piccoma.com/web/product/52088",
+   "source": "ピッコマ",
+   "id": 10
   },
   {
    "title": "お気楽領主の楽しい領地防衛",
@@ -185,7 +216,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/be3JRk/dJMcafvkA8M/omwyqSHisC4yixfeOlackk/cover_x2",
    "url": "https://piccoma.com/web/product/87405",
    "source": "ピッコマ",
-   "id": 10
+   "id": 11
   },
   {
    "title": "俺は星間国家の悪徳領主！",
@@ -202,7 +233,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/k4UbM/dJMcab7z7n0/5V4By9YiD7qkm3dBP3Hgi1/cover_x2",
    "url": "https://piccoma.com/web/product/76203",
    "source": "ピッコマ",
-   "id": 11
+   "id": 12
   },
   {
    "title": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
@@ -219,7 +250,24 @@
    "cover": "https://piccoma.kakaocdn.net/dn/cN8AHk/dJMcafhwCSe/c02rCzgMajqB6lp9iItpH1/cover_x2",
    "url": "https://piccoma.com/web/product/136181",
    "source": "ピッコマ",
-   "id": 12
+   "id": 13
+  },
+  {
+   "title": "旅はオールパス",
+   "author": "少年FLY 高橋美鈴(FriendlyLand) iimAn(FriendlyLand)",
+   "category": "store",
+   "store": "ピッコマ",
+   "freeVolumes": 1,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-26",
+   "catch": "台湾人と日本人の両親を持つ林小鈴（リンシャオリン）の趣味は、鉄道の旅。\r\n高校2年の春休み、甲府への一人旅をしていた彼女",
+   "tags": [],
+   "cover": "https://piccoma.kakaocdn.net/dn/k5vkh/dJMcag8GHG5/COIklQzwKtUlwNKjmJd5wK/cover_x2",
+   "url": "https://piccoma.com/web/product/182249",
+   "source": "ピッコマ",
+   "id": 14
   },
   {
    "title": "貞操逆転世界の童貞辺境領主騎士",
@@ -236,7 +284,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/dTxhbp/dJMcahtjyi5/fF5VCEymCyVdVVv3weWVDk/cover_x2",
    "url": "https://piccoma.com/web/product/152436",
    "source": "ピッコマ",
-   "id": 13
+   "id": 15
   },
   {
    "title": "追放されたS級鑑定士は最強のギルドを創る",
@@ -253,24 +301,61 @@
    "cover": "https://piccoma.kakaocdn.net/dn/ddyjip/dJMcajxRvkB/vfAT14ZJ2OUTfF93KfQVAk/cover_x2",
    "url": "https://piccoma.com/web/product/73960",
    "source": "ピッコマ",
-   "id": 14
+   "id": 16
   },
   {
-   "title": "この美少年、猛獣でした",
-   "author": "きらた",
+   "title": "梟と番様",
+   "author": "よねやませつこ 藤森フクロウ 笹原亜美",
    "category": "store",
    "store": "ピッコマ",
-   "freeVolumes": 6,
+   "freeVolumes": 2,
    "totalVolumes": null,
    "allFree": false,
    "completed": false,
    "endDate": "2026-11-27",
-   "catch": "「待って！そんな大きいの入らないよ…！！」受付嬢の立花優亜は、周りが結婚し始めて焦っている処女のアラサーOL。少女マンガ",
+   "catch": "妹ばかりが優遇され、家族の愛を知らずに育った伯爵令嬢のユフィリアは誰にも頼らず生きていこうと心に決めていた。ある夜、一人",
    "tags": [],
-   "cover": "https://piccoma.kakaocdn.net/dn/i13Gi/dJMcahmtPg6/On1qKw9WMXcTbKe5Wkok4k/cover_x2",
-   "url": "https://piccoma.com/web/product/164310",
+   "cover": "https://piccoma.kakaocdn.net/dn/fwwYn/dJMcackYs6d/vG8LMuzMP8lDB7BsKxYtCK/cover_x2",
+   "url": "https://piccoma.com/web/product/198941",
    "source": "ピッコマ",
-   "id": 15
+   "id": 17
+  },
+  {
+   "title": "永年雇用は可能でしょうか",
+   "author": "梨川リサ",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 16,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-27",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】永年雇用は可能でしょうか。無料本・試し読みあり！主のセクハラが原因で",
+   "tags": [
+    "少女マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/A0100543550861.jpg?1793178094000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/147216/",
+   "source": "ebookjapan",
+   "id": 18
+  },
+  {
+   "title": "生徒会にも穴はある！",
+   "author": "むちまろ",
+   "category": "publisher",
+   "store": "マガポケ",
+   "freeVolumes": 3,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-27",
+   "catch": "過激で普通な生徒会の日常４コマ！",
+   "tags": [],
+   "cover": "https://mgpk-cdn.magazinepocket.com/static/titles/1768/banner_202204181056416f0b3b8e883ac1665c7e5bddcc064ca6.png",
+   "url": "https://pocket.shonenmagazine.com/title/01768",
+   "source": "マガポケ",
+   "id": 19
   },
   {
    "title": "氷の城壁 単行本版",
@@ -287,7 +372,24 @@
    "cover": "https://piccoma.kakaocdn.net/dn/blHaOT/dJMcabFYKtB/Ho9Gw9WCQcVuGzQwaZkGe1/cover_x2",
    "url": "https://piccoma.com/web/product/142995",
    "source": "ピッコマ",
-   "id": 16
+   "id": 20
+  },
+  {
+   "title": "もふもふと異世界でスローライフを目指します！",
+   "author": "寺田イサザ カナデ",
+   "category": "store",
+   "store": "ピッコマ",
+   "freeVolumes": 3,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-29",
+   "catch": "過労気味の青年「有仁」が落っこちた先は異世界でした。「落ち人」として転生した時に年齢も容姿もすっかり変わり、少年「アリト",
+   "tags": [],
+   "cover": "https://piccoma.kakaocdn.net/dn/chLplp/dJMcaiFC2Bz/he44Yi20Q0DyxtZ3pbksf1/cover_x2",
+   "url": "https://piccoma.com/web/product/69404",
+   "source": "ピッコマ",
+   "id": 21
   },
   {
    "title": "不死王はスローライフを希望します",
@@ -304,7 +406,27 @@
    "cover": "https://piccoma.kakaocdn.net/dn/b2uC6J/dJMcafWtEPt/C6LDS7ftLuYfcIhdH0Q19k/cover_x2",
    "url": "https://piccoma.com/web/product/126399",
    "source": "ピッコマ",
-   "id": 17
+   "id": 22
+  },
+  {
+   "title": "GANTZ",
+   "author": "奥浩哉",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 48,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-30",
+   "catch": "【無料試し読みあり ebookjapan】【完結済】GANTZ。無料本・試し読みあり！地下鉄のホームで撥ねられ死んだはず",
+   "tags": [
+    "青年マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/RR181060.jpg?1793239818000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/145812/",
+   "source": "ebookjapan",
+   "id": 23
   },
   {
    "title": "Queen",
@@ -324,27 +446,47 @@
    "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/Y0100514757161.jpg?1782811698000",
    "url": "https://ebookjapan.yahoo.co.jp/stories/124343/",
    "source": "ebookjapan",
-   "id": 18
+   "id": 24
   },
   {
-   "title": "いきなり婚 目が覚めたらイケメン上司の妻だった！？",
-   "author": "登深ヲ",
+   "title": "【世界最強の執事】ブラック職場を追放された俺、氷の令嬢に拾われる ～生活魔法を駆使して無双していたら、幸せな暮らしが始まりました～",
+   "author": "昼行燈",
    "category": "store",
    "store": "ebookjapan",
    "freeVolumes": 0,
    "totalVolumes": null,
-   "freeEpisodes": 13,
+   "freeEpisodes": 34,
    "allFree": false,
    "completed": false,
    "endDate": "2026-11-30",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】いきなり婚 目が覚めたらイケメン上司の妻だった！？。無料本・試し読み",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】【世界最強の執事】ブラック職場を追放された俺、氷の令嬢に拾われる ～",
    "tags": [
-    "女性マンガ"
+    "青年マンガ"
    ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/Q1100495761361.jpg?1775464722000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/139191/",
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/P1100511263761.jpg?1785927353000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/144155/",
    "source": "ebookjapan",
-   "id": 19
+   "id": 25
+  },
+  {
+   "title": "これは経費で落ちません！ ～経理部の森若さん～",
+   "author": "青木祐子",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 38,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-30",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】これは経費で落ちません！ ～経理部の森若さん～。無料本・試し読みあり",
+   "tags": [
+    "少女マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/D7100536123861.jpg?1790241854000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/119748/",
+   "source": "ebookjapan",
+   "id": 26
   },
   {
    "title": "だって望まれない番ですから",
@@ -361,7 +503,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/cLjGlN/dJMcaiMfyQh/6AwihRibBCkNYmeWulBoEk/cover_x2",
    "url": "https://piccoma.com/web/product/177565",
    "source": "ピッコマ",
-   "id": 20
+   "id": 27
   },
   {
    "title": "ウィッチウォッチ",
@@ -382,7 +524,44 @@
    "cover": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx128896-VJfCBLFkm4Lb.jpg",
    "url": "https://shonenjumpplus.com/episode/4856001361115843140",
    "source": "manual",
-   "id": 21
+   "id": 28
+  },
+  {
+   "title": "ハイキュー!!",
+   "author": "古舘春一",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 16,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-30",
+   "catch": "【無料試し読みあり ebookjapan】【完結済】ハイキュー!!。無料本・試し読みあり！おれは飛べる!!バレーボールに",
+   "tags": [
+    "少年マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/RR539860.jpg?1786497054000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/160615/",
+   "source": "ebookjapan",
+   "id": 29
+  },
+  {
+   "title": "ヒカルの碁",
+   "author": "ほったゆみ 小畑健",
+   "category": "store",
+   "store": "ピッコマ",
+   "freeVolumes": 2,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": true,
+   "endDate": "2026-11-30",
+   "catch": "ある日小6のヒカルは蔵で古い碁盤を見つける。その瞬間、碁盤に宿っていた平安の天才棋士・藤原佐為の霊がヒカルの意識の中に入",
+   "tags": [],
+   "cover": "https://piccoma.kakaocdn.net/dn/qcDuA/dJMcadoQBYL/GC5iIxL5KLjtW2zUKRSceK/cover_x2",
+   "url": "https://piccoma.com/web/product/4171",
+   "source": "ピッコマ",
+   "id": 30
   },
   {
    "title": "一緒に暮らしていいですか？",
@@ -402,7 +581,27 @@
    "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/T7100527320361.jpg?1787042700000",
    "url": "https://ebookjapan.yahoo.co.jp/stories/144351/",
    "source": "ebookjapan",
-   "id": 22
+   "id": 31
+  },
+  {
+   "title": "凡骨新兵のモンスターライフ@COMIC",
+   "author": "北島あずま",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 12,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-30",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】凡骨新兵のモンスターライフ@COMIC。無料本・試し読みあり！寂しが",
+   "tags": [
+    "青年マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/D9100546544861.jpg?1794560152000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/118908/",
+   "source": "ebookjapan",
+   "id": 32
   },
   {
    "title": "失業賢者の成り上がり～嫌われた才能は世界最強でした～",
@@ -422,7 +621,44 @@
    "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/Z0100083258461.jpg?1786500653000",
    "url": "https://ebookjapan.yahoo.co.jp/stories/145893/",
    "source": "ebookjapan",
-   "id": 23
+   "id": 33
+  },
+  {
+   "title": "島崎奈々＠お仕事募集中",
+   "author": "あきばるいき",
+   "category": "store",
+   "store": "ピッコマ",
+   "freeVolumes": 1,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-30",
+   "catch": "生活のためにエッチなお仕事もお受けします！\n大学生・押野悠太はある日、隣部屋の島崎奈々の仕事の悩み相談に乗ることに。\nそ",
+   "tags": [],
+   "cover": "https://piccoma.kakaocdn.net/dn/bvikGY/dJMcaggDKwk/Z6qxNZbGwHVdkKZgCvnVG1/cover_x2",
+   "url": "https://piccoma.com/web/product/53576",
+   "source": "ピッコマ",
+   "id": 34
+  },
+  {
+   "title": "彼女、お借りします",
+   "author": "宮島礼吏",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 34,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-11-30",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】彼女、お借りします。無料本・試し読みあり！都内在住のダメダメ大学生、",
+   "tags": [
+    "少年マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/D1100546460961.jpg?1794818474000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/115404/",
+   "source": "ebookjapan",
+   "id": 35
   },
   {
    "title": "悪役のエンディングは死のみ",
@@ -439,7 +675,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/cHUgBx/dJMcahNhMgL/bXx8f6IbNbDXk2EsPRMcP1/cover_x2",
    "url": "https://piccoma.com/web/product/53075",
    "source": "ピッコマ",
-   "id": 24
+   "id": 36
   },
   {
    "title": "悪役令嬢は王子の本性（溺愛）を知らない",
@@ -456,27 +692,27 @@
    "cover": "https://piccoma.kakaocdn.net/dn/Qwehm/dJMcadYCi40/7EOUKjBVAOjihuT8UR6O4K/cover_x2",
    "url": "https://piccoma.com/web/product/111123",
    "source": "ピッコマ",
-   "id": 25
+   "id": 37
   },
   {
-   "title": "黙示録の四騎士",
-   "author": "鈴木央",
+   "title": "菜の花の彼―ナノカノカレ―",
+   "author": "桃森ミヨシ",
    "category": "store",
    "store": "ebookjapan",
    "freeVolumes": 0,
    "totalVolumes": null,
-   "freeEpisodes": 52,
+   "freeEpisodes": 39,
    "allFree": false,
    "completed": false,
    "endDate": "2026-11-30",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】黙示録の四騎士。無料本・試し読みあり！『七つの大罪』正統続編！　全世",
+   "catch": "【無料試し読みあり ebookjapan】【完結済】菜の花の彼―ナノカノカレ―。無料本・試し読みあり！中学時代のトラウマ",
    "tags": [
-    "少年マンガ"
+    "少女マンガ"
    ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/D1100546461061.jpg?1794818474000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/115340/",
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/RR822060.jpg?1790229315000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/140880/",
    "source": "ebookjapan",
-   "id": 26
+   "id": 38
   },
   {
    "title": "キングダム",
@@ -493,7 +729,27 @@
    "cover": "https://piccoma.kakaocdn.net/dn/bpiZOK/dJMcajxPzTv/f2BZkMGkE1VInz23i48Svk/cover_x2",
    "url": "https://piccoma.com/web/product/4127",
    "source": "ピッコマ",
-   "id": 27
+   "id": 39
+  },
+  {
+   "title": "ダンジョンで戦い続けて20年の童貞勇者、地上に戻ったら男女比1:1000の世界だった",
+   "author": "アナジロ",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 5,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-01",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】ダンジョンで戦い続けて20年の童貞勇者、地上に戻ったら男女比1:10",
+   "tags": [
+    "青年マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/I7100547027961.jpg?1794298597000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/163344/",
+   "source": "ebookjapan",
+   "id": 40
   },
   {
    "title": "ドラフトキング",
@@ -510,11 +766,11 @@
    "cover": "https://piccoma.kakaocdn.net/dn/NuaXH/dJMcahT2sWL/djFkH0Zged0Vy8fsrktif1/cover_x2",
    "url": "https://piccoma.com/web/product/13787",
    "source": "ピッコマ",
-   "id": 28
+   "id": 41
   },
   {
-   "title": "ポイントギフター《経験値分配能力者》の異世界最強ソロライフ ～ブラックギルドから解放された男は万能最強職として無双する～",
-   "author": "日野彰",
+   "title": "ヴァルハラ・オティンティン館",
+   "author": "求嵐",
    "category": "store",
    "store": "ebookjapan",
    "freeVolumes": 0,
@@ -523,14 +779,34 @@
    "allFree": false,
    "completed": false,
    "endDate": "2026-12-01",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】ポイントギフター《経験値分配能力者》の異世界最強ソロライフ ～ブラッ",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】ヴァルハラ・オティンティン館。無料本・試し読みあり！ファンタジー風の",
    "tags": [
     "青年マンガ"
    ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/I7100547028561.jpg?1794298597000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/122532/",
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/A0100548754661.jpg?1794905492000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/145663/",
    "source": "ebookjapan",
-   "id": 29
+   "id": 42
+  },
+  {
+   "title": "早瀬、先にイクッてよ～幼なじみとえっちな特訓～",
+   "author": "花宮初",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 15,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-01",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】早瀬、先にイクッてよ～幼なじみとえっちな特訓～。無料本・試し読みあり",
+   "tags": [
+    "女性マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/K0100539351561.jpg?1793782863000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/122500/",
+   "source": "ebookjapan",
+   "id": 43
   },
   {
    "title": "醜いオークの逆襲 同人エロゲの鬼畜皇太子に転生した喪男の受難",
@@ -550,7 +826,7 @@
    "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/I7100547028661.jpg?1794298597000",
    "url": "https://ebookjapan.yahoo.co.jp/stories/152261/",
    "source": "ebookjapan",
-   "id": 30
+   "id": 44
   },
   {
    "title": "青のオーケストラ",
@@ -567,7 +843,28 @@
    "cover": "https://piccoma.kakaocdn.net/dn/cwRb82/dJMcafviHZN/Y2aTfYWeEDMePPrPzFlPb0/cover_x2",
    "url": "https://piccoma.com/web/product/5007",
    "source": "ピッコマ",
-   "id": 31
+   "id": 45
+  },
+  {
+   "title": "ひとり部屋のカギあずけます~すてきな第一発見者~",
+   "author": "",
+   "category": "publisher",
+   "store": "チャンピオンクロス",
+   "freeVolumes": 0,
+   "totalVolumes": 6,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-02",
+   "catch": "独身男女2人、孤独死回避のカギ友コメディ!!　孤独死を回避するためにお互いの部屋の合鍵を持ち合うソン氏ときいちゃん。定期",
+   "tags": [],
+   "cover": "https://cdn-public.comici.jp/articlevisual/10170/1713420774484_hitoribeakagi_001.webp",
+   "url": "https://championcross.jp/episodes/6dbfcdd1d48a9",
+   "basis": "site",
+   "xPost": "https://x.com/championcross/status/2122963050135253502",
+   "xAccount": "championcross",
+   "freeEpisodes": 12,
+   "source": "X告知",
+   "id": 46
   },
   {
    "title": "もふもふと異世界冒険メシ",
@@ -584,7 +881,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/cFFrWx/dJMb99V9eDh/B0dA2kMnUjjQTsoegFi340/cover_x2",
    "url": "https://piccoma.com/web/product/169942",
    "source": "ピッコマ",
-   "id": 32
+   "id": 47
   },
   {
    "title": "ジャンル、変えさせて頂きます！",
@@ -601,7 +898,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/5bate/dJMcacrZGbY/YwgnhXWhUzszqZPJoLpYzK/cover_x2",
    "url": "https://piccoma.com/web/product/74301",
    "source": "ピッコマ",
-   "id": 33
+   "id": 48
   },
   {
    "title": "半グレ―六本木 摩天楼のレクイエム―",
@@ -618,7 +915,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/qs0St/dJMcaa8MU4n/cOTjGR5XKNIbfpu7berzd0/cover_x2",
    "url": "https://piccoma.com/web/product/66710",
    "source": "ピッコマ",
-   "id": 34
+   "id": 49
   },
   {
    "title": "緑陰の冠",
@@ -635,7 +932,27 @@
    "cover": "https://piccoma.kakaocdn.net/dn/TvwMz/dJMcagHVCOE/dexl89jguA9IGr4IRkUeu1/cover_x2",
    "url": "https://piccoma.com/web/product/65702",
    "source": "ピッコマ",
-   "id": 35
+   "id": 50
+  },
+  {
+   "title": "織田家の長男に生まれました～戦国時代に転生したけど、死にたくないので改革を起こします～",
+   "author": "逸見兎歌",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 24,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-02",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】織田家の長男に生まれました～戦国時代に転生したけど、死にたくないので",
+   "tags": [
+    "少年マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/T7100545526661.jpg?1793869721000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/138634/",
+   "source": "ebookjapan",
+   "id": 51
   },
   {
    "title": "聖女様の逆ハーレムからあぶれた騎士様に熱烈に求愛されている件",
@@ -652,7 +969,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/n7qYt/dJMcagHVCOX/505Dq1IT1wIuEQKxsyaIkK/cover_x2",
    "url": "https://piccoma.com/web/product/157888",
    "source": "ピッコマ",
-   "id": 36
+   "id": 52
   },
   {
    "title": "転生聖女は引きこもりスローライフを目指したい！",
@@ -669,7 +986,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/bi9Fnj/dJMcahzWoz7/skgptyj0vcqViMUBcHTv7k/cover_x2",
    "url": "https://piccoma.com/web/product/196739",
    "source": "ピッコマ",
-   "id": 37
+   "id": 53
   },
   {
    "title": "転生貴族の万能開拓～スキルを使っていたら最強領地になりました～",
@@ -686,61 +1003,48 @@
    "cover": "https://piccoma.kakaocdn.net/dn/d2QNG7/dJMb99V9eDz/un0xK9yWdkBEuCmtwOkQjK/cover_x2",
    "url": "https://piccoma.com/web/product/78822",
    "source": "ピッコマ",
-   "id": 38
+   "id": 54
   },
   {
-   "title": "99回断罪されたループ令嬢ですが今世は「超絶愛されモード」ですって!? ～真の力に目覚めて始まる100回目の人生～",
-   "author": "甲斐ろはる 裕時悠示 ひだかなみ",
+   "title": "Thisコミュニケーション",
+   "author": "",
    "category": "store",
-   "store": "ピッコマ",
-   "freeVolumes": 1,
+   "store": "少年ジャンプ＋",
+   "freeVolumes": 0,
    "totalVolumes": null,
    "allFree": false,
    "completed": false,
    "endDate": "2026-12-03",
-   "catch": "99回聖女に陥れられた公爵令嬢アルフィーナ。\n“心の声が聞こえる”100回目の溺愛人生が始まる！\n\n聖女暗殺の濡れ衣を着",
+   "catch": "",
    "tags": [],
-   "cover": "https://piccoma.kakaocdn.net/dn/bWNQci/dJMcad5iUA9/PVyBV3BwbTVVakf7AObSf0/cover_x2",
-   "url": "https://piccoma.com/web/product/150829",
-   "source": "ピッコマ",
-   "id": 39
+   "cover": "",
+   "url": "https://x.com/shonenjump_plus/status/2123733108155462117",
+   "basis": "x",
+   "xPost": "https://x.com/shonenjump_plus/status/2123733108155462117",
+   "xAccount": "shonenjump_plus",
+   "freeEpisodes": 15,
+   "source": "X告知",
+   "id": 55
   },
   {
-   "title": "さるまね",
-   "author": "吉田薫",
-   "category": "store",
-   "store": "ピッコマ",
-   "freeVolumes": 6,
-   "totalVolumes": null,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2026-12-03",
-   "catch": "天明三年。世では飢饉による食糧難のなかでも、主人公の可畏が住む山村では野生の動物を狩ることで他よりも幾分良い生活が",
-   "tags": [],
-   "cover": "https://piccoma.kakaocdn.net/dn/H6oDv/dJMcahzXko7/T11R4S9BthG9057IDKpzU1/cover_x2",
-   "url": "https://piccoma.com/web/product/111342",
-   "source": "ピッコマ",
-   "id": 40
-  },
-  {
-   "title": "フィルター越しのカノジョ",
-   "author": "大箕すず",
+   "title": "ブルータル 殺人警察官の告白",
+   "author": "古賀慶",
    "category": "store",
    "store": "ebookjapan",
    "freeVolumes": 0,
    "totalVolumes": null,
-   "freeEpisodes": 47,
+   "freeEpisodes": 15,
    "allFree": false,
    "completed": false,
    "endDate": "2026-12-03",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】フィルター越しのカノジョ。無料本・試し読みあり！つねに無表情な能面高",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】ブルータル 殺人警察官の告白。無料本・試し読みあり！錦戸亮主演でTV",
    "tags": [
-    "青年マンガ"
+    "女性マンガ"
    ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/G5100549408461.jpg?1795076877000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/122199/",
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/I7100141425061.jpg?1735120549000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/117688/",
    "source": "ebookjapan",
-   "id": 41
+   "id": 56
   },
   {
    "title": "ホタルの嫁入り",
@@ -757,47 +1061,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/dlqZcZ/dJMcafV8zHh/9mzLf5OiLM0bFKKbe7USpk/cover_x2",
    "url": "https://piccoma.com/web/product/141347",
    "source": "ピッコマ",
-   "id": 42
-  },
-  {
-   "title": "マリリンは、いなくなった",
-   "author": "葉月めぐみ",
-   "category": "store",
-   "store": "ebookjapan",
-   "freeVolumes": 0,
-   "totalVolumes": null,
-   "freeEpisodes": 13,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2026-12-03",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】マリリンは、いなくなった。無料本・試し読みあり！私は、誰――？　24",
-   "tags": [
-    "女性マンガ"
-   ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/Q7100542620261.jpg?1792660766000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/143019/",
-   "source": "ebookjapan",
-   "id": 43
-  },
-  {
-   "title": "メダリスト",
-   "author": "つるまいかだ",
-   "category": "store",
-   "store": "ebookjapan",
-   "freeVolumes": 0,
-   "totalVolumes": null,
-   "freeEpisodes": 51,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2026-12-03",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】メダリスト。無料本・試し読みあり！人生ふたつぶん懸けて、叶えたい夢が",
-   "tags": [
-    "青年マンガ"
-   ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/G5100518202561.jpg?1784623372000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/115473/",
-   "source": "ebookjapan",
-   "id": 44
+   "id": 57
   },
   {
    "title": "世界最強の後衛 ～迷宮国の新人探索者～",
@@ -814,7 +1078,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/dh7p34/dJMcagA09ax/3IZSbcoY5PQRb532mzFLx1/cover_x2",
    "url": "https://piccoma.com/web/product/13893",
    "source": "ピッコマ",
-   "id": 45
+   "id": 58
   },
   {
    "title": "双子王子の継母になりまして～嫌われ悪女ですが、そんなことより義息子たちが可愛すぎて困ります～",
@@ -831,41 +1095,28 @@
    "cover": "https://piccoma.kakaocdn.net/dn/bSx0ea/dJMcagufxhg/9KhlBMNZxCBwL7cfLHrmr0/cover_x2",
    "url": "https://piccoma.com/web/product/189493",
    "source": "ピッコマ",
-   "id": 46
+   "id": 59
   },
   {
-   "title": "塔の管理をしてみよう",
-   "author": "盧恩＆雪笠(FriendlyLand) 早秋 雨神",
-   "category": "store",
-   "store": "ピッコマ",
-   "freeVolumes": 9,
-   "totalVolumes": null,
+   "title": "名探偵マーニー",
+   "author": "",
+   "category": "publisher",
+   "store": "チャンピオンクロス",
+   "freeVolumes": 0,
+   "totalVolumes": 11,
    "allFree": false,
    "completed": false,
    "endDate": "2026-12-03",
-   "catch": "仕事帰りに交通事故に遭ったことから魂が別世界に飛ばされてしまった考助。 彼は保護してくれた女神の助力により、これまでの記",
+   "catch": "名探偵マーニー・file1 ボサボサ頭の女子高生マーニー。父の探偵事務所を手伝いながら、学校や友人の事件を鮮やかに解決し",
    "tags": [],
-   "cover": "https://piccoma.kakaocdn.net/dn/dbiGLi/dJMcafvkA8K/a9kH8INpRKQjVJYYQ1jLDK/cover_x2",
-   "url": "https://piccoma.com/web/product/12653",
-   "source": "ピッコマ",
-   "id": 47
-  },
-  {
-   "title": "夜明けを乞うけものたち",
-   "author": "堤翔",
-   "category": "store",
-   "store": "ピッコマ",
-   "freeVolumes": 2,
-   "totalVolumes": null,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2026-12-03",
-   "catch": "【電子限定描き下ろしおまけマンガ1ｐ付き！】切ない恋心×秘密が絡み合う、衝撃の異種エロス！！両手に口を持つ“変異種”の絶",
-   "tags": [],
-   "cover": "https://piccoma.kakaocdn.net/dn/bef3Ae/dJMcag8L3U4/xqnwZT8KOt6cVTKwKoNkd1/cover_x2",
-   "url": "https://piccoma.com/web/product/146505",
-   "source": "ピッコマ",
-   "id": 48
+   "cover": "https://cdn-public.comici.jp/episode/1763612773/e4a326ccab47b950.webp",
+   "url": "https://championcross.jp/episodes/0f848795c45b5",
+   "basis": "site",
+   "xPost": "https://x.com/championcross/status/2123265191081115718",
+   "xAccount": "championcross",
+   "freeEpisodes": 30,
+   "source": "X告知",
+   "id": 60
   },
   {
    "title": "婚約者が浮気相手と駆け落ちしました。王子殿下に溺愛されて幸せなので、今さら戻りたいと言われても困ります。",
@@ -882,7 +1133,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/cZEWxg/dJMcailmBmY/sBkvkSWZWywLLItC5lRRW1/cover_x2",
    "url": "https://piccoma.com/web/product/162594",
    "source": "ピッコマ",
-   "id": 49
+   "id": 61
   },
   {
    "title": "山、買いました ～異世界暮らしも悪くない～",
@@ -899,7 +1150,66 @@
    "cover": "https://piccoma.kakaocdn.net/dn/cX8MMe/dJMcaat6T7y/Av5zQnUzngXEljuGjAoNeK/cover_x2",
    "url": "https://piccoma.com/web/product/174712",
    "source": "ピッコマ",
-   "id": 50
+   "id": 62
+  },
+  {
+   "title": "旦那に秘密で配信者に捧げました",
+   "author": "",
+   "category": "publisher",
+   "store": "チャンピオンクロス",
+   "freeVolumes": 0,
+   "totalVolumes": 2,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-03",
+   "catch": "ただ愛されたくて。 他人に認めてほしくて。幸せな結婚生活を送っていたアスカ。 しかし旦那の仕事が夜勤に変わったころから、",
+   "tags": [],
+   "cover": "https://cdn-public.comici.jp/articlevisual/15593/1757475032166_haisinsyanisasagemashita_01.webp",
+   "url": "https://championcross.jp/episodes/f635e7581bbe0",
+   "basis": "site",
+   "xPost": "https://x.com/championcross/status/2123257547113091321",
+   "xAccount": "championcross",
+   "freeEpisodes": 12,
+   "source": "X告知",
+   "id": 63
+  },
+  {
+   "title": "早乙女姉妹は漫画のためなら!?",
+   "author": "",
+   "category": "store",
+   "store": "少年ジャンプ＋",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-03",
+   "catch": "",
+   "tags": [],
+   "cover": "",
+   "url": "https://x.com/shonenjump_plus/status/2123370709971767734",
+   "basis": "x",
+   "xPost": "https://x.com/shonenjump_plus/status/2123370709971767734",
+   "xAccount": "shonenjump_plus",
+   "freeLabel": "全話無料（ブラウザ版のみ）",
+   "source": "X告知",
+   "id": 64
+  },
+  {
+   "title": "盾の勇者の成り上がり",
+   "author": "藍屋球 アネコユサギ 弥南せいら",
+   "category": "store",
+   "store": "ピッコマ",
+   "freeVolumes": 3,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-03",
+   "catch": "勇者として異世界に召喚された尚文は、冒険三日目にして仲間に裏切られ、すべてを失ってしまう…。他者を信じることのできなくな",
+   "tags": [],
+   "cover": "https://piccoma.kakaocdn.net/dn/bh8fLb/dJMcahtjyjj/a5v4QAaCtg6Mo5tcxElv3k/cover_x2",
+   "url": "https://piccoma.com/web/product/3971",
+   "source": "ピッコマ",
+   "id": 65
   },
   {
    "title": "終末のワルキューレ",
@@ -916,27 +1226,44 @@
    "cover": "https://piccoma.kakaocdn.net/dn/cUYQL4/dJMcadxls5I/Dom6Aa4aAkfkDxwIkjOb10/cover_x2",
    "url": "https://piccoma.com/web/product/9186",
    "source": "ピッコマ",
-   "id": 51
+   "id": 66
   },
   {
-   "title": "青野くんに触りたいから死にたい",
-   "author": "椎名うみ",
+   "title": "見える子ちゃん",
+   "author": "泉朝樹",
+   "category": "store",
+   "store": "ピッコマ",
+   "freeVolumes": 1,
+   "totalVolumes": null,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-03",
+   "catch": "ある日突然、普通の人には見えない異形な存在が見えるようになってしまった「みこ」。彼女は彼らから逃げるでもなく、立ち向かう",
+   "tags": [],
+   "cover": "https://piccoma.kakaocdn.net/dn/h83vp/dJMcagOJtCN/AAuk9MJVThNMM6IpiKkWFk/cover_x2",
+   "url": "https://piccoma.com/web/product/13241",
+   "source": "ピッコマ",
+   "id": 67
+  },
+  {
+   "title": "野良猫と狼",
+   "author": "ミユキ蜜蜂",
    "category": "store",
    "store": "ebookjapan",
    "freeVolumes": 0,
    "totalVolumes": null,
-   "freeEpisodes": 35,
+   "freeEpisodes": 19,
    "allFree": false,
    "completed": false,
    "endDate": "2026-12-03",
-   "catch": "【無料試し読みあり ebookjapan】【完結済】青野くんに触りたいから死にたい。無料本・試し読みあり！君に触れるなら",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】野良猫と狼。無料本・試し読みあり！【電子限定描き下ろしおまけマンガ4",
    "tags": [
-    "青年マンガ"
+    "少女マンガ"
    ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/H1100024266061.jpg?1794306315000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/106963/",
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/G4100515597261.jpg?1784192117000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/113890/",
    "source": "ebookjapan",
-   "id": 52
+   "id": 68
   },
   {
    "title": "高校時代に傲慢だった女王様との同棲生活は意外と居心地が悪くない",
@@ -953,24 +1280,110 @@
    "cover": "https://piccoma.kakaocdn.net/dn/qndHx/dJMcafviHZf/jvqa0zCSqLiDj9gr43Ibrk/cover_x2",
    "url": "https://piccoma.com/web/product/182519",
    "source": "ピッコマ",
-   "id": 53
+   "id": 69
   },
   {
-   "title": "お前のほうからキスしてくれよ",
-   "author": "やまやで",
-   "category": "store",
-   "store": "ピッコマ",
-   "freeVolumes": 2,
-   "totalVolumes": null,
+   "title": "Villainな奥さま",
+   "author": "",
+   "category": "publisher",
+   "store": "チャンピオンクロス",
+   "freeVolumes": 0,
+   "totalVolumes": 4,
    "allFree": false,
    "completed": false,
-   "endDate": "2026-12-08",
-   "catch": "クールなしごでき経理マン×明るい人気者エース営業マン\r\n“もだキュン”すぎる両片思いリーマンBL！\r\n\r\nきっちりした仕",
+   "endDate": "2026-12-04",
+   "catch": "とある街の洋館に引っ越してきたのは妖しげな雰囲気の不思議なファミリーで…！？",
    "tags": [],
-   "cover": "https://piccoma.kakaocdn.net/dn/zTBQS/dJMcafB72P8/gMTXkpC8359ZwyiV5loQs1/cover_x2",
-   "url": "https://piccoma.com/web/product/143867",
-   "source": "ピッコマ",
-   "id": 54
+   "cover": "https://cdn-public.comici.jp/articlevisual/12315/1733194215626_villainokusama_1.webp",
+   "url": "https://championcross.jp/episodes/6b33878013ebe",
+   "basis": "site",
+   "xPost": "https://x.com/championcross/status/2123612375622324378",
+   "xAccount": "championcross",
+   "freeEpisodes": 12,
+   "source": "X告知",
+   "id": 70
+  },
+  {
+   "title": "ヤクザにお風呂で働かされてます。",
+   "author": "",
+   "category": "publisher",
+   "store": "チャンピオンクロス",
+   "freeVolumes": 0,
+   "totalVolumes": 5,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-04",
+   "catch": "絶体絶命♡極道ラブコメ!! 亡き父が遺したのは、銭湯と借金と…ヤクザ！！？？銭湯経営で膨れ上がった１千万の借金を、なぜか",
+   "tags": [],
+   "cover": "https://cdn-public.comici.jp/articlevisual/10166/1712839374266_yakuza_ohuro_01.webp",
+   "url": "https://championcross.jp/episodes/8852315a269fa",
+   "basis": "site",
+   "xPost": "https://x.com/championcross/status/2123627573695619404",
+   "xAccount": "championcross",
+   "freeEpisodes": 12,
+   "source": "X告知",
+   "id": 71
+  },
+  {
+   "title": "光る君の妻に転生したのですが 呪われないために夜伽を拒否しています【心恋】",
+   "author": "",
+   "category": "publisher",
+   "store": "チャンピオンクロス",
+   "freeVolumes": 0,
+   "totalVolumes": 2,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-04",
+   "catch": "光る君の妻に転生したのですが 呪われないために夜伽を拒否しています【心恋】・第1話 光源氏の正妻、呪詛ルートを回避します",
+   "tags": [],
+   "cover": "https://cdn-public.comici.jp/articlevisual/15365/1757062629783_hikaru_kimi_01.webp",
+   "url": "https://championcross.jp/episodes/252e5bf725478",
+   "basis": "site",
+   "xPost": "https://x.com/championcross/status/2123619911909962207",
+   "xAccount": "championcross",
+   "freeEpisodes": 26,
+   "source": "X告知",
+   "id": 72
+  },
+  {
+   "title": "僕の心のヤバイやつ",
+   "author": "桜井のりお",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 85,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-05",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】僕の心のヤバイやつ。無料本・試し読みあり！学園カースト頂点の美少女・",
+   "tags": [
+    "青年マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/T7100545526261.jpg?1793869721000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/114687/",
+   "source": "ebookjapan",
+   "id": 73
+  },
+  {
+   "title": "目の前の惨劇で前世を思い出したけど、あまりにも問題山積みでいっぱいいっぱいです。",
+   "author": "まぶた単",
+   "category": "store",
+   "store": "ebookjapan",
+   "freeVolumes": 0,
+   "totalVolumes": null,
+   "freeEpisodes": 15,
+   "allFree": false,
+   "completed": false,
+   "endDate": "2026-12-05",
+   "catch": "【無料試し読みあり ebookjapan】【最新刊】目の前の惨劇で前世を思い出したけど、あまりにも問題山積みでいっぱいい",
+   "tags": [
+    "女性マンガ"
+   ],
+   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/S6100545415961.jpg?1793869648000",
+   "url": "https://ebookjapan.yahoo.co.jp/stories/151706/",
+   "source": "ebookjapan",
+   "id": 74
   },
   {
    "title": "最底辺であがく僕は、異世界で希望に出会う～自分だけゲームのような異世界に行けるようになったので、レベルを上げてみんなを見返します～",
@@ -987,7 +1400,7 @@
    "cover": "https://piccoma.kakaocdn.net/dn/c9LtOu/dJMcacrZGbI/BYd2BooJRKjUkxPR8fm2Wk/cover_x2",
    "url": "https://piccoma.com/web/product/180262",
    "source": "ピッコマ",
-   "id": 55
+   "id": 75
   },
   {
    "title": "ブルーロック",
@@ -1004,7 +1417,7 @@
    "cover": "https://mgpk-cdn.magazinepocket.com/static/titles/617/banner_20220617144245f3c5198e4ff483f292a64905936c438b.png",
    "url": "https://pocket.shonenmagazine.com/title/00617",
    "source": "マガポケ",
-   "id": 56
+   "id": 76
   },
   {
    "title": "東京卍リベンジャーズ",
@@ -1021,7 +1434,7 @@
    "cover": "https://mgpk-cdn.magazinepocket.com/static/titles/240/banner_20170228113944f9986f0fa8abd2376a98eca06ffa2a61.png",
    "url": "https://pocket.shonenmagazine.com/title/00240",
    "source": "マガポケ",
-   "id": 57
+   "id": 77
   },
   {
    "title": "薫る花は凛と咲く",
@@ -1038,7 +1451,7 @@
    "cover": "https://mgpk-cdn.magazinepocket.com/static/titles/1524/title_grid_square_20250509120529edc1bc2bc14da5e09dc72613e49081f6.png",
    "url": "https://pocket.shonenmagazine.com/title/01524",
    "source": "マガポケ",
-   "id": 58
+   "id": 78
   },
   {
    "title": "信じていた仲間達にダンジョン奥地で殺されかけたがギフト『無限ガチャ』でレベル9999の仲間達を手に入れて元パーティーメンバーと世界に復讐＆『ざまぁ！』します！",
@@ -1055,7 +1468,7 @@
    "cover": "https://mgpk-cdn.magazinepocket.com/static/titles/1379/title_grid_square_20210428101633360aa67d86d3c31ba335de55debb7753.png",
    "url": "https://pocket.shonenmagazine.com/title/01379",
    "source": "マガポケ",
-   "id": 59
+   "id": 79
   },
   {
    "title": "転生したら第七王子だったので、気ままに魔術を極めます",
@@ -1072,47 +1485,7 @@
    "cover": "https://mgpk-cdn.magazinepocket.com/static/titles/1153/banner_2020120816364007a49ec9534627412c329c9189365409.png",
    "url": "https://pocket.shonenmagazine.com/title/01153",
    "source": "マガポケ",
-   "id": 60
-  },
-  {
-   "title": "転生した大聖女は、聖女であることをひた隠す　A Tale of The Great Saint",
-   "author": "青辺マヒト",
-   "category": "store",
-   "store": "ebookjapan",
-   "freeVolumes": 0,
-   "totalVolumes": null,
-   "freeEpisodes": 26,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2027-01-03",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】転生した大聖女は、聖女であることをひた隠す　A Tale of Th",
-   "tags": [
-    "青年マンガ"
-   ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/O2100539772161.jpg?1791451018000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/117730/",
-   "source": "ebookjapan",
-   "id": 61
-  },
-  {
-   "title": "もふもふと異世界でスローライフを目指します！",
-   "author": "寺田イサザ",
-   "category": "store",
-   "store": "ebookjapan",
-   "freeVolumes": 0,
-   "totalVolumes": null,
-   "freeEpisodes": 42,
-   "allFree": false,
-   "completed": false,
-   "endDate": "2027-01-17",
-   "catch": "【無料試し読みあり ebookjapan】【最新刊】もふもふと異世界でスローライフを目指します！。無料本・試し読みあり！",
-   "tags": [
-    "青年マンガ"
-   ],
-   "cover": "https://cache2-ebookjapan.akamaized.net/contents/thumb/s/V4100545693161.jpg?1794560286000",
-   "url": "https://ebookjapan.yahoo.co.jp/stories/120858/",
-   "source": "ebookjapan",
-   "id": 62
+   "id": 80
   }
  ]
 }

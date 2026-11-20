@@ -1,9 +1,9 @@
 {
- "run": "2026-11-20T23:43:29+09:00",
+ "run": "2026-11-20T23:59:19+09:00",
  "sources": {
   "ebookjapan": {
    "ok": true,
-   "count": 19
+   "count": 27
   },
   "ピッコマ": {
    "ok": true,
@@ -13,9 +13,77 @@
    "ok": true,
    "count": 8
   },
+  "X告知": {
+   "ok": true,
+   "count": 10,
+   "failed": {},
+   "kept_from_previous": 0,
+   "items": [
+    [
+     "チャンピオンクロス",
+     "ヤクザにお風呂で働かされてます。",
+     "site",
+     "https://x.com/championcross/status/2123627573695619404"
+    ],
+    [
+     "チャンピオンクロス",
+     "光る君の妻に転生したのですが 呪われないために夜伽を拒否しています【心恋】",
+     "site",
+     "https://x.com/championcross/status/2123619911909962207"
+    ],
+    [
+     "チャンピオンクロス",
+     "Villainな奥さま",
+     "site",
+     "https://x.com/championcross/status/2123612375622324378"
+    ],
+    [
+     "チャンピオンクロス",
+     "ちひろさん",
+     "site",
+     "https://x.com/championcross/status/2123431108025209180"
+    ],
+    [
+     "チャンピオンクロス",
+     "名探偵マーニー",
+     "site",
+     "https://x.com/championcross/status/2123265191081115718"
+    ],
+    [
+     "チャンピオンクロス",
+     "旦那に秘密で配信者に捧げました",
+     "site",
+     "https://x.com/championcross/status/2123257547113091321"
+    ],
+    [
+     "チャンピオンクロス",
+     "ひとり部屋のカギあずけます~すてきな第一発見者~",
+     "site",
+     "https://x.com/championcross/status/2122963050135253502"
+    ],
+    [
+     "少年ジャンプ＋",
+     "Thisコミュニケーション",
+     "x",
+     "https://x.com/shonenjump_plus/status/2123733108155462117"
+    ],
+    [
+     "少年ジャンプ＋",
+     "早乙女姉妹は漫画のためなら!?",
+     "x",
+     "https://x.com/shonenjump_plus/status/2123370709971767734"
+    ],
+    [
+     "コミックDAYS",
+     "あせとせっけん",
+     "x",
+     "https://x.com/comicdays_team/status/2123431104527155526"
+    ]
+   ]
+  },
   "manual": {
    "ok": true,
-   "count": 1
+   "count": 2
   }
  },
  "not_covered": {
@@ -28,7 +96,7 @@
   "サンデーうぇぶり": "トップに期間限定無料の告知が無い（取得時点）",
   "ヤンチャンWeb": "ynjn.jp / yanchan.jp が接続を返さない（取得時点）"
  },
- "total": 62,
+ "total": 80,
  "allFree": 0,
  "written": true
 }

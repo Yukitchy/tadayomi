@@ -17,6 +17,7 @@ h2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .badge{background:var(--teal-l);color:var(--teal-d)}
 .badge.pub{background:#fff;color:var(--teal-d);border:1px solid var(--teal)}
 .badge.pub::before{content:"出版社 ";font-weight:600}
+.via{font-size:12px;font-weight:700;color:var(--ink);border:1px dashed var(--line);border-radius:3px;padding:1px 6px;margin-left:4px;white-space:nowrap;line-height:1.5}
 .vol{background:#fff;border:1px solid var(--line);white-space:normal;overflow-wrap:anywhere;min-width:0}
 .vol.all{background:var(--yel);border-color:var(--yel)}
 .left{border:1px solid var(--line);color:var(--sub)}

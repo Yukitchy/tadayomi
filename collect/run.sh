@@ -11,6 +11,7 @@ trap 'rmdir /tmp/tadayomi-collect.lock' EXIT
 fail(){ echo "NG: $1"; git checkout -- . 2>/dev/null; osascript -e "display notification \"$1\" with title \"タダヨミ収集\"" 2>/dev/null; kill $WD; exit 1; }
 echo "=== $(date '+%F %T') start"
 git pull -q --rebase origin main || fail "git pull 失敗"
+/usr/bin/python3 collect/collect.py --test || fail "X告知パーサの自己テストNG"
 /usr/bin/python3 collect/collect.py > $LOG/collect-last.json || fail "収集NG（data.json は前回のまま）"
 /usr/bin/python3 build.py || fail "build 失敗"
 zsh collect/selftest.sh || fail "selftest FAIL（変更は破棄・公開は前回のまま）"
