@@ -16,9 +16,12 @@
 <link rel="stylesheet" href="common.css">
 <style>
 .wrap{max-width:960px;margin:0 auto;padding:0 12px}
-header{text-align:center;padding:18px 0 14px}
-header img{height:96px;width:auto;margin:0 auto}
-.lead{font-size:13px;color:var(--sub);margin:6px 0}.lead strong{color:var(--teal-d);font-size:16px}
+header{display:flex;align-items:center;gap:clamp(4px,1.6vw,10px);padding:14px 0 6px}
+header img{height:clamp(32px,10vw,52px);width:auto;flex:none}
+header h1{font-size:clamp(19px,6.4vw,28px);font-weight:900;color:var(--teal);letter-spacing:.02em;line-height:1;white-space:nowrap}
+.lead{margin-left:auto;font-size:clamp(11px,3.4vw,14px);font-weight:700;color:var(--ink);white-space:nowrap}
+.lead strong{color:var(--teal-d);font-size:1.6em;font-weight:900;margin:0 1px;padding:0 3px;background:linear-gradient(transparent 62%,var(--yel) 62%)}
+.proto{text-align:right;padding-bottom:12px}.proto .note{font-size:11px}
 h2{font-size:19px;font-weight:800;display:flex;align-items:center;gap:8px}
 h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--teal);flex:none}
 h2 small{font-size:12px;font-weight:600;color:var(--sub)}
@@ -43,7 +46,8 @@ footer{margin-top:32px;padding:20px 0 40px;border-top:1px solid var(--line);font
 </head>
 <body class="v2">
 <div class="wrap">
-<header><img src="assets/logo.png" alt="タダヨミ" width="111" height="96"><p class="lead"><span class="nb">無料終了が近い順。</span><span class="nb">いま<strong id="count">–</strong>作品が無料</span></p><span class="note">試作版：掲載データはサンプルです</span></header>
+<header><img src="assets/mark.png" alt="" width="403" height="215"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p></header>
+<div class="proto"><span class="note">試作版：掲載データはサンプルです</span></div>
 <section id="pick"><h2>全巻無料ピックアップ<small>最後まで読める</small></h2><div class="strip" id="pickList"></div></section>
 <div class="filters"><div class="row" id="storeRow" aria-label="ストアで絞り込む"></div><div class="row vol" id="volRow" aria-label="無料巻数で絞り込む"></div></div>
 <main id="sections"></main>
