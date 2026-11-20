@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""OGP画像 og4.png を生成する。 python3 og.py
-左=ロゴ(assets/logo.png)、右=キャッチ(中央)＋試作版表記、下=ティール帯(横断の一文)。
-揃え: ロゴ左端=帯文字の左端(X0)／キャッチ=ブロック(長い行の幅)を右カラム(ロゴ右〜XR)×帯より上の中央に置き、行は左揃え／試作版表記の字面下端=マスコット足元。"""
+"""OGP画像 og5.png を生成する（og4 から「タダヨミ 試作版」表記だけ外した版。og4.png は残す）。 python3 og.py
+左=ロゴ(assets/logo.png)、右=キャッチ(中央)、下=ティール帯(横断の一文)。
+揃え: ロゴ左端=帯文字の左端(X0)／キャッチ=ブロック(長い行の幅)を右カラム(ロゴ右〜XR)×帯より上の中央に置き、行は左揃え。"""
 from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageFont
 
@@ -44,17 +44,11 @@ def build():
     lx = cx - max(fc.getlength(l) for l in lines) / 2   # 2行の左端を揃える
     for i, l in enumerate(lines): d.text((lx, y + i * lead), l, font=fc, fill=INK, anchor="la")
 
-    # 試作版の表記: マスコット足元付近。中央のキャッチと重なるため、キャッチの直下に同じ中心軸で置く
-    sub = "タダヨミ 試作版"
-    fs = font(7, round(size * 0.56))
-    sy = y + b + round(size * 0.6) - fs.getbbox(sub, anchor="ma")[1]
-    d.text((cx, sy), sub, font=fs, fill=TEAL_D, anchor="ma")
-
     # 帯: 横断の一文を白字で
     d.rectangle([0, H - BAND, W, H], fill=TEAL)
     fb = font(7, 24)
     d.text((X0, H - BAND / 2), "電子書店＋出版社Webを横断", font=fb, fill="white", anchor="lm")
-    im.save(ROOT / "og4.png", optimize=True)
+    im.save(ROOT / "og5.png", optimize=True)
     return dict(logo_w=logo.width, top=top, foot=foot, x=x, size=size, lx=round(lx))
 
 if __name__ == "__main__":

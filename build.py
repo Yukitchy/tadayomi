@@ -11,7 +11,7 @@ HEAD='''<!doctype html>
 <meta property="og:title" content="{name}｜いま無料の漫画を、終了が近い順に">
 <meta property="og:description" content="電子書店と出版社Webの無料キャンペーンを横断。全巻無料をいちばん上に。">
 <meta property="og:url" content="{base}{path}">
-<meta property="og:image" content="{base}og4.png">
+<meta property="og:image" content="{base}og5.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon-chara.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon-chara.png">
@@ -234,7 +234,7 @@ BOARD=r'''<!doctype html>
 <meta property="og:title" content="タダヨミ 試作｜5案の見比べ">
 <meta property="og:description" content="電子書店と出版社Webの無料漫画を、終了が近い順に。デザイン5案を並べて比べる。">
 <meta property="og:url" content="https://yukitchy.github.io/tadayomi/board.html">
-<meta property="og:image" content="https://yukitchy.github.io/tadayomi/og4.png">
+<meta property="og:image" content="https://yukitchy.github.io/tadayomi/og5.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon-chara.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon-chara.png">
