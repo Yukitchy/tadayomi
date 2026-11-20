@@ -237,7 +237,8 @@ def xcheck():
             if not r: continue
             title, fr, end = r
             it = dict(title=title, author="", category=cat, store=store, freeVolumes=0, totalVolumes=None, allFree=False,
-                      completed=False, endDate=end, catch="", tags=[], cover="", url=p["url"], basis="x", xPost=p["url"], xAccount=h)
+                      completed=False, endDate=end, catch="", tags=[], url=p["url"],
+                      cover=(((p.get("media") or {}).get("photos") or [{}])[0].get("url") or "").replace("name=orig", "name=small"), basis="x", xPost=p["url"], xAccount=h)
             it.update(fr)
             for pat, fn in VERIFIERS:
                 u = re.search(pat, p["text"])
