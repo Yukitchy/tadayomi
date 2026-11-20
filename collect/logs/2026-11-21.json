@@ -1,9 +1,11 @@
 {
- "run": "2026-11-21T00:02:31+09:00",
+ "run": "2026-11-21T00:08:33+09:00",
  "sources": {
   "ebookjapan": {
-   "ok": true,
-   "count": 26
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: HTTP Error 500: Internal Server Error",
+   "kept_from_previous": 22
   },
   "ピッコマ": {
    "ok": true,
@@ -15,7 +17,7 @@
   },
   "X告知": {
    "ok": true,
-   "count": 10,
+   "count": 14,
    "failed": {},
    "kept_from_previous": 0,
    "items": [
@@ -78,6 +80,30 @@
      "あせとせっけん",
      "x",
      "https://x.com/comicdays_team/status/2123431104527155526"
+    ],
+    [
+     "ゼブラック",
+     "ブスに花束を。",
+     "x",
+     "https://x.com/zebrack_comic/status/2123615582662828292"
+    ],
+    [
+     "ゼブラック",
+     "創造錬金術師は自由を謳歌する 故郷を追放されたら、魔王のお膝元で超絶効果のマジックアイテム作り放題になりました",
+     "x",
+     "https://x.com/zebrack_comic/status/2123562030514979096"
+    ],
+    [
+     "ゼブラック",
+     "ドラフトキング",
+     "x",
+     "https://x.com/zebrack_comic/status/2123441204197286023"
+    ],
+    [
+     "ゼブラック",
+     "ラジエーションハウス",
+     "x",
+     "https://x.com/zebrack_comic/status/2123011355888472435"
     ]
    ]
   },
@@ -96,7 +122,7 @@
   "サンデーうぇぶり": "トップに期間限定無料の告知が無い（取得時点）",
   "ヤンチャンWeb": "ynjn.jp / yanchan.jp が接続を返さない（取得時点）"
  },
- "total": 80,
- "allFree": 0,
+ "total": 84,
+ "allFree": 1,
  "written": true
 }
