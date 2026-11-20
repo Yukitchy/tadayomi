@@ -20,6 +20,8 @@ const n=d=>d.querySelectorAll("#sections .card").length;
     const sec=id=>d.querySelectorAll(`#${id} .card`).length;
     ok(["today","soon","week","later"].every(id=>sec(id)>=2),`${v} 締切セクション 今日${sec("today")}/もうすぐ${sec("soon")}/1週間${sec("week")}/まだ${sec("later")}`);
     ok(d.querySelector("#count").textContent==="23",`${v} いま${d.querySelector("#count").textContent}作品`);
+    const ww=[...d.querySelectorAll("#sections .card")].find(c=>/ウィッチウォッチ/.test(c.textContent)),wa=ww&&ww.querySelector("a.cardlink");
+    ok(ww&&/54話分無料/.test(ww.textContent)&&wa&&wa.href==="https://shonenjumpplus.com/episode/4856001361115843140"&&d.querySelectorAll("a.cardlink").length===1,`${v} 実データ ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク`);
     ok(d.querySelectorAll("#pickList .pk").length>=4,`${v} 全巻無料ピックアップ ${d.querySelectorAll("#pickList .pk").length}件`);
     ok(/試作版：掲載データはサンプルです/.test(d.body.textContent),`${v} 試作版の明示あり`);
     const logo=d.querySelector("header img");ok(logo&&logo.complete&&logo.naturalWidth>0&&/assets\/(logo|mark)\.png/.test(logo.src),`${v} ヘッダーロゴ画像 ${logo&&logo.src.split("/").pop()}`);

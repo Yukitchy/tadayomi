@@ -53,6 +53,9 @@ function chips(rowId,key,defs,toggle){
     render();
   });
 }
+// 実リンクのある項目だけカード全体をリンクにする（サンプルの url:"#" は今までどおり）
+const card0=T.card;
+T.card=it=>it.url&&it.url!=="#"?card0(it).replace('<li class="card">',`<li class="card linked"><a class="cardlink" href="${esc(it.url)}" target="_blank" rel="noopener" aria-label="${esc(it.title)}を読む"></a>`):card0(it);
 chips("storeRow","store",STORES,false);
 chips("volRow","vol",VOLS,true);
 fetch("data.json").then(r=>r.json()).then(d=>{

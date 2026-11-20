@@ -25,3 +25,4 @@ h2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tag{font-size:12px;color:var(--sub)}
 .tag::before{content:"#"}
 #empty{display:none;padding:40px 0;text-align:center;color:var(--sub);font-size:14px}
+.card.linked{position:relative}.cardlink{position:absolute;inset:0;z-index:1}
