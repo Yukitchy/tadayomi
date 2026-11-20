@@ -3,3 +3,4 @@ collect/logs/selftest-last.txt
 collect/logs/collect-last.json
 data.json.tmp
 collect/logs/launchd.log
+__pycache__/
