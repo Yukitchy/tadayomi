@@ -22,7 +22,7 @@ const n=d=>d.querySelectorAll("#sections .card").length;
     ok(d.querySelectorAll("#pickList .pk").length>=4,`${v} 全巻無料ピックアップ ${d.querySelectorAll("#pickList .pk").length}件`);
     ok(/試作版：掲載データはサンプルです/.test(d.body.textContent),`${v} 試作版の明示あり`);
     const logo=d.querySelector("header img");ok(logo&&logo.complete&&logo.naturalWidth>0&&/assets\/(logo|mark)\.png/.test(logo.src),`${v} ヘッダーロゴ画像 ${logo&&logo.src.split("/").pop()}`);
-    ok(d.querySelector('link[rel=icon]').href.endsWith("favicon-chara.png")&&d.querySelector('meta[property="og:image"]').content.endsWith("/og3.png")&&d.querySelector('meta[property="og:url"]').content.endsWith(`/${v}.html`),`${v} favicon/og:image/og:url`);
+    ok(d.querySelector('link[rel=icon]').href.endsWith("favicon-chara.png")&&d.querySelector('meta[property="og:image"]').content.endsWith("/og4.png")&&d.querySelector('meta[property="og:url"]').content.endsWith(`/${v}.html`),`${v} favicon/og:image/og:url`);
     const all=n(d);
     click(d,'[data-store="@publisher"]');const pub=n(d);
     ok(pub===4&&[...d.querySelectorAll("#sections .card")].every(c=>/出版社|pub/.test(c.innerHTML)),`${v} 出版社Web → ${pub}件`);

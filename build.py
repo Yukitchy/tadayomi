@@ -11,7 +11,7 @@ HEAD='''<!doctype html>
 <meta property="og:title" content="タダヨミ {v}｜いま無料の漫画を、終了が近い順に">
 <meta property="og:description" content="電子書店と出版社Webの無料キャンペーンを横断。全巻無料をいちばん上に。">
 <meta property="og:url" content="{base}{v}.html">
-<meta property="og:image" content="{base}og3.png">
+<meta property="og:image" content="{base}og4.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon-chara.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon-chara.png">

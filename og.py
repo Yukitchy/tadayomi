@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""OGP画像 og3.png を生成する。 python3 og.py
+"""OGP画像 og4.png を生成する。 python3 og.py
 左=ロゴ(assets/logo.png)、右=キャッチ(中央)＋試作版表記、下=ティール帯(横断の一文)。
-揃え: ロゴ左端=帯文字の左端(X0)／キャッチ=右カラム(ロゴ右〜XR)×帯より上の中央／試作版表記の字面下端=マスコット足元。"""
+揃え: ロゴ左端=帯文字の左端(X0)／キャッチ=ブロック(長い行の幅)を右カラム(ロゴ右〜XR)×帯より上の中央に置き、行は左揃え／試作版表記の字面下端=マスコット足元。"""
 from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageFont
 
@@ -41,7 +41,8 @@ def build():
     cx, cy = (x + XR) / 2, (H - BAND) / 2
     t = fc.getbbox(lines[0])[1]; b = lead * (len(lines) - 1) + fc.getbbox(lines[-1])[3]
     y = cy - (t + b) / 2
-    for i, l in enumerate(lines): d.text((cx, y + i * lead), l, font=fc, fill=INK, anchor="ma")
+    lx = cx - max(fc.getlength(l) for l in lines) / 2   # 2行の左端を揃える
+    for i, l in enumerate(lines): d.text((lx, y + i * lead), l, font=fc, fill=INK, anchor="la")
 
     # 試作版の表記: マスコット足元付近。中央のキャッチと重なるため、キャッチの直下に同じ中心軸で置く
     sub = "タダヨミ 試作版"
@@ -53,8 +54,8 @@ def build():
     d.rectangle([0, H - BAND, W, H], fill=TEAL)
     fb = font(7, 24)
     d.text((X0, H - BAND / 2), "電子書店＋出版社Webを横断", font=fb, fill="white", anchor="lm")
-    im.save(ROOT / "og3.png", optimize=True)
-    return dict(logo_w=logo.width, top=top, foot=foot, x=x, size=size)
+    im.save(ROOT / "og4.png", optimize=True)
+    return dict(logo_w=logo.width, top=top, foot=foot, x=x, size=size, lx=round(lx))
 
 if __name__ == "__main__":
     r = build()
