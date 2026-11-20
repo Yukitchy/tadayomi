@@ -99,7 +99,8 @@ def piccoma():
     _, t = get("https://piccoma.com/web/")
     ids = list(dict.fromkeys(re.findall(r'href="/web/product/(\d+)\?etype=volume"[^>]*data-gtm-label="(?:\d+|全)巻無料"', t)))
     if not ids: raise RuntimeError("トップに巻無料の作品が見つからない（ページ構造変更）")
-    return run_details(piccoma_detail, ids[:MAX_DETAIL])
+    got = run_details(piccoma_detail, ids)  # 全巻無料は上限の外にあっても落とさないため全件見る（2026-11-21 時点で約140件）
+    return [i for i in got if i["allFree"]] + [i for i in got if not i["allFree"]][:MAX_DETAIL]
 
 def piccoma_detail(pid):
     url = "https://piccoma.com/web/product/%s" % pid
@@ -109,10 +110,11 @@ def piccoma_detail(pid):
     if not m: return None  # 期限の書かれていない無料は載せない
     ttl = meta(p, "og:title").split("｜")
     title = re.sub(r"\s*(【[^】]*】|（分冊版）|\(分冊版\))\s*", "", ttl[0]).strip(); author = ttl[-1].strip() if len(ttl) >= 3 else ""
-    allfree = m.group(1) == "全巻"
-    vols = re.search(r"全(\d+)巻", x)
+    vols = re.search(r"全\s*(\d+)\s*巻", x)  # ページ上は「全 15 巻」と空白入り
+    n = 0 if m.group(1) == "全巻" else int(m.group(1)[:-2])
+    allfree = m.group(1) == "全巻" or bool(vols and n >= int(vols.group(1)))  # 「15巻分無料」かつ全15巻＝全巻無料
     return dict(title=title, author=author, category="store", store="ピッコマ",
-                freeVolumes=int(vols.group(1)) if allfree and vols else (0 if allfree else int(m.group(1)[:-2])),
+                freeVolumes=int(vols.group(1)) if allfree and vols else n,
                 totalVolumes=int(vols.group(1)) if vols else None, allFree=allfree,
                 completed="完結" in re.findall(r'<ul class="PCM-productStatus">(.*?)</ul>', p, re.S)[0] if '<ul class="PCM-productStatus">' in p else False,
                 endDate=md_to_date(m.group(2)).isoformat(), catch=meta(p, "og:description")[:60], tags=[],
@@ -158,6 +160,10 @@ X_ACCOUNTS = {  # handle: (媒体名, category, 投稿に必須の語)  2026-11-
     "comic_cmoa": ("コミックシーモア", "store", ""), "BOOK_WALKER": ("BOOK☆WALKER", "store", ""),
     "LINEMANGA": ("LINEマンガ", "store", ""), "AmazonJP": ("Kindle", "store", "Kindle"),
     "ebookjapan": ("ebookjapan", "store", ""), "piccoma_jp": ("ピッコマ", "store", ""),
+    # 2026-11-21 追加（全巻無料の告知元を広げる。fxtwitter で公式・認証済み・直近7日に投稿ありを確認）
+    "zebrack_comic": ("ゼブラック", "store", ""), "mechacomic": ("めちゃコミック", "store", ""),
+    "manga_park": ("マンガPark", "publisher", ""), "MangaONE_jp": ("マンガワン", "publisher", ""),
+    "comicfesta_info": ("コミックフェスタ", "store", ""),
 }
 X_DAYS = 5     # 何日前までの投稿を見るか
 X_PAGES = 2    # 1アカウントあたり 20件×2ページ
@@ -179,11 +185,12 @@ def xposts(handle):
 def x_parse(text_, posted):
     """告知文 → (title, 無料範囲dict, endDate) / 読み取れなければ None"""
     t = unicodedata.normalize("NFKC", text_)
-    titles = list(dict.fromkeys(re.sub(r"\s*#\s*", "", s).strip() for s in re.findall(r"『([^』]+)』", t)))
+    if "順次" in t: return None  # 順次公開は今読める範囲が告知から読めない
+    titles = list(dict.fromkeys(re.sub(r"\s+", " ", re.sub(r"\s*#\s*", "", s)).strip() for s in re.findall(r"『([^』]+)』", t)))
     if len(titles) != 1: return None
     fr = None
     m = re.search(r"全(話|巻|エピソード)\s*(?:完全)?無料", t)
-    if m: fr = dict(allFree=m.group(1) == "巻", freeLabel="全%s無料" % ("巻" if m.group(1) == "巻" else "話"))
+    if m: fr = dict(allFree=True, freeLabel="全%s無料" % ("巻" if m.group(1) == "巻" else "話"))
     m = m or re.search(r"(?<![〜~\-\d])(\d+)\s*(巻|話|エピソード)分?\s*(?:完全)?無料", t)
     if m and not fr:
         n = int(m.group(1)); fr = dict(freeVolumes=n) if m.group(2) == "巻" else dict(freeEpisodes=n)
@@ -191,6 +198,8 @@ def x_parse(text_, posted):
     m = re.search(r"([^\s※・『』]{1,16}除く)", t)  # 「最終巻除く」「最新巻&以降の話を除く」等は表記に残す
     base = lambda: fr.get("freeLabel") or ("%d話分無料" % fr["freeEpisodes"] if "freeEpisodes" in fr else "%d巻無料" % fr["freeVolumes"])
     if m: fr["freeLabel"] = base() + "（%s）" % m.group(1)
+    if m or re.search(r"最新(?:話|巻)以外", t): fr["allFree"] = False if "allFree" in fr else None  # 除外つきは全巻無料ではない
+    if fr.get("allFree") is None: fr.pop("allFree", None)
     m = re.search(r"ブラウザ版のみ|アプリ(?:版)?(?:のみ|限定)|待てば", t)  # 条件付きの無料は表記に残す
     if m: fr["freeLabel"] = base() + "（%s）" % m.group(0)
     end = None
@@ -350,6 +359,11 @@ def x_test():  # python3 collect.py --test（実際の告知文で x_parse を�
     assert x_parse("『早乙女姉妹は漫画のためなら!?』が 全話無料‼️\n※ブラウザ版のみ・12/3まで", P)[1]["freeLabel"] == "全話無料（ブラウザ版のみ）"
     assert x_parse("『あせとせっけん』\n72時間限定【全話無料公開中】です！！\n※最新巻&以降の話を除く\n※期間は11/20（金）〜11/22（日）まで", P)[1:] == ({"allFree": False, "freeLabel": "全話無料（最新巻&以降の話を除く）"}, "2026-11-22")
     assert x_parse("『X』 15話無料 ※最終巻除く 12/3まで", P)[1]["freeLabel"] == "15話分無料（最終巻除く）"
+    assert x_parse("『早乙女姉妹は漫画のためなら!?』が 全話無料‼️\n※ブラウザ版のみ・12/3まで", P)[1]["allFree"] is True
+    assert x_parse("『ブルーロック』全巻無料 11/23まで", P)[1] == {"allFree": True, "freeLabel": "全巻無料"}
+    assert x_parse("11月26日(木)まで最新話以外全話無料『シにかけ少女と蜘蛛王子』11/26まで", P)[1]["allFree"] is False
+    assert x_parse("『封神演義』が 順次【全話無料】公開中 11/27までの期間は【第55〜70回】が無料", P) is None
+    assert x_parse("『#創造錬金術師は自由を謳歌する\n　故郷を追放されたら』\n 11話分無料 12/12まで", P)[0] == "創造錬金術師は自由を謳歌する 故郷を追放されたら"
     print("x_test ok")
 
 if __name__ == "__main__":
