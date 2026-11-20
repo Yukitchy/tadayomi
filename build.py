@@ -13,8 +13,8 @@ HEAD='''<!doctype html>
 <meta property="og:url" content="{base}{path}">
 <meta property="og:image" content="{base}og5.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon-chara.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara.png">
+<link rel="icon" href="favicon-chara2.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara2.png">
 <link rel="stylesheet" href="common.css">
 <style>{css}</style>
 </head>
@@ -236,8 +236,8 @@ BOARD=r'''<!doctype html>
 <meta property="og:url" content="https://yukitchy.github.io/tadayomi/board.html">
 <meta property="og:image" content="https://yukitchy.github.io/tadayomi/og5.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon-chara.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara.png">
+<link rel="icon" href="favicon-chara2.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara2.png">
 <link rel="stylesheet" href="common.css">
 <style>
 body{background:#fff}
