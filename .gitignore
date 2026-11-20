@@ -1,0 +1,5 @@
+collect/logs/.last-success
+collect/logs/selftest-last.txt
+collect/logs/collect-last.json
+data.json.tmp
+collect/logs/launchd.log
