@@ -63,7 +63,7 @@ fetch("data.json").then(r=>r.json()).then(d=>{
     .sort((a,b)=>b.allFree-a.allFree||a.days-b.days||a.title.localeCompare(b.title,"ja"));
   // ストアのチップは掲載のある媒体だけ出す（出版社Webは publisher が1件でもあれば）
   chips("storeRow","store",STORES.filter(([v])=>!v||(v==="@publisher"?items.some(i=>i.category==="publisher"):items.some(i=>i.store===v))),false);
-  if(d.sources&&$("srcList"))$("srcList").textContent=`${d.updated}更新。掲載は${d.sources.join("・")}の公式ページから毎朝自動収集した分のみ（Kindle・BOOK☆WALKER・シーモア・LINEマンガ等は未対応）。`;
+  if(d.sources&&$("srcList"))$("srcList").textContent=`${d.updated}更新。掲載は${d.sources.join("・")}の公式ページから毎朝自動収集した分${d.manual&&d.manual.length?"と、手動で確認した"+d.manual.join("・")+"の分":""}のみ（Kindle・BOOK☆WALKER・シーモア・LINEマンガ等は未対応）。`;
   $("count").textContent=items.length;
   render();
 });

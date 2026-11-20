@@ -217,8 +217,9 @@ def main():
     print(json.dumps(log, ensure_ascii=False))
     if not ok:
         print("件数不足のため data.json は前回のまま", file=sys.stderr); return 2
-    stores = sorted({i["store"] for i in items})
-    data = {"updated": TODAY.isoformat(), "sample": False, "sources": stores, "items": items}
+    auto = sorted({i["store"] for i in items if i.get("source") != "manual"})
+    man = sorted({i["store"] for i in items if i.get("source") == "manual"} - set(auto))
+    data = {"updated": TODAY.isoformat(), "sample": False, "sources": auto, "manual": man, "items": items}
     tmp = DATA + ".tmp"
     json.dump(data, open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.load(open(tmp, encoding="utf-8"))
