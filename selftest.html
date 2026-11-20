@@ -1,11 +1,13 @@
 <!doctype html><meta charset="utf-8"><title>selftest</title><body><pre id="out">running</pre>
 <script>
-// 自己検査：index（=v3採用版）・v1〜v5 それぞれで 320/390幅のはみ出し・見出し1行・締切振り分け・絞り込みAND・ロゴ/OG/favicon を確認（?today=2026-11-20 固定）
+// 自己検査：index（=v3採用版）・v1〜v5 それぞれで 320/390幅のはみ出し・見出し1行・締切振り分け・絞り込みAND・ロゴ/OG/favicon を確認（基準日は data.json の updated）
 const out=[],ok=(c,m)=>out.push((c?"PASS ":"FAIL ")+m);
-const load=(v,w)=>new Promise(r=>{const f=document.createElement("iframe");f.style.cssText=`width:${w}px;height:800px;border:0`;f.src=`${v}.html?today=2026-11-20`;f.onload=()=>setTimeout(()=>r(f.contentWindow),1200);document.body.append(f)});
+const load=(v,w)=>new Promise(r=>{const f=document.createElement("iframe");f.style.cssText=`width:${w}px;height:800px;border:0`;f.src=`${v}.html?today=${TODAY}`;f.onload=()=>setTimeout(()=>r(f.contentWindow),1200);document.body.append(f)});
 const click=(d,sel)=>d.querySelector(sel).click();
 const n=d=>d.querySelectorAll("#sections .card").length;
+let D,TODAY;
 (async()=>{
+ D=await (await fetch("data.json",{cache:"no-store"})).json();TODAY=D.updated;
  for(const v of ["index","v1","v2","v3","v4","v5"]){
   for(const w of [320,390]){
     const win=await load(v,w),d=win.document;
@@ -17,22 +19,29 @@ const n=d=>d.querySelectorAll("#sections .card").length;
     ok(!/maru|rounded|丸/i.test([...d.querySelectorAll("*")].map(e=>getComputedStyle(e).fontFamily).join()),`${v} ${w}px 丸ゴシック不使用`);
     if(v==="index"||v==="v3"){const hd=d.querySelector("header"),h1=hd.querySelector("h1");ok(hd.offsetHeight<=50&&h1&&h1.textContent==="タダヨミ"&&h1.getClientRects().length===1&&d.querySelector(".lead").getBoundingClientRect().top<hd.getBoundingClientRect().bottom,`${v} ${w}px ヘッダー1行 ${hd.offsetHeight}px`);}
     if(w!==390)continue;
-    const sec=id=>d.querySelectorAll(`#${id} .card`).length;
-    ok(["today","soon","week","later"].every(id=>sec(id)>=2),`${v} 締切セクション 今日${sec("today")}/もうすぐ${sec("soon")}/1週間${sec("week")}/まだ${sec("later")}`);
-    ok(d.querySelector("#count").textContent==="23",`${v} いま${d.querySelector("#count").textContent}作品`);
-    const ww=[...d.querySelectorAll("#sections .card")].find(c=>/ウィッチウォッチ/.test(c.textContent)),wa=ww&&ww.querySelector("a.cardlink");
-    ok(ww&&/54話分無料/.test(ww.textContent)&&wa&&wa.href==="https://shonenjumpplus.com/episode/4856001361115843140"&&d.querySelectorAll("a.cardlink").length===1,`${v} 実データ ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク`);
-    ok(d.querySelectorAll("#pickList .pk").length>=4,`${v} 全巻無料ピックアップ ${d.querySelectorAll("#pickList .pk").length}件`);
-    ok(/試作版：掲載データはサンプルです/.test(d.body.textContent),`${v} 試作版の明示あり`);
+    // 期待値は data.json から計算（実データは毎日変わるので件数は決め打ちしない）
+    const live=D.items.map(i=>({...i,days:Math.round((Date.parse(i.endDate)-Date.parse(TODAY))/864e5)})).filter(i=>i.days>=0);
+    const cards=[...d.querySelectorAll("#sections .card")];
+    ok(d.querySelector("#count").textContent===String(live.length)&&cards.length===live.length&&live.length>=10,`${v} いま${d.querySelector("#count").textContent}作品（data.json ${live.length}件・カード${cards.length}枚）`);
+    const sec=id=>d.querySelectorAll(`#${id} .card`).length,rng={today:[0,0],soon:[1,3],week:[4,7],later:[8,1e9]};
+    ok(Object.entries(rng).every(([id,[lo,hi]])=>sec(id)===live.filter(i=>i.days>=lo&&i.days<=hi).length),`${v} 締切セクション 今日${sec("today")}/もうすぐ${sec("soon")}/1週間${sec("week")}/まだ${sec("later")}`);
+    ok(!D.sample&&D.updated===TODAY&&D.items.every(i=>/^https:\/\//.test(i.url))&&d.querySelectorAll("a.cardlink").length===cards.length,`${v} 実データ：sample=false・updated=${D.updated}・全${cards.length}枚が実URLへリンク`);
+    ok(cards.every(c=>/(巻|話)[^<]{0,30}無料/.test(c.textContent)&&!/null|undefined/.test(c.textContent)),`${v} 全カードに無料範囲の表記（null/undefined なし）`);
+    const nAll=live.filter(i=>i.allFree).length;
+    ok(d.querySelectorAll("#pickList .pk").length===nAll&&d.querySelector("#pick").hidden===!nAll,`${v} 全巻無料ピックアップ ${nAll}件${nAll?"":"（今日は該当なし→非表示）"}`);
+    const ww=D.items.find(i=>i.title==="ウィッチウォッチ");
+    if(ww&&live.includes(live.find(i=>i.title==="ウィッチウォッチ"))){const c=cards.find(c=>/ウィッチウォッチ/.test(c.textContent));ok(c&&/54話分無料/.test(c.textContent)&&c.querySelector("a.cardlink").href===ww.url,`${v} 手動追加 ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク`);}
+    ok(!/試作版：掲載データはサンプルです/.test(d.body.textContent)&&/対応媒体のみ掲載/.test(d.body.textContent)&&D.sources.every(s=>d.querySelector("#srcList").textContent.includes(s)),`${v} 表記：試作サンプル表記なし・対応媒体と未対応媒体を明記`);
     const logo=d.querySelector("header img");ok(logo&&logo.complete&&logo.naturalWidth>0&&/assets\/(logo|mark)\.png/.test(logo.src),`${v} ヘッダーロゴ画像 ${logo&&logo.src.split("/").pop()}`);
     ok(d.querySelector('link[rel=icon]').href.endsWith("favicon-chara.png")&&d.querySelector('meta[property="og:image"]').content.endsWith("/og4.png")&&d.querySelector('meta[property="og:url"]').content.endsWith(v==="index"?"/tadayomi/":`/${v}.html`),`${v} favicon/og:image/og:url`);
     const all=n(d);
-    click(d,'[data-store="@publisher"]');const pub=n(d);
-    ok(pub===4&&[...d.querySelectorAll("#sections .card")].every(c=>/出版社|pub/.test(c.innerHTML)),`${v} 出版社Web → ${pub}件`);
-    click(d,'[data-vol="all"]');ok(n(d)===1,`${v} 出版社Web AND 全巻無料 → ${n(d)}件`);
-    click(d,'[data-vol="all"]');ok(n(d)===4,`${v} 全巻無料を再クリックで解除 → ${n(d)}件`);
-    click(d,'[data-store="Kindle"]');click(d,'[data-vol="5"]');ok(n(d)===2,`${v} Kindle AND 5巻以上 → ${n(d)}件`);
-    click(d,'[data-store="ピッコマ"]');click(d,'[data-vol="all"]');ok(d.querySelector("#empty").style.display==="block"&&d.querySelector("#pick").hidden,`${v} ピッコマ AND 全巻無料 → 0件で空表示`);
+    const pubN=live.filter(i=>i.category==="publisher").length;
+    if(pubN){click(d,'[data-store="@publisher"]');ok(n(d)===pubN,`${v} 出版社Web → ${n(d)}件`);
+      click(d,'[data-vol="3"]');const e=live.filter(i=>i.category==="publisher"&&i.freeVolumes>=3).length;ok(n(d)===e,`${v} 出版社Web AND 3巻以上 → ${n(d)}件（期待${e}）`);
+      click(d,'[data-vol="3"]');ok(n(d)===pubN,`${v} 3巻以上を再クリックで解除 → ${n(d)}件`);}
+    const st=D.sources.find(s=>s!=="少年ジャンプ＋");click(d,`[data-store="${st}"]`);click(d,'[data-vol="all"]');
+    const e2=live.filter(i=>i.store===st&&i.allFree).length;ok(n(d)===e2&&(e2||d.querySelector("#empty").style.display==="block"),`${v} ${st} AND 全巻無料 → ${n(d)}件`);
+    ok(!d.querySelector('[data-store="Kindle"]')||live.some(i=>i.store==="Kindle"),`${v} 掲載0件のストアのチップは出さない`);
     click(d,'[data-store=""]');click(d,'[data-vol="all"]');ok(n(d)===all,`${v} すべて・解除で元の${all}件に戻る`);
   }
   document.querySelectorAll("iframe").forEach(f=>f.remove());

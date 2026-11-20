@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>タダヨミ v4｜いま無料で読める漫画を、終了が近い順に</title>
-<meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめる試作版（v4：全巻無料を主役にした雑誌・特集風）。">
+<meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめて毎朝更新（v4：全巻無料を主役にした雑誌・特集風）。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="タダヨミ v4｜いま無料の漫画を、終了が近い順に">
 <meta property="og:description" content="電子書店と出版社Webの無料キャンペーンを横断。全巻無料をいちばん上に。">
@@ -52,12 +52,12 @@ footer{margin-top:28px;padding:20px 0 40px;border-top:3px double var(--ink);font
 </head>
 <body class="v4">
 <div class="wrap">
-<header class="mast"><img src="assets/logo.png" alt="タダヨミ" width="60" height="52"><div class="lead">いま<strong id="count">–</strong>作品が無料<br><span class="note">試作版：掲載データはサンプルです</span></div></header>
+<header class="mast"><img src="assets/logo.png" alt="タダヨミ" width="60" height="52"><div class="lead">いま<strong id="count">–</strong>作品が無料<br><span class="note">対応媒体のみ掲載・毎朝更新</span></div></header>
 <section id="pick"><p class="kicker">特集</p><h2 class="mincho">全巻、最後まで無料。</h2><p class="dek">完結まで一気に読める作品だけを集めました</p><div class="strip" id="pickList"></div></section>
 <div class="filters"><div class="row" id="storeRow" aria-label="ストアで絞り込む"></div><div class="row vol" id="volRow" aria-label="無料巻数で絞り込む"></div></div>
 <main id="sections"></main>
 <p id="empty">この条件で無料の作品はいまありません。</p>
-<footer>タダヨミ 試作版 v4 ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>
+<footer>タダヨミ v4 ／ <span id="srcList">各媒体の公式ページから毎朝自動収集。</span>無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>
 </div>
 <script>window.T={
 section:(sec,xs)=>`<section id="${sec.id}"><div class="sh"><span class="no mincho">0${SECTIONS.indexOf(sec)+1}</span><h2 class="mincho">${sec.name}</h2><small>${sec.sub}・${xs.length}作品</small></div><ul class="list">${xs.map(T.card).join("")}</ul></section>`,

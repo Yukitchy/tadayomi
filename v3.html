@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>タダヨミ v3｜いま無料で読める漫画を、終了が近い順に</title>
-<meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめる試作版（v3：情報密度を上げたコンパクト型（薄いヘッダー））。">
+<meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめて毎朝更新（v3：情報密度を上げたコンパクト型（薄いヘッダー））。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="タダヨミ v3｜いま無料の漫画を、終了が近い順に">
 <meta property="og:description" content="電子書店と出版社Webの無料キャンペーンを横断。全巻無料をいちばん上に。">
@@ -48,12 +48,12 @@ footer{padding:14px 10px 30px;font-size:11px;color:var(--sub)}
 <body class="v3">
 <div class="wrap">
 <header><img src="assets/mark.png" alt="" width="67" height="36"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p></header>
-<p class="proto"><span class="note">試作版：掲載データはサンプルです</span></p>
+<p class="proto"><span class="note">対応媒体のみ掲載・毎朝更新</span></p>
 <section id="pick"><h2>全巻無料<small>最後まで読める</small></h2><div class="strip" id="pickList"></div></section>
 <div class="filters"><div class="row" id="storeRow" aria-label="ストアで絞り込む"></div><div class="row vol" id="volRow" aria-label="無料巻数で絞り込む"></div></div>
 <main id="sections"></main>
 <p id="empty">この条件で無料の作品はいまありません。</p>
-<footer>タダヨミ 試作版 v3 ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>
+<footer>タダヨミ v3 ／ <span id="srcList">各媒体の公式ページから毎朝自動収集。</span>無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>
 </div>
 <script>window.T={
 card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="40" height="56"><div class="b"><p class="t">${esc(it.title)}</p><p class="a">${esc(it.author)}${it.completed?"　完結":""}</p><div class="chips">${badge(it)}${volChip(it)}${leftChip(it)}</div></div></li>`,

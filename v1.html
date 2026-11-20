@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>タダヨミ v1｜いま無料で読める漫画を、終了が近い順に</title>
-<meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめる試作版（v1：模倣元に忠実な縦リスト型（基準案））。">
+<meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめて毎朝更新（v1：模倣元に忠実な縦リスト型（基準案））。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="タダヨミ v1｜いま無料の漫画を、終了が近い順に">
 <meta property="og:description" content="電子書店と出版社Webの無料キャンペーンを横断。全巻無料をいちばん上に。">
@@ -44,12 +44,12 @@ footer{margin-top:28px;padding:20px 0 40px;border-top:1px solid var(--line);font
 </head>
 <body class="v1">
 <div class="wrap">
-<header><img src="assets/logo.png" alt="タダヨミ" width="74" height="64"><div><p class="lead"><span class="nb">無料終了が近い順に毎日更新。</span><span class="nb">いま<strong id="count">–</strong>作品が無料</span></p><span class="note">試作版：掲載データはサンプルです</span></div></header>
+<header><img src="assets/logo.png" alt="タダヨミ" width="74" height="64"><div><p class="lead"><span class="nb">無料終了が近い順に毎日更新。</span><span class="nb">いま<strong id="count">–</strong>作品が無料</span></p><span class="note">対応媒体のみ掲載・毎朝更新</span></div></header>
 <section id="pick"><h2>全巻無料ピックアップ<small>最後まで読める</small></h2><div class="strip" id="pickList"></div></section>
 <div class="filters"><div class="row" id="storeRow" aria-label="ストアで絞り込む"></div><div class="row vol" id="volRow" aria-label="無料巻数で絞り込む"></div></div>
 <main id="sections"></main>
 <p id="empty">この条件で無料の作品はいまありません。</p>
-<footer>タダヨミ 試作版 v1 ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>
+<footer>タダヨミ v1 ／ <span id="srcList">各媒体の公式ページから毎朝自動収集。</span>無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>
 </div>
 <script>window.T={
 card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="76" height="108"><div class="b"><div class="chips">${badge(it)}${doneChip(it)}</div><p class="t">${esc(it.title)}</p><p class="a">${esc(it.author)}</p><p class="c">${esc(it.catch)}</p><div class="chips">${volChip(it)}${leftChip(it)}</div><div class="tags">${tags(it)}</div></div></li>`,

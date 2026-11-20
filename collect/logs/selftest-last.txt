@@ -1,0 +1,131 @@
+PASS index 320px 横はみ出しなし (scrollWidth=320)
+PASS index 320px 見出し4本すべて1行
+PASS index 320px 丸ゴシック不使用
+PASS index 320px ヘッダー1行 48px
+PASS index 390px 横はみ出しなし (scrollWidth=390)
+PASS index 390px 見出し4本すべて1行
+PASS index 390px 丸ゴシック不使用
+PASS index 390px ヘッダー1行 48px
+PASS index いま70作品（data.json 70件・カード70枚）
+PASS index 締切セクション 今日2/もうすぐ2/1週間13/まだ53
+PASS index 実データ：sample=false・updated=2026-11-20・全70枚が実URLへリンク
+PASS index 全カードに無料範囲の表記（null/undefined なし）
+PASS index 全巻無料ピックアップ 0件（今日は該当なし→非表示）
+PASS index 手動追加 ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク
+PASS index 表記：試作サンプル表記なし・対応媒体と未対応媒体を明記
+PASS index ヘッダーロゴ画像 mark.png
+PASS index favicon/og:image/og:url
+PASS index 出版社Web → 8件
+PASS index 出版社Web AND 3巻以上 → 3件（期待3）
+PASS index 3巻以上を再クリックで解除 → 8件
+PASS index ebookjapan AND 全巻無料 → 0件
+PASS index 掲載0件のストアのチップは出さない
+PASS index すべて・解除で元の70件に戻る
+PASS v1 320px 横はみ出しなし (scrollWidth=320)
+PASS v1 320px 見出し4本すべて1行
+PASS v1 320px 丸ゴシック不使用
+PASS v1 390px 横はみ出しなし (scrollWidth=390)
+PASS v1 390px 見出し4本すべて1行
+PASS v1 390px 丸ゴシック不使用
+PASS v1 いま70作品（data.json 70件・カード70枚）
+PASS v1 締切セクション 今日2/もうすぐ2/1週間13/まだ53
+PASS v1 実データ：sample=false・updated=2026-11-20・全70枚が実URLへリンク
+PASS v1 全カードに無料範囲の表記（null/undefined なし）
+PASS v1 全巻無料ピックアップ 0件（今日は該当なし→非表示）
+PASS v1 手動追加 ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク
+PASS v1 表記：試作サンプル表記なし・対応媒体と未対応媒体を明記
+PASS v1 ヘッダーロゴ画像 logo.png
+PASS v1 favicon/og:image/og:url
+PASS v1 出版社Web → 8件
+PASS v1 出版社Web AND 3巻以上 → 3件（期待3）
+PASS v1 3巻以上を再クリックで解除 → 8件
+PASS v1 ebookjapan AND 全巻無料 → 0件
+PASS v1 掲載0件のストアのチップは出さない
+PASS v1 すべて・解除で元の70件に戻る
+PASS v2 320px 横はみ出しなし (scrollWidth=320)
+PASS v2 320px 見出し4本すべて1行
+PASS v2 320px 丸ゴシック不使用
+PASS v2 390px 横はみ出しなし (scrollWidth=390)
+PASS v2 390px 見出し4本すべて1行
+PASS v2 390px 丸ゴシック不使用
+PASS v2 いま70作品（data.json 70件・カード70枚）
+PASS v2 締切セクション 今日2/もうすぐ2/1週間13/まだ53
+PASS v2 実データ：sample=false・updated=2026-11-20・全70枚が実URLへリンク
+PASS v2 全カードに無料範囲の表記（null/undefined なし）
+PASS v2 全巻無料ピックアップ 0件（今日は該当なし→非表示）
+PASS v2 手動追加 ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク
+PASS v2 表記：試作サンプル表記なし・対応媒体と未対応媒体を明記
+PASS v2 ヘッダーロゴ画像 mark.png
+PASS v2 favicon/og:image/og:url
+PASS v2 出版社Web → 8件
+PASS v2 出版社Web AND 3巻以上 → 3件（期待3）
+PASS v2 3巻以上を再クリックで解除 → 8件
+PASS v2 ebookjapan AND 全巻無料 → 0件
+PASS v2 掲載0件のストアのチップは出さない
+PASS v2 すべて・解除で元の70件に戻る
+PASS v3 320px 横はみ出しなし (scrollWidth=320)
+PASS v3 320px 見出し4本すべて1行
+PASS v3 320px 丸ゴシック不使用
+PASS v3 320px ヘッダー1行 48px
+PASS v3 390px 横はみ出しなし (scrollWidth=390)
+PASS v3 390px 見出し4本すべて1行
+PASS v3 390px 丸ゴシック不使用
+PASS v3 390px ヘッダー1行 48px
+PASS v3 いま70作品（data.json 70件・カード70枚）
+PASS v3 締切セクション 今日2/もうすぐ2/1週間13/まだ53
+PASS v3 実データ：sample=false・updated=2026-11-20・全70枚が実URLへリンク
+PASS v3 全カードに無料範囲の表記（null/undefined なし）
+PASS v3 全巻無料ピックアップ 0件（今日は該当なし→非表示）
+PASS v3 手動追加 ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク
+PASS v3 表記：試作サンプル表記なし・対応媒体と未対応媒体を明記
+PASS v3 ヘッダーロゴ画像 mark.png
+PASS v3 favicon/og:image/og:url
+PASS v3 出版社Web → 8件
+PASS v3 出版社Web AND 3巻以上 → 3件（期待3）
+PASS v3 3巻以上を再クリックで解除 → 8件
+PASS v3 ebookjapan AND 全巻無料 → 0件
+PASS v3 掲載0件のストアのチップは出さない
+PASS v3 すべて・解除で元の70件に戻る
+PASS v4 320px 横はみ出しなし (scrollWidth=320)
+PASS v4 320px 見出し4本すべて1行
+PASS v4 320px 丸ゴシック不使用
+PASS v4 390px 横はみ出しなし (scrollWidth=390)
+PASS v4 390px 見出し4本すべて1行
+PASS v4 390px 丸ゴシック不使用
+PASS v4 いま70作品（data.json 70件・カード70枚）
+PASS v4 締切セクション 今日2/もうすぐ2/1週間13/まだ53
+PASS v4 実データ：sample=false・updated=2026-11-20・全70枚が実URLへリンク
+PASS v4 全カードに無料範囲の表記（null/undefined なし）
+PASS v4 全巻無料ピックアップ 0件（今日は該当なし→非表示）
+PASS v4 手動追加 ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク
+PASS v4 表記：試作サンプル表記なし・対応媒体と未対応媒体を明記
+PASS v4 ヘッダーロゴ画像 logo.png
+PASS v4 favicon/og:image/og:url
+PASS v4 出版社Web → 8件
+PASS v4 出版社Web AND 3巻以上 → 3件（期待3）
+PASS v4 3巻以上を再クリックで解除 → 8件
+PASS v4 ebookjapan AND 全巻無料 → 0件
+PASS v4 掲載0件のストアのチップは出さない
+PASS v4 すべて・解除で元の70件に戻る
+PASS v5 320px 横はみ出しなし (scrollWidth=320)
+PASS v5 320px 見出し4本すべて1行
+PASS v5 320px 丸ゴシック不使用
+PASS v5 390px 横はみ出しなし (scrollWidth=390)
+PASS v5 390px 見出し4本すべて1行
+PASS v5 390px 丸ゴシック不使用
+PASS v5 いま70作品（data.json 70件・カード70枚）
+PASS v5 締切セクション 今日2/もうすぐ2/1週間13/まだ53
+PASS v5 実データ：sample=false・updated=2026-11-20・全70枚が実URLへリンク
+PASS v5 全カードに無料範囲の表記（null/undefined なし）
+PASS v5 全巻無料ピックアップ 0件（今日は該当なし→非表示）
+PASS v5 手動追加 ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク
+PASS v5 表記：試作サンプル表記なし・対応媒体と未対応媒体を明記
+PASS v5 ヘッダーロゴ画像 logo.png
+PASS v5 favicon/og:image/og:url
+PASS v5 出版社Web → 8件
+PASS v5 出版社Web AND 3巻以上 → 3件（期待3）
+PASS v5 3巻以上を再クリックで解除 → 8件
+PASS v5 ebookjapan AND 全巻無料 → 0件
+PASS v5 掲載0件のストアのチップは出さない
+PASS v5 すべて・解除で元の70件に戻る
+PASS board.html から v1〜v5 へのリンク

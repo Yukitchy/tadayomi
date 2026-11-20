@@ -6,7 +6,7 @@ HEAD='''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{name}｜いま無料で読める漫画を、終了が近い順に</title>
-<meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめる試作版（{v}：{feat}）。">
+<meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめて毎朝更新（{v}：{feat}）。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{name}｜いま無料の漫画を、終了が近い順に">
 <meta property="og:description" content="電子書店と出版社Webの無料キャンペーンを横断。全巻無料をいちばん上に。">
@@ -20,7 +20,7 @@ HEAD='''<!doctype html>
 </head>
 <body class="{v}">
 '''
-NOTE='<span class="note">試作版：掲載データはサンプルです</span>'
+NOTE='<span class="note">対応媒体のみ掲載・毎朝更新</span>'
 FILTERS='<div class="filters"><div class="row" id="storeRow" aria-label="ストアで絞り込む"></div><div class="row vol" id="volRow" aria-label="無料巻数で絞り込む"></div></div>'
 TAIL='''<main id="sections"></main>
 <p id="empty">この条件で無料の作品はいまありません。</p>
@@ -30,7 +30,7 @@ TAIL='''<main id="sections"></main>
 </body>
 </html>
 '''
-FOOT='<footer>タダヨミ 試作版{ver} ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>'
+FOOT='<footer>タダヨミ{ver} ／ <span id="srcList">各媒体の公式ページから毎朝自動収集。</span>無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>'
 
 V={}
 # ---------- v1 縦リスト（模倣元に忠実・基準案）
@@ -219,7 +219,7 @@ footer{margin-top:72px;padding:24px 0 56px;font-size:12px;color:var(--sub)}
 <header><img src="assets/logo.png" alt="タダヨミ" width="51" height="44"><p class="hl"><span class="nb">いま無料の漫画を、</span><span class="nb"><em>終了が近い順</em>に。</span></p><p class="lead">いま<strong id="count">–</strong>作品が無料</p>{note}</header>
 <section id="pick"><h2>全巻無料</h2><div class="strip" id="pickList"></div></section>
 {filters}''',end='</div>',js='''window.T={
-card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="64" height="90"><div class="b"><p class="t">${esc(it.title)}</p><p class="meta"><b>${leftText(it)}</b>　${esc(it.store)}${it.category==="publisher"?"（出版社）":""}　${it.freeEpisodes?it.freeEpisodes+"話分無料":it.allFree?"全"+it.totalVolumes+"巻無料":it.freeVolumes+"/"+it.totalVolumes+"巻無料"}${it.completed?"　完結":""}</p></div></li>`,
+card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="64" height="90"><div class="b"><p class="t">${esc(it.title)}</p><p class="meta"><b>${leftText(it)}</b>　${esc(it.store)}${it.category==="publisher"?"（出版社）":""}　${freeText(it)}${it.completed?"　完結":""}</p></div></li>`,
 pick:it=>`<a class="pk" href="${esc(it.url)}"><img src="${esc(it.cover)}" alt="" loading="lazy" width="132" height="186"><p class="t">${esc(it.title)}</p><div class="chips">${volChip(it)}</div></a>`};''')
 
 # 5案の見比べボード（旧トップ）。shots/v*.jpg は手で撮り直す
@@ -263,7 +263,7 @@ footer{padding:8px 0 48px;font-size:12px;color:var(--sub)}
 </head>
 <body>
 <div class="wrap">
-<header><img src="assets/logo.png" alt="タダヨミ" width="83" height="72"><div><h1>5案の見比べ</h1><p class="lead">同じデータ・同じ絞り込みで、見た目だけ5通り。</p><span class="note">試作版：掲載データはサンプルです</span></div></header>
+<header><img src="assets/logo.png" alt="タダヨミ" width="83" height="72"><div><h1>5案の見比べ</h1><p class="lead">同じデータ・同じ絞り込みで、見た目だけ5通り。</p><span class="note">データは本番と共通</span></div></header>
 <ul class="grid">
 <li class="v"><a href="v1.html"><div class="sh"><img src="shots/v1.jpg" alt="v1のスマホ表示" width="390" height="844"></div><h2><span>v1</span>縦リスト型</h2><p>模倣元に忠実な縦リスト。表紙小・あらすじとタグまで見せる基準案</p><span class="go">開く →</span></a></li>
 <li class="v"><a href="v2.html"><div class="sh"><img src="shots/v2.jpg" alt="v2のスマホ表示" width="390" height="844"></div><h2><span>v2</span>表紙グリッド型</h2><p>表紙を大きく2列グリッドで。ティールの帯に全巻無料を白カードで並べる</p><span class="go">開く →</span></a></li>
@@ -276,7 +276,7 @@ footer{padding:8px 0 48px;font-size:12px;color:var(--sub)}
 <li>締切セクション：今日で終了・もうすぐ終了（1〜3日）・1週間以内（4〜7日）・まだ間に合う（8日以上）を終了日から自動振り分け</li>
 <li>データは data.json に分離。配色はティール＋黄＋白、ロゴはフラット案1</li>
 </ul></div>
-<footer>タダヨミ 試作 第2段階 ／ 表紙画像：AniList</footer>
+<footer>タダヨミ デザイン5案の見比べ</footer>
 </div>
 </body>
 </html>

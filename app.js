@@ -15,8 +15,9 @@ const today=Date.parse(todayStr);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const md=end=>{const[,m,d]=end.split("-");return `${+m}/${+d}`};
 const badge=it=>`<span class="badge${it.category==="publisher"?" pub":""}">${esc(it.store)}</span>`;
-// freeEpisodes があれば話単位の無料（例：傑作エピソード54話分）
-const volChip=it=>it.freeEpisodes?`<span class="vol">${it.freeEpisodes}話分無料</span>`:it.allFree?`<span class="vol all">全${it.totalVolumes}巻無料</span>`:`<span class="vol">${it.freeVolumes}/${it.totalVolumes}巻無料</span>`;
+// freeLabel（媒体の告知そのまま）> freeEpisodes（話単位）> 全巻 > 巻数。totalVolumes 不明なら「N巻無料」
+const freeText=it=>it.freeLabel||(it.freeEpisodes?it.freeEpisodes+"話分無料":it.allFree?(it.totalVolumes?"全"+it.totalVolumes+"巻":"全巻")+"無料":it.freeVolumes+(it.totalVolumes?"/"+it.totalVolumes:"")+"巻無料");
+const volChip=it=>`<span class="vol${it.allFree?" all":""}">${esc(freeText(it))}</span>`;
 const leftText=it=>(it.days===0?"今日まで":"あと"+it.days+"日")+`（${md(it.endDate)}）`;
 const leftChip=it=>`<span class="left${it.days<=3?" hot":""}">${leftText(it)}</span>`;
 const doneChip=it=>it.completed?'<span class="done">完結</span>':"";
@@ -56,11 +57,13 @@ function chips(rowId,key,defs,toggle){
 // 実リンクのある項目だけカード全体をリンクにする（サンプルの url:"#" は今までどおり）
 const card0=T.card;
 T.card=it=>it.url&&it.url!=="#"?card0(it).replace('<li class="card">',`<li class="card linked"><a class="cardlink" href="${esc(it.url)}" target="_blank" rel="noopener" aria-label="${esc(it.title)}を読む"></a>`):card0(it);
-chips("storeRow","store",STORES,false);
 chips("volRow","vol",VOLS,true);
 fetch("data.json").then(r=>r.json()).then(d=>{
   items=d.items.map(i=>({...i,days:Math.round((Date.parse(i.endDate)-today)/DAY)})).filter(i=>i.days>=0)
-    .sort((a,b)=>a.days-b.days||a.title.localeCompare(b.title,"ja"));
+    .sort((a,b)=>b.allFree-a.allFree||a.days-b.days||a.title.localeCompare(b.title,"ja"));
+  // ストアのチップは掲載のある媒体だけ出す（出版社Webは publisher が1件でもあれば）
+  chips("storeRow","store",STORES.filter(([v])=>!v||(v==="@publisher"?items.some(i=>i.category==="publisher"):items.some(i=>i.store===v))),false);
+  if(d.sources&&$("srcList"))$("srcList").textContent=`${d.updated}更新。掲載は${d.sources.join("・")}の公式ページから毎朝自動収集した分のみ（Kindle・BOOK☆WALKER・シーモア・LINEマンガ等は未対応）。`;
   $("count").textContent=items.length;
   render();
 });
