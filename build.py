@@ -219,7 +219,7 @@ footer{margin-top:72px;padding:24px 0 56px;font-size:12px;color:var(--sub)}
 <header><img src="assets/logo.png" alt="タダヨミ" width="51" height="44"><p class="hl"><span class="nb">いま無料の漫画を、</span><span class="nb"><em>終了が近い順</em>に。</span></p><p class="lead">いま<strong id="count">–</strong>作品が無料</p>{note}</header>
 <section id="pick"><h2>全巻無料</h2><div class="strip" id="pickList"></div></section>
 {filters}''',end='</div>',js='''window.T={
-card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="64" height="90"><div class="b"><p class="t">${esc(it.title)}</p><p class="meta"><b>${leftText(it)}</b>　${esc(it.store)}${it.category==="publisher"?"（出版社）":""}　${it.allFree?"全"+it.totalVolumes+"巻無料":it.freeVolumes+"/"+it.totalVolumes+"巻無料"}${it.completed?"　完結":""}</p></div></li>`,
+card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="64" height="90"><div class="b"><p class="t">${esc(it.title)}</p><p class="meta"><b>${leftText(it)}</b>　${esc(it.store)}${it.category==="publisher"?"（出版社）":""}　${it.freeEpisodes?it.freeEpisodes+"話分無料":it.allFree?"全"+it.totalVolumes+"巻無料":it.freeVolumes+"/"+it.totalVolumes+"巻無料"}${it.completed?"　完結":""}</p></div></li>`,
 pick:it=>`<a class="pk" href="${esc(it.url)}"><img src="${esc(it.cover)}" alt="" loading="lazy" width="132" height="186"><p class="t">${esc(it.title)}</p><div class="chips">${volChip(it)}</div></a>`};''')
 
 # 5案の見比べボード（旧トップ）。shots/v*.jpg は手で撮り直す

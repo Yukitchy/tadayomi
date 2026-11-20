@@ -55,7 +55,7 @@ footer{margin-top:72px;padding:24px 0 56px;font-size:12px;color:var(--sub)}
 <footer>タダヨミ 試作版 v5 ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>
 </div>
 <script>window.T={
-card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="64" height="90"><div class="b"><p class="t">${esc(it.title)}</p><p class="meta"><b>${leftText(it)}</b>　${esc(it.store)}${it.category==="publisher"?"（出版社）":""}　${it.allFree?"全"+it.totalVolumes+"巻無料":it.freeVolumes+"/"+it.totalVolumes+"巻無料"}${it.completed?"　完結":""}</p></div></li>`,
+card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="64" height="90"><div class="b"><p class="t">${esc(it.title)}</p><p class="meta"><b>${leftText(it)}</b>　${esc(it.store)}${it.category==="publisher"?"（出版社）":""}　${it.freeEpisodes?it.freeEpisodes+"話分無料":it.allFree?"全"+it.totalVolumes+"巻無料":it.freeVolumes+"/"+it.totalVolumes+"巻無料"}${it.completed?"　完結":""}</p></div></li>`,
 pick:it=>`<a class="pk" href="${esc(it.url)}"><img src="${esc(it.cover)}" alt="" loading="lazy" width="132" height="186"><p class="t">${esc(it.title)}</p><div class="chips">${volChip(it)}</div></a>`};</script>
 <script src="app.js"></script>
 </body>

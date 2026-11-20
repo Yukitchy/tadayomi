@@ -15,7 +15,8 @@ const today=Date.parse(todayStr);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const md=end=>{const[,m,d]=end.split("-");return `${+m}/${+d}`};
 const badge=it=>`<span class="badge${it.category==="publisher"?" pub":""}">${esc(it.store)}</span>`;
-const volChip=it=>it.allFree?`<span class="vol all">全${it.totalVolumes}巻無料</span>`:`<span class="vol">${it.freeVolumes}/${it.totalVolumes}巻無料</span>`;
+// freeEpisodes があれば話単位の無料（例：傑作エピソード54話分）
+const volChip=it=>it.freeEpisodes?`<span class="vol">${it.freeEpisodes}話分無料</span>`:it.allFree?`<span class="vol all">全${it.totalVolumes}巻無料</span>`:`<span class="vol">${it.freeVolumes}/${it.totalVolumes}巻無料</span>`;
 const leftText=it=>(it.days===0?"今日まで":"あと"+it.days+"日")+`（${md(it.endDate)}）`;
 const leftChip=it=>`<span class="left${it.days<=3?" hot":""}">${leftText(it)}</span>`;
 const doneChip=it=>it.completed?'<span class="done">完結</span>':"";
