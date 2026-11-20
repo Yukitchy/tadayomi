@@ -1,0 +1,32 @@
+<!doctype html><meta charset="utf-8"><title>selftest</title><body><pre id="out">running</pre>
+<script>
+// 自己検査：320/390幅のはみ出し・見出し1行・セクション振り分け・絞り込みANDを確認（?today=2026-11-20 固定）
+const out=[],ok=(c,m)=>out.push((c?"PASS ":"FAIL ")+m);
+const load=w=>new Promise(r=>{const f=document.createElement("iframe");f.style.cssText=`width:${w}px;height:800px;border:0`;f.src="index.html?today=2026-11-20";f.onload=()=>setTimeout(()=>r(f.contentWindow),1500);document.body.append(f)});
+const click=(d,sel)=>d.querySelector(sel).click();
+const n=d=>d.querySelectorAll("#sections .card").length;
+(async()=>{
+  for(const w of [320,390]){
+    const win=await load(w),d=win.document;
+    ok(d.documentElement.scrollWidth<=w,`${w}px 横はみ出しなし (scrollWidth=${d.documentElement.scrollWidth})`);
+    const h=[...d.querySelectorAll("h2")];
+    ok(h.every(x=>x.scrollWidth<=x.clientWidth&&x.getBoundingClientRect().height<34),`${w}px 見出し${h.length}本すべて1行`);
+    if(w!==390)continue;
+    const sec=id=>d.querySelectorAll(`#${id} .card`).length;
+    ok(["today","soon","week","later"].every(id=>sec(id)>=2),`締切セクション件数 今日${sec("today")}/もうすぐ${sec("soon")}/1週間${sec("week")}/まだ${sec("later")}`);
+    ok(d.querySelector("#count").textContent==="22",`いま${d.querySelector("#count").textContent}作品`);
+    ok(d.querySelectorAll("#pickList .pk").length>=4,`全巻無料ピックアップ ${d.querySelectorAll("#pickList .pk").length}件`);
+    const all=n(d);
+    click(d,'[data-store="@publisher"]');const pub=n(d);
+    ok(pub===4&&[...d.querySelectorAll("#sections .badge")].every(b=>b.classList.contains("pub")),`出版社Web → ${pub}件・全てpubバッジ`);
+    click(d,'[data-vol="all"]');ok(n(d)===1,`出版社Web AND 全巻無料 → ${n(d)}件`);
+    click(d,'[data-vol="all"]');ok(n(d)===4,`全巻無料を再クリックで解除 → ${n(d)}件`);
+    click(d,'[data-store="Kindle"]');click(d,'[data-vol="5"]');ok(n(d)===2,`Kindle AND 5巻以上 → ${n(d)}件`);
+    click(d,'[data-store="ピッコマ"]');click(d,'[data-vol="all"]');ok(d.querySelector("#empty").style.display==="block",`ピッコマ AND 全巻無料 → 0件で空表示`);
+    click(d,'[data-store=""]');click(d,'[data-vol="all"]');ok(n(d)===all,`すべて・解除で元の${all}件に戻る`);
+    // 各セクション内が終了日の昇順
+    ok([...d.querySelectorAll("#sections section")].every(s=>{const t=[...s.querySelectorAll(".left")].map(x=>x.textContent.match(/（(\d+)\/(\d+)）/)).map(m=>+m[1]*100+ +m[2]);return t.every((v,i)=>!i||t[i-1]<=v)}),"セクション内は終了が近い順");
+  }
+  document.getElementById("out").textContent=out.join("\n");
+})();
+</script>
