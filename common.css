@@ -1,0 +1,27 @@
+/* 全案共通：パレット（ティール＋黄＋白）・リセット・チップ・バッジ */
+:root{--teal:#0097a0;--teal-d:#00737a;--teal-l:#e6f5f6;--yel:#f2cb4d;--yel-l:#fdf6dc;--ink:#16181d;--sub:#5b6570;--line:#e3e8ea;--bg:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-text-size-adjust:100%}
+img{display:block}
+a{color:inherit}
+.nb{display:inline-block}
+.note{display:inline-block;font-size:12px;color:var(--sub);border:1px solid var(--line);border-radius:4px;padding:1px 8px;background:#fff}
+h2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.row::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.row.vol .chip[aria-pressed=true]{background:var(--yel);color:var(--ink);border-color:var(--yel)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.badge,.vol,.left,.done{font-size:12px;font-weight:700;border-radius:3px;padding:1px 6px;white-space:nowrap;line-height:1.5}
+.badge{background:var(--teal-l);color:var(--teal-d)}
+.badge.pub{background:#fff;color:var(--teal-d);border:1px solid var(--teal)}
+.badge.pub::before{content:"出版社 ";font-weight:600}
+.vol{background:#fff;border:1px solid var(--line)}
+.vol.all{background:var(--yel);border-color:var(--yel)}
+.left{border:1px solid var(--line);color:var(--sub)}
+.left.hot{border-color:var(--teal);color:var(--teal-d)}
+.done{border:1px solid var(--ink)}
+.tag{font-size:12px;color:var(--sub)}
+.tag::before{content:"#"}
+#empty{display:none;padding:40px 0;text-align:center;color:var(--sub);font-size:14px}

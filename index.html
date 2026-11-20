@@ -3,184 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>タダヨミ｜いま無料で読める漫画を、終了が近い順に</title>
-<meta name="description" content="Kindle・BOOK☆WALKER・ebookjapan・シーモア・ピッコマ・LINEマンガ・ジャンプ＋・出版社Webの無料漫画を、全巻無料と終了が近い順でまとめる試作版。">
+<title>タダヨミ 試作｜5案の見比べ</title>
+<meta name="description" content="無料漫画まとめ「タダヨミ」試作版。タッチの異なる5案を見比べるボード。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="タダヨミ｜いま無料で読める漫画を、終了が近い順に">
-<meta property="og:description" content="電子書店と出版社Webの無料キャンペーンを横断。全巻無料をいちばん上に。">
+<meta property="og:title" content="タダヨミ 試作｜5案の見比べ">
+<meta property="og:description" content="電子書店と出版社Webの無料漫画を、終了が近い順に。デザイン5案を並べて比べる。">
 <meta property="og:url" content="https://yukitchy.github.io/tadayomi/">
 <meta property="og:image" content="https://yukitchy.github.io/tadayomi/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="common.css">
 <style>
-:root{--ink:#16181d;--sub:#5d6470;--line:#e6e8ec;--bg:#fff;--soft:#f6f7f9;--red:#d7263d;--pad:16px}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-text-size-adjust:100%}
-.wrap{max-width:720px;margin:0 auto;padding:0 var(--pad)}
-header{border-bottom:1px solid var(--line);padding:18px 0 14px}
-.logo{font-size:26px;font-weight:800;letter-spacing:.04em}
-.logo b{color:var(--red)}
-.lead{font-size:13px;color:var(--sub);margin-top:4px}
-.nb{display:inline-block}
-.lead strong{color:var(--ink);font-size:15px}
-.note{display:inline-block;margin-top:10px;font-size:12px;color:var(--sub);background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:2px 8px}
-h2{font-size:18px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:baseline;gap:8px}
-h2 small{font-size:12px;font-weight:600;color:var(--sub)}
-section{padding:22px 0 6px}
-/* 全巻無料ピックアップ */
-#pick{background:#fff5f6;border-bottom:1px solid #f5d3d8;margin:0 calc(var(--pad)*-1);padding:20px var(--pad) 18px}
-#pick h2{color:var(--red)}
-.strip{display:flex;gap:12px;overflow-x:auto;padding:12px 0 4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.pk{flex:0 0 128px;scroll-snap-align:start;text-decoration:none;color:inherit}
-.pk img{width:128px;height:182px;object-fit:cover;border-radius:4px;background:var(--line);display:block}
-.pk .t{font-size:13px;font-weight:700;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pk .chips{margin-top:4px}
-/* フィルタ */
-.filters{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;margin:0 calc(var(--pad)*-1)}
-.row{display:flex;gap:6px;overflow-x:auto;padding:0 var(--pad);scrollbar-width:none}
-.row::-webkit-scrollbar{display:none}
-.row+.row{margin-top:8px}
-.chip{flex:0 0 auto;font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap}
-.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.row.vol .chip[aria-pressed=true]{background:var(--red);border-color:var(--red)}
-/* カード */
-.list{list-style:none;margin-top:10px}
-.card{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
-.card:first-child{border-top:0}
-.card img{flex:0 0 76px;width:76px;height:108px;object-fit:cover;border-radius:4px;background:var(--line)}
-.card .b{min-width:0;flex:1}
-.card .t{font-size:15px;font-weight:800;line-height:1.35;overflow-wrap:anywhere}
-.card .a{font-size:12px;color:var(--sub)}
-.card .c{font-size:13px;margin-top:4px}
-.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.tag{font-size:12px;color:var(--sub)}
-.tag::before{content:"#"}
-.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.badge,.vol,.left,.done{font-size:12px;font-weight:700;border-radius:3px;padding:1px 6px;white-space:nowrap}
-.vol{background:var(--soft);border:1px solid var(--line)}
-.vol.all{background:var(--red);color:#fff;border-color:var(--red)}
-.left{background:#fff;border:1px solid var(--line);color:var(--sub)}
-.left.hot{border-color:var(--red);color:var(--red)}
-.done{background:#fff;border:1px solid var(--ink)}
-/* ストア色（電子書店=塗り／出版社Web=白地に枠） */
-.badge{color:#fff;background:#555}
-.s-Kindle{background:#8a4b00}.s-BOOK☆WALKER{background:#1e40af}.s-ebookjapan{background:#b91c1c}
-.s-コミックシーモア{background:#7e22ce}.s-ピッコマ{background:#f2c200;color:#1a1a1a}.s-LINEマンガ{background:#15803d}.s-少年ジャンプ＋{background:#0f766e}
-.badge.pub{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
-.badge.pub::before{content:"出版社 ";font-weight:600;color:var(--sub)}
-#empty{display:none;padding:40px 0;text-align:center;color:var(--sub);font-size:14px}
-footer{margin-top:28px;padding:20px 0 40px;border-top:1px solid var(--line);font-size:12px;color:var(--sub)}
+body{background:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;gap:16px;padding:28px 0 20px}
+header img{height:72px;width:auto}
+h1{font-size:22px;font-weight:800;white-space:nowrap}
+.lead{font-size:13px;color:var(--sub);margin:4px 0 6px}
+.grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px 20px;padding:8px 0 24px}
+.v,.v a{display:flex;flex-direction:column;height:100%}.v a{text-decoration:none}
+.v .sh{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line),0 8px 20px rgba(0,60,64,.08);aspect-ratio:390/600}
+.v .sh img{width:100%;height:auto}
+.v a:hover .sh{box-shadow:0 0 0 2px var(--teal),0 8px 20px rgba(0,60,64,.12)}
+.v h2{font-size:16px;font-weight:800;margin-top:12px;display:flex;align-items:baseline;gap:8px}
+.v h2 span{font-size:12px;font-weight:800;color:var(--teal-d);background:var(--teal-l);border-radius:3px;padding:0 6px}
+.v p{font-size:13px;color:var(--sub);margin-top:2px}
+.v .go{margin-top:auto;padding-top:8px;font-size:13px;font-weight:700;color:var(--teal-d)}
+.spec{background:var(--teal-l);border-radius:12px;padding:18px 20px;margin-bottom:24px;font-size:13px;color:var(--sub)}
+.spec h3{font-size:14px;color:var(--ink);margin-bottom:6px}
+.spec ul{padding-left:1.2em}
+footer{padding:8px 0 48px;font-size:12px;color:var(--sub)}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header>
-  <div class="logo">タダ<b>ヨミ</b></div>
-  <p class="lead"><span class="nb">無料終了が近い順に毎日更新。</span><span class="nb">いま<strong id="count">–</strong>作品が無料</span></p>
-  <span class="note">試作版：掲載データはサンプルです</span>
-</header>
-
-<section id="pick">
-  <h2>全巻無料ピックアップ<small>最後まで読める</small></h2>
-  <div class="strip" id="pickList"></div>
-</section>
-
-<div class="filters">
-  <div class="row" id="storeRow" aria-label="ストアで絞り込む">
-    <button class="chip" data-store="" aria-pressed="true">すべて</button>
-    <button class="chip" data-store="Kindle" aria-pressed="false">Kindle</button>
-    <button class="chip" data-store="BOOK☆WALKER" aria-pressed="false">BOOK☆WALKER</button>
-    <button class="chip" data-store="ebookjapan" aria-pressed="false">ebookjapan</button>
-    <button class="chip" data-store="コミックシーモア" aria-pressed="false">シーモア</button>
-    <button class="chip" data-store="ピッコマ" aria-pressed="false">ピッコマ</button>
-    <button class="chip" data-store="LINEマンガ" aria-pressed="false">LINEマンガ</button>
-    <button class="chip" data-store="少年ジャンプ＋" aria-pressed="false">ジャンプ＋</button>
-    <button class="chip" data-store="@publisher" aria-pressed="false">出版社Web</button>
-  </div>
-  <div class="row vol" id="volRow" aria-label="無料巻数で絞り込む">
-    <button class="chip" data-vol="all" aria-pressed="false">全巻無料</button>
-    <button class="chip" data-vol="5" aria-pressed="false">5巻以上無料</button>
-    <button class="chip" data-vol="3" aria-pressed="false">3巻以上無料</button>
-  </div>
+<header><img src="assets/logo.png" alt="タダヨミ" width="83" height="72"><div><h1>5案の見比べ</h1><p class="lead">同じデータ・同じ絞り込みで、見た目だけ5通り。</p><span class="note">試作版：掲載データはサンプルです</span></div></header>
+<ul class="grid">
+<li class="v"><a href="v1.html"><div class="sh"><img src="shots/v1.jpg" alt="v1のスマホ表示" width="390" height="844"></div><h2><span>v1</span>縦リスト型</h2><p>模倣元に忠実な縦リスト。表紙小・あらすじとタグまで見せる基準案</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v2.html"><div class="sh"><img src="shots/v2.jpg" alt="v2のスマホ表示" width="390" height="844"></div><h2><span>v2</span>表紙グリッド型</h2><p>表紙を大きく2列グリッドで。ティールの帯に全巻無料を白カードで並べる</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v3.html"><div class="sh"><img src="shots/v3.jpg" alt="v3のスマホ表示" width="390" height="844"></div><h2><span>v3</span>コンパクト型</h2><p>48pxの薄いヘッダーと1行タイトル。1画面に約10作品を詰める情報密度優先</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v4.html"><div class="sh"><img src="shots/v4.jpg" alt="v4のスマホ表示" width="390" height="844"></div><h2><span>v4</span>雑誌・特集型</h2><p>「全巻、最後まで無料。」を明朝の特集見出しに。1作目を大きく扱う誌面風</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v5.html"><div class="sh"><img src="shots/v5.jpg" alt="v5のスマホ表示" width="390" height="844"></div><h2><span>v5</span>ミニマル型</h2><p>余白を広く取り、見出しの文字を大きく。チップの枠を外し、情報は1行の文字で並べる</p><span class="go">開く →</span></a></li>
+</ul>
+<div class="spec"><h3>5案共通</h3><ul>
+<li>全巻無料ピックアップを最上段／ストア＋出版社Web・無料巻数のチップで絞り込み（AND）</li>
+<li>締切セクション：今日で終了・もうすぐ終了（1〜3日）・1週間以内（4〜7日）・まだ間に合う（8日以上）を終了日から自動振り分け</li>
+<li>データは data.json に分離。配色はティール＋黄＋白、ロゴはフラット案1</li>
+</ul></div>
+<footer>タダヨミ 試作 第2段階 ／ 表紙画像：AniList</footer>
 </div>
-
-<main id="sections"></main>
-<p id="empty">この条件で無料の作品はいまありません。</p>
-
-<footer>タダヨミ 試作版 v1 ／ 掲載データはサンプルです。無料期間・巻数は各ストア・各媒体でご確認ください。表紙画像：AniList</footer>
-</div>
-
-<script>
-const SECTIONS=[
-  {id:"today",name:"今日で終了",sub:"今日まで",min:0,max:0},
-  {id:"soon",name:"もうすぐ終了",sub:"あと1〜3日",min:1,max:3},
-  {id:"week",name:"1週間以内に終了",sub:"あと4〜7日",min:4,max:7},
-  {id:"later",name:"まだ間に合う",sub:"8日以上",min:8,max:Infinity}
-];
-const DAY=864e5;
-// ?today=YYYY-MM-DD で基準日を差し替え可（検証用）。既定は日本時間の今日
-const q=new URLSearchParams(location.search).get("today");
-const todayStr=q||new Date(Date.now()+9*36e5).toISOString().slice(0,10);
-const today=Date.parse(todayStr);
-const daysLeft=end=>Math.round((Date.parse(end)-today)/DAY);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const md=end=>{const[,m,d]=end.split("-");return `${+m}/${+d}`};
-
-let items=[],state={store:"",vol:""};
-
-const badge=it=>`<span class="badge ${it.category==="publisher"?"pub":"s-"+esc(it.store)}">${esc(it.store)}</span>`;
-const volChip=it=>it.allFree?`<span class="vol all">全${it.totalVolumes}巻無料</span>`:`<span class="vol">${it.freeVolumes}/${it.totalVolumes}巻が無料</span>`;
-const leftChip=it=>`<span class="left${it.days<=3?" hot":""}">${it.days===0?"今日まで":"あと"+it.days+"日"}（${md(it.endDate)}）</span>`;
-
-function card(it){
-  return `<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="76" height="108">
-  <div class="b">
-    <div class="chips" style="margin-top:0">${badge(it)}${it.completed?'<span class="done">完結</span>':""}</div>
-    <p class="t">${esc(it.title)}</p><p class="a">${esc(it.author)}</p>
-    <p class="c">${esc(it.catch)}</p>
-    <div class="chips">${volChip(it)}${leftChip(it)}</div>
-    <div class="tags">${it.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
-  </div></li>`;
-}
-function pick(it){
-  return `<a class="pk" href="${esc(it.url)}"><img src="${esc(it.cover)}" alt="" loading="lazy" width="128" height="182">
-  <p class="t">${esc(it.title)}</p><div class="chips">${volChip(it)}</div><div class="chips">${badge(it)}${leftChip(it)}</div></a>`;
-}
-function match(it){
-  const s=state.store;
-  if(s==="@publisher"?it.category!=="publisher":s&&it.store!==s)return false;
-  if(state.vol==="all")return it.allFree;
-  if(state.vol)return it.freeVolumes>=+state.vol;
-  return true;
-}
-function render(){
-  const list=items.filter(match);
-  const p=list.filter(i=>i.allFree);
-  document.getElementById("pick").hidden=!p.length;
-  document.getElementById("pickList").innerHTML=p.map(pick).join("");
-  document.getElementById("sections").innerHTML=SECTIONS.map(sec=>{
-    const xs=list.filter(i=>i.days>=sec.min&&i.days<=sec.max);
-    return xs.length?`<section id="${sec.id}"><h2>${sec.name}<small>${sec.sub}・${xs.length}作品</small></h2><ul class="list">${xs.map(card).join("")}</ul></section>`:"";
-  }).join("");
-  document.getElementById("empty").style.display=list.length?"none":"block";
-}
-function bind(rowId,key,toggle){
-  document.getElementById(rowId).addEventListener("click",e=>{
-    const b=e.target.closest(".chip");if(!b)return;
-    const v=b.dataset[key];
-    state[key]=toggle&&state[key]===v?"":v;
-    for(const c of e.currentTarget.children)c.setAttribute("aria-pressed",c.dataset[key]===state[key]&&(state[key]!==""||!toggle));
-    render();
-  });
-}
-bind("storeRow","store",false);
-bind("volRow","vol",true);
-fetch("data.json").then(r=>r.json()).then(d=>{
-  items=d.items.map(i=>({...i,days:daysLeft(i.endDate)})).filter(i=>i.days>=0)
-    .sort((a,b)=>a.days-b.days||a.title.localeCompare(b.title,"ja"));
-  document.getElementById("count").textContent=items.length;
-  render();
-});
-</script>
 </body>
 </html>
