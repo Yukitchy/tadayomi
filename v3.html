@@ -18,8 +18,10 @@
 .wrap{max-width:760px;margin:0 auto}
 header{display:flex;align-items:center;gap:8px;height:48px;padding:0 10px;border-bottom:2px solid var(--teal)}
 header img{height:36px;width:auto}
-.lead{font-size:12px;color:var(--sub);flex:1;min-width:0;white-space:nowrap}.lead strong{color:var(--teal-d);font-size:14px}
-header .note{font-size:10px;padding:0 5px;white-space:nowrap}
+header h1{font-size:clamp(17px,5.4vw,22px);font-weight:900;color:var(--teal);letter-spacing:.02em;line-height:1;white-space:nowrap}
+.lead{margin-left:auto;font-size:clamp(11px,3.4vw,13px);font-weight:700;color:var(--ink);white-space:nowrap}
+.lead strong{color:var(--teal-d);font-size:1.45em;font-weight:900;margin:0 1px;padding:0 2px;background:linear-gradient(transparent 62%,var(--yel) 62%)}
+.proto{text-align:right;padding:4px 10px 0}.proto .note{font-size:10px;padding:0 5px}
 h2{font-size:14px;font-weight:800;display:flex;align-items:baseline;gap:6px;background:var(--teal-l);color:var(--teal-d);padding:5px 10px}
 h2 small{font-size:11px;font-weight:600;color:var(--sub)}
 #pick h2{background:var(--yel);color:var(--ink)}#pick h2 small{color:var(--ink)}
@@ -45,7 +47,8 @@ footer{padding:14px 10px 30px;font-size:11px;color:var(--sub)}
 </head>
 <body class="v3">
 <div class="wrap">
-<header><img src="assets/mark.png" alt="タダヨミ" width="67" height="36"><p class="lead">いま<strong id="count">–</strong>作品が無料</p><span class="note">試作版：掲載データはサンプルです</span></header>
+<header><img src="assets/mark.png" alt="" width="67" height="36"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p></header>
+<p class="proto"><span class="note">試作版：掲載データはサンプルです</span></p>
 <section id="pick"><h2>全巻無料<small>最後まで読める</small></h2><div class="strip" id="pickList"></div></section>
 <div class="filters"><div class="row" id="storeRow" aria-label="ストアで絞り込む"></div><div class="row vol" id="volRow" aria-label="無料巻数で絞り込む"></div></div>
 <main id="sections"></main>
