@@ -57,7 +57,7 @@ footer{margin-top:28px;padding:20px 0 40px;border-top:3px double var(--ink);font
 <div class="filters"><div class="row" id="storeRow" aria-label="ストアで絞り込む"></div><div class="row vol" id="volRow" aria-label="無料巻数で絞り込む"></div></div>
 <main id="sections"></main>
 <p id="empty">この条件で無料の作品はいまありません。</p>
-<footer>タダヨミ 試作版 v4 ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="./">5案の見比べに戻る</a></footer>
+<footer>タダヨミ 試作版 v4 ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>
 </div>
 <script>window.T={
 section:(sec,xs)=>`<section id="${sec.id}"><div class="sh"><span class="no mincho">0${SECTIONS.indexOf(sec)+1}</span><h2 class="mincho">${sec.name}</h2><small>${sec.sub}・${xs.length}作品</small></div><ul class="list">${xs.map(T.card).join("")}</ul></section>`,

@@ -1,12 +1,12 @@
 <!doctype html><meta charset="utf-8"><title>selftest</title><body><pre id="out">running</pre>
 <script>
-// 自己検査：v1〜v5 それぞれで 320/390幅のはみ出し・見出し1行・締切振り分け・絞り込みAND・ロゴ/OG/favicon を確認（?today=2026-11-20 固定）
+// 自己検査：index（=v3採用版）・v1〜v5 それぞれで 320/390幅のはみ出し・見出し1行・締切振り分け・絞り込みAND・ロゴ/OG/favicon を確認（?today=2026-11-20 固定）
 const out=[],ok=(c,m)=>out.push((c?"PASS ":"FAIL ")+m);
 const load=(v,w)=>new Promise(r=>{const f=document.createElement("iframe");f.style.cssText=`width:${w}px;height:800px;border:0`;f.src=`${v}.html?today=2026-11-20`;f.onload=()=>setTimeout(()=>r(f.contentWindow),1200);document.body.append(f)});
 const click=(d,sel)=>d.querySelector(sel).click();
 const n=d=>d.querySelectorAll("#sections .card").length;
 (async()=>{
- for(const v of ["v1","v2","v3","v4","v5"]){
+ for(const v of ["index","v1","v2","v3","v4","v5"]){
   for(const w of [320,390]){
     const win=await load(v,w),d=win.document;
     const over=[...d.querySelectorAll("body *")].filter(e=>e.getBoundingClientRect().right>w+0.5&&!e.closest(".row,.strip")).map(e=>e.className||e.tagName).slice(0,3);
@@ -15,6 +15,7 @@ const n=d=>d.querySelectorAll("#sections .card").length;
     const bad=h.filter(x=>x.scrollWidth>x.clientWidth+1||x.getClientRects().length>1||(cs=>(x.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom))/parseFloat(cs.lineHeight)>1.5)(getComputedStyle(x)));
     ok(!bad.length,`${v} ${w}px 見出し${h.length}本すべて1行${bad.length?" NG:"+bad.map(x=>x.textContent):""}`);
     ok(!/maru|rounded|丸/i.test([...d.querySelectorAll("*")].map(e=>getComputedStyle(e).fontFamily).join()),`${v} ${w}px 丸ゴシック不使用`);
+    if(v==="index"||v==="v3"){const hd=d.querySelector("header"),h1=hd.querySelector("h1");ok(hd.offsetHeight<=50&&h1&&h1.textContent==="タダヨミ"&&h1.getClientRects().length===1&&d.querySelector(".lead").getBoundingClientRect().top<hd.getBoundingClientRect().bottom,`${v} ${w}px ヘッダー1行 ${hd.offsetHeight}px`);}
     if(w!==390)continue;
     const sec=id=>d.querySelectorAll(`#${id} .card`).length;
     ok(["today","soon","week","later"].every(id=>sec(id)>=2),`${v} 締切セクション 今日${sec("today")}/もうすぐ${sec("soon")}/1週間${sec("week")}/まだ${sec("later")}`);
@@ -22,7 +23,7 @@ const n=d=>d.querySelectorAll("#sections .card").length;
     ok(d.querySelectorAll("#pickList .pk").length>=4,`${v} 全巻無料ピックアップ ${d.querySelectorAll("#pickList .pk").length}件`);
     ok(/試作版：掲載データはサンプルです/.test(d.body.textContent),`${v} 試作版の明示あり`);
     const logo=d.querySelector("header img");ok(logo&&logo.complete&&logo.naturalWidth>0&&/assets\/(logo|mark)\.png/.test(logo.src),`${v} ヘッダーロゴ画像 ${logo&&logo.src.split("/").pop()}`);
-    ok(d.querySelector('link[rel=icon]').href.endsWith("favicon-chara.png")&&d.querySelector('meta[property="og:image"]').content.endsWith("/og4.png")&&d.querySelector('meta[property="og:url"]').content.endsWith(`/${v}.html`),`${v} favicon/og:image/og:url`);
+    ok(d.querySelector('link[rel=icon]').href.endsWith("favicon-chara.png")&&d.querySelector('meta[property="og:image"]').content.endsWith("/og4.png")&&d.querySelector('meta[property="og:url"]').content.endsWith(v==="index"?"/tadayomi/":`/${v}.html`),`${v} favicon/og:image/og:url`);
     const all=n(d);
     click(d,'[data-store="@publisher"]');const pub=n(d);
     ok(pub===4&&[...d.querySelectorAll("#sections .card")].every(c=>/出版社|pub/.test(c.innerHTML)),`${v} 出版社Web → ${pub}件`);
@@ -34,6 +35,8 @@ const n=d=>d.querySelectorAll("#sections .card").length;
   }
   document.querySelectorAll("iframe").forEach(f=>f.remove());
  }
+ const b=new DOMParser().parseFromString(await (await fetch("board.html")).text(),"text/html");
+ ok(["v1","v2","v3","v4","v5"].every(v=>b.querySelector(`a[href="${v}.html"]`)),"board.html から v1〜v5 へのリンク");
  document.getElementById("out").textContent=out.join("\n");
  document.title="done";
 })();

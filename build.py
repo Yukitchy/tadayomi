@@ -1,16 +1,16 @@
-# v1〜v5.html を生成（head・共通部品は共通、見た目は案ごと）。python3 build.py
+# index.html（=v3 採用版）・v1〜v5.html・board.html（5案の見比べ）を生成。python3 build.py
 BASE="https://yukitchy.github.io/tadayomi/"
 HEAD='''<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>タダヨミ {v}｜いま無料で読める漫画を、終了が近い順に</title>
+<title>{name}｜いま無料で読める漫画を、終了が近い順に</title>
 <meta name="description" content="電子書店と出版社Webの無料漫画を、全巻無料と終了が近い順でまとめる試作版（{v}：{feat}）。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="タダヨミ {v}｜いま無料の漫画を、終了が近い順に">
+<meta property="og:title" content="{name}｜いま無料の漫画を、終了が近い順に">
 <meta property="og:description" content="電子書店と出版社Webの無料キャンペーンを横断。全巻無料をいちばん上に。">
-<meta property="og:url" content="{base}{v}.html">
+<meta property="og:url" content="{base}{path}">
 <meta property="og:image" content="{base}og4.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon-chara.png" type="image/png">
@@ -30,7 +30,7 @@ TAIL='''<main id="sections"></main>
 </body>
 </html>
 '''
-FOOT='<footer>タダヨミ 試作版 {v} ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="./">5案の見比べに戻る</a></footer>'
+FOOT='<footer>タダヨミ 試作版{ver} ／ 掲載データはサンプルです。無料期間・巻数は各ストアでご確認ください。表紙画像：AniList ／ <a href="board.html">5案の見比べ</a></footer>'
 
 V={}
 # ---------- v1 縦リスト（模倣元に忠実・基準案）
@@ -70,9 +70,12 @@ pick:it=>`<a class="pk" href="${esc(it.url)}"><img src="${esc(it.cover)}" alt=""
 # ---------- v2 表紙大きめグリッド
 V["v2"]=dict(feat="表紙大きめのカードグリッド型",css='''
 .wrap{max-width:960px;margin:0 auto;padding:0 12px}
-header{text-align:center;padding:18px 0 14px}
-header img{height:96px;width:auto;margin:0 auto}
-.lead{font-size:13px;color:var(--sub);margin:6px 0}.lead strong{color:var(--teal-d);font-size:16px}
+header{display:flex;align-items:center;gap:clamp(4px,1.6vw,10px);padding:14px 0 6px}
+header img{height:clamp(32px,10vw,52px);width:auto;flex:none}
+header h1{font-size:clamp(19px,6.4vw,28px);font-weight:900;color:var(--teal);letter-spacing:.02em;line-height:1;white-space:nowrap}
+.lead{margin-left:auto;font-size:clamp(11px,3.4vw,14px);font-weight:700;color:var(--ink);white-space:nowrap}
+.lead strong{color:var(--teal-d);font-size:1.6em;font-weight:900;margin:0 1px;padding:0 3px;background:linear-gradient(transparent 62%,var(--yel) 62%)}
+.proto{text-align:right;padding-bottom:12px}.proto .note{font-size:11px}
 h2{font-size:19px;font-weight:800;display:flex;align-items:center;gap:8px}
 h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--teal);flex:none}
 h2 small{font-size:12px;font-weight:600;color:var(--sub)}
@@ -94,7 +97,8 @@ section{padding:24px 0 4px}
 .cv{position:relative}.cv .badge{position:absolute;left:6px;top:6px;max-width:calc(100% - 12px);overflow:hidden;text-overflow:ellipsis;box-shadow:0 0 0 2px #fff}
 footer{margin-top:32px;padding:20px 0 40px;border-top:1px solid var(--line);font-size:12px;color:var(--sub)}
 ''',top='''<div class="wrap">
-<header><img src="assets/logo.png" alt="タダヨミ" width="111" height="96"><p class="lead"><span class="nb">無料終了が近い順。</span><span class="nb">いま<strong id="count">–</strong>作品が無料</span></p>{note}</header>
+<header><img src="assets/mark.png" alt="" width="403" height="215"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p></header>
+<div class="proto">{note}</div>
 <section id="pick"><h2>全巻無料ピックアップ<small>最後まで読める</small></h2><div class="strip" id="pickList"></div></section>
 {filters}''',end='</div>',js='''window.T={
 card:it=>`<li class="card"><div class="cv"><img src="${esc(it.cover)}" alt="" loading="lazy" width="140" height="196">${badge(it)}</div><p class="t">${esc(it.title)}</p><div class="chips">${volChip(it)}${doneChip(it)}</div><div class="chips">${leftChip(it)}</div></li>`,
@@ -105,8 +109,10 @@ V["v3"]=dict(feat="情報密度を上げたコンパクト型（薄いヘッダ�
 .wrap{max-width:760px;margin:0 auto}
 header{display:flex;align-items:center;gap:8px;height:48px;padding:0 10px;border-bottom:2px solid var(--teal)}
 header img{height:36px;width:auto}
-.lead{font-size:12px;color:var(--sub);flex:1;min-width:0;white-space:nowrap}.lead strong{color:var(--teal-d);font-size:14px}
-header .note{font-size:10px;padding:0 5px;white-space:nowrap}
+header h1{font-size:clamp(17px,5.4vw,22px);font-weight:900;color:var(--teal);letter-spacing:.02em;line-height:1;white-space:nowrap}
+.lead{margin-left:auto;font-size:clamp(11px,3.4vw,13px);font-weight:700;color:var(--ink);white-space:nowrap}
+.lead strong{color:var(--teal-d);font-size:1.45em;font-weight:900;margin:0 1px;padding:0 2px;background:linear-gradient(transparent 62%,var(--yel) 62%)}
+.proto{text-align:right;padding:4px 10px 0}.proto .note{font-size:10px;padding:0 5px}
 h2{font-size:14px;font-weight:800;display:flex;align-items:baseline;gap:6px;background:var(--teal-l);color:var(--teal-d);padding:5px 10px}
 h2 small{font-size:11px;font-weight:600;color:var(--sub)}
 #pick h2{background:var(--yel);color:var(--ink)}#pick h2 small{color:var(--ink)}
@@ -129,7 +135,8 @@ h2 small{font-size:11px;font-weight:600;color:var(--sub)}
 footer{padding:14px 10px 30px;font-size:11px;color:var(--sub)}
 #empty{font-size:13px}
 ''',top='''<div class="wrap">
-<header><img src="assets/mark.png" alt="タダヨミ" width="67" height="36"><p class="lead">いま<strong id="count">–</strong>作品が無料</p>{note}</header>
+<header><img src="assets/mark.png" alt="" width="67" height="36"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p></header>
+<p class="proto">{note}</p>
 <section id="pick"><h2>全巻無料<small>最後まで読める</small></h2><div class="strip" id="pickList"></div></section>
 {filters}''',end='</div>',js='''window.T={
 card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="40" height="56"><div class="b"><p class="t">${esc(it.title)}</p><p class="a">${esc(it.author)}${it.completed?"　完結":""}</p><div class="chips">${badge(it)}${volChip(it)}${leftChip(it)}</div></div></li>`,
@@ -215,10 +222,74 @@ footer{margin-top:72px;padding:24px 0 56px;font-size:12px;color:var(--sub)}
 card:it=>`<li class="card"><img src="${esc(it.cover)}" alt="" loading="lazy" width="64" height="90"><div class="b"><p class="t">${esc(it.title)}</p><p class="meta"><b>${leftText(it)}</b>　${esc(it.store)}${it.category==="publisher"?"（出版社）":""}　${it.allFree?"全"+it.totalVolumes+"巻無料":it.freeVolumes+"/"+it.totalVolumes+"巻無料"}${it.completed?"　完結":""}</p></div></li>`,
 pick:it=>`<a class="pk" href="${esc(it.url)}"><img src="${esc(it.cover)}" alt="" loading="lazy" width="132" height="186"><p class="t">${esc(it.title)}</p><div class="chips">${volChip(it)}</div></a>`};''')
 
+# 5案の見比べボード（旧トップ）。shots/v*.jpg は手で撮り直す
+BOARD=r'''<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>タダヨミ 試作｜5案の見比べ</title>
+<meta name="description" content="無料漫画まとめ「タダヨミ」試作版。タッチの異なる5案を見比べるボード。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="タダヨミ 試作｜5案の見比べ">
+<meta property="og:description" content="電子書店と出版社Webの無料漫画を、終了が近い順に。デザイン5案を並べて比べる。">
+<meta property="og:url" content="https://yukitchy.github.io/tadayomi/board.html">
+<meta property="og:image" content="https://yukitchy.github.io/tadayomi/og4.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon-chara.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara.png">
+<link rel="stylesheet" href="common.css">
+<style>
+body{background:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;gap:16px;padding:28px 0 20px}
+header img{height:72px;width:auto}
+h1{font-size:22px;font-weight:800;white-space:nowrap}
+.lead{font-size:13px;color:var(--sub);margin:4px 0 6px}
+.grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px 20px;padding:8px 0 24px}
+.v,.v a{display:flex;flex-direction:column;height:100%}.v a{text-decoration:none}
+.v .sh{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line),0 8px 20px rgba(0,60,64,.08);aspect-ratio:390/600}
+.v .sh img{width:100%;height:auto}
+.v a:hover .sh{box-shadow:0 0 0 2px var(--teal),0 8px 20px rgba(0,60,64,.12)}
+.v h2{font-size:16px;font-weight:800;margin-top:12px;display:flex;align-items:baseline;gap:8px}
+.v h2 span{font-size:12px;font-weight:800;color:var(--teal-d);background:var(--teal-l);border-radius:3px;padding:0 6px}
+.v p{font-size:13px;color:var(--sub);margin-top:2px}
+.v .go{margin-top:auto;padding-top:8px;font-size:13px;font-weight:700;color:var(--teal-d)}
+.spec{background:var(--teal-l);border-radius:12px;padding:18px 20px;margin-bottom:24px;font-size:13px;color:var(--sub)}
+.spec h3{font-size:14px;color:var(--ink);margin-bottom:6px}
+.spec ul{padding-left:1.2em}
+footer{padding:8px 0 48px;font-size:12px;color:var(--sub)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><img src="assets/logo.png" alt="タダヨミ" width="83" height="72"><div><h1>5案の見比べ</h1><p class="lead">同じデータ・同じ絞り込みで、見た目だけ5通り。</p><span class="note">試作版：掲載データはサンプルです</span></div></header>
+<ul class="grid">
+<li class="v"><a href="v1.html"><div class="sh"><img src="shots/v1.jpg" alt="v1のスマホ表示" width="390" height="844"></div><h2><span>v1</span>縦リスト型</h2><p>模倣元に忠実な縦リスト。表紙小・あらすじとタグまで見せる基準案</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v2.html"><div class="sh"><img src="shots/v2.jpg" alt="v2のスマホ表示" width="390" height="844"></div><h2><span>v2</span>表紙グリッド型</h2><p>表紙を大きく2列グリッドで。ティールの帯に全巻無料を白カードで並べる</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v3.html"><div class="sh"><img src="shots/v3.jpg" alt="v3のスマホ表示" width="390" height="844"></div><h2><span>v3</span>コンパクト型</h2><p>48pxの薄いヘッダーと1行タイトル。1画面に約10作品を詰める情報密度優先</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v4.html"><div class="sh"><img src="shots/v4.jpg" alt="v4のスマホ表示" width="390" height="844"></div><h2><span>v4</span>雑誌・特集型</h2><p>「全巻、最後まで無料。」を明朝の特集見出しに。1作目を大きく扱う誌面風</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v5.html"><div class="sh"><img src="shots/v5.jpg" alt="v5のスマホ表示" width="390" height="844"></div><h2><span>v5</span>ミニマル型</h2><p>余白を広く取り、見出しの文字を大きく。チップの枠を外し、情報は1行の文字で並べる</p><span class="go">開く →</span></a></li>
+</ul>
+<div class="spec"><h3>5案共通</h3><ul>
+<li>全巻無料ピックアップを最上段／ストア＋出版社Web・無料巻数のチップで絞り込み（AND）</li>
+<li>締切セクション：今日で終了・もうすぐ終了（1〜3日）・1週間以内（4〜7日）・まだ間に合う（8日以上）を終了日から自動振り分け</li>
+<li>データは data.json に分離。配色はティール＋黄＋白、ロゴはフラット案1</li>
+</ul></div>
+<footer>タダヨミ 試作 第2段階 ／ 表紙画像：AniList</footer>
+</div>
+</body>
+</html>
+'''
+
+def page(v,name,path):
+  d=V[v]
+  html=HEAD.format(v=v,name=name,path=path,feat=d["feat"],base=BASE,css=d["css"])+d["top"].format(note=NOTE,filters=FILTERS)+"\n"+TAIL.format(foot=FOOT.format(ver=name[4:]),js=d["js"])
+  return html.replace("</footer>","</footer>\n"+d["end"],1)  # .wrap は footer の後で閉じる
+
 if __name__=="__main__":
-  for v,d in V.items():
-    html=HEAD.format(v=v,feat=d["feat"],base=BASE,css=d["css"])+d["top"].format(note=NOTE,filters=FILTERS)+"\n"+TAIL.format(foot=FOOT.format(v=v),js=d["js"]).replace("</main>","</main>",1)
-    # end タグは main/empty/footer の後に閉じる
-    html=html.replace("</footer>","</footer>\n"+d["end"],1)
-    open(f"{v}.html","w").write(html)
-  print("ok",list(V))
+  out={f"{v}.html":page(v,f"タダヨミ {v}",f"{v}.html") for v in V}
+  out["index.html"]=page("v3","タダヨミ","")  # 採用案 v3 をトップに
+  out["board.html"]=BOARD
+  for f,html in out.items(): open(f,"w").write(html)
+  print("ok",list(out))

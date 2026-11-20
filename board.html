@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>タダヨミ 試作｜5案の見比べ</title>
+<meta name="description" content="無料漫画まとめ「タダヨミ」試作版。タッチの異なる5案を見比べるボード。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="タダヨミ 試作｜5案の見比べ">
+<meta property="og:description" content="電子書店と出版社Webの無料漫画を、終了が近い順に。デザイン5案を並べて比べる。">
+<meta property="og:url" content="https://yukitchy.github.io/tadayomi/board.html">
+<meta property="og:image" content="https://yukitchy.github.io/tadayomi/og4.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon-chara.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara.png">
+<link rel="stylesheet" href="common.css">
+<style>
+body{background:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;gap:16px;padding:28px 0 20px}
+header img{height:72px;width:auto}
+h1{font-size:22px;font-weight:800;white-space:nowrap}
+.lead{font-size:13px;color:var(--sub);margin:4px 0 6px}
+.grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px 20px;padding:8px 0 24px}
+.v,.v a{display:flex;flex-direction:column;height:100%}.v a{text-decoration:none}
+.v .sh{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line),0 8px 20px rgba(0,60,64,.08);aspect-ratio:390/600}
+.v .sh img{width:100%;height:auto}
+.v a:hover .sh{box-shadow:0 0 0 2px var(--teal),0 8px 20px rgba(0,60,64,.12)}
+.v h2{font-size:16px;font-weight:800;margin-top:12px;display:flex;align-items:baseline;gap:8px}
+.v h2 span{font-size:12px;font-weight:800;color:var(--teal-d);background:var(--teal-l);border-radius:3px;padding:0 6px}
+.v p{font-size:13px;color:var(--sub);margin-top:2px}
+.v .go{margin-top:auto;padding-top:8px;font-size:13px;font-weight:700;color:var(--teal-d)}
+.spec{background:var(--teal-l);border-radius:12px;padding:18px 20px;margin-bottom:24px;font-size:13px;color:var(--sub)}
+.spec h3{font-size:14px;color:var(--ink);margin-bottom:6px}
+.spec ul{padding-left:1.2em}
+footer{padding:8px 0 48px;font-size:12px;color:var(--sub)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><img src="assets/logo.png" alt="タダヨミ" width="83" height="72"><div><h1>5案の見比べ</h1><p class="lead">同じデータ・同じ絞り込みで、見た目だけ5通り。</p><span class="note">試作版：掲載データはサンプルです</span></div></header>
+<ul class="grid">
+<li class="v"><a href="v1.html"><div class="sh"><img src="shots/v1.jpg" alt="v1のスマホ表示" width="390" height="844"></div><h2><span>v1</span>縦リスト型</h2><p>模倣元に忠実な縦リスト。表紙小・あらすじとタグまで見せる基準案</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v2.html"><div class="sh"><img src="shots/v2.jpg" alt="v2のスマホ表示" width="390" height="844"></div><h2><span>v2</span>表紙グリッド型</h2><p>表紙を大きく2列グリッドで。ティールの帯に全巻無料を白カードで並べる</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v3.html"><div class="sh"><img src="shots/v3.jpg" alt="v3のスマホ表示" width="390" height="844"></div><h2><span>v3</span>コンパクト型</h2><p>48pxの薄いヘッダーと1行タイトル。1画面に約10作品を詰める情報密度優先</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v4.html"><div class="sh"><img src="shots/v4.jpg" alt="v4のスマホ表示" width="390" height="844"></div><h2><span>v4</span>雑誌・特集型</h2><p>「全巻、最後まで無料。」を明朝の特集見出しに。1作目を大きく扱う誌面風</p><span class="go">開く →</span></a></li>
+<li class="v"><a href="v5.html"><div class="sh"><img src="shots/v5.jpg" alt="v5のスマホ表示" width="390" height="844"></div><h2><span>v5</span>ミニマル型</h2><p>余白を広く取り、見出しの文字を大きく。チップの枠を外し、情報は1行の文字で並べる</p><span class="go">開く →</span></a></li>
+</ul>
+<div class="spec"><h3>5案共通</h3><ul>
+<li>全巻無料ピックアップを最上段／ストア＋出版社Web・無料巻数のチップで絞り込み（AND）</li>
+<li>締切セクション：今日で終了・もうすぐ終了（1〜3日）・1週間以内（4〜7日）・まだ間に合う（8日以上）を終了日から自動振り分け</li>
+<li>データは data.json に分離。配色はティール＋黄＋白、ロゴはフラット案1</li>
+</ul></div>
+<footer>タダヨミ 試作 第2段階 ／ 表紙画像：AniList</footer>
+</div>
+</body>
+</html>
