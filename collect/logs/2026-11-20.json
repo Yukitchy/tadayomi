@@ -1,9 +1,9 @@
 {
- "run": "2026-11-20T23:41:25+09:00",
+ "run": "2026-11-20T23:43:29+09:00",
  "sources": {
   "ebookjapan": {
    "ok": true,
-   "count": 27
+   "count": 19
   },
   "ピッコマ": {
    "ok": true,
@@ -28,7 +28,7 @@
   "サンデーうぇぶり": "トップに期間限定無料の告知が無い（取得時点）",
   "ヤンチャンWeb": "ynjn.jp / yanchan.jp が接続を返さない（取得時点）"
  },
- "total": 70,
+ "total": 62,
  "allFree": 0,
  "written": true
 }
