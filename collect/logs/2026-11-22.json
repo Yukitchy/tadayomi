@@ -1,0 +1,138 @@
+{
+ "run": "2026-11-22T07:00:05+09:00",
+ "sources": {
+  "ebookjapan": {
+   "ok": true,
+   "count": 27
+  },
+  "ピッコマ": {
+   "ok": true,
+   "count": 40
+  },
+  "マガポケ": {
+   "ok": true,
+   "count": 9
+  },
+  "X告知": {
+   "ok": true,
+   "count": 16,
+   "failed": {},
+   "kept_from_previous": 0,
+   "items": [
+    [
+     "チャンピオンクロス",
+     "ヤクザにお風呂で働かされてます。",
+     "site",
+     "https://x.com/championcross/status/2123627573695619404"
+    ],
+    [
+     "チャンピオンクロス",
+     "光る君の妻に転生したのですが 呪われないために夜伽を拒否しています【心恋】",
+     "site",
+     "https://x.com/championcross/status/2123619911909962207"
+    ],
+    [
+     "チャンピオンクロス",
+     "Villainな奥さま",
+     "site",
+     "https://x.com/championcross/status/2123612375622324378"
+    ],
+    [
+     "チャンピオンクロス",
+     "ちひろさん",
+     "site",
+     "https://x.com/championcross/status/2123431108025209180"
+    ],
+    [
+     "チャンピオンクロス",
+     "名探偵マーニー",
+     "site",
+     "https://x.com/championcross/status/2123265191081115718"
+    ],
+    [
+     "チャンピオンクロス",
+     "旦那に秘密で配信者に捧げました",
+     "site",
+     "https://x.com/championcross/status/2123257547113091321"
+    ],
+    [
+     "チャンピオンクロス",
+     "ひとり部屋のカギあずけます~すてきな第一発見者~",
+     "site",
+     "https://x.com/championcross/status/2122963050135253502"
+    ],
+    [
+     "少年ジャンプ＋",
+     "ダイヤモンドの功罪",
+     "x",
+     "https://x.com/shonenjump_plus/status/2124095481588707806"
+    ],
+    [
+     "少年ジャンプ＋",
+     "遊☆戯☆王R",
+     "x",
+     "https://x.com/shonenjump_plus/status/2124065282540896505"
+    ],
+    [
+     "少年ジャンプ＋",
+     "遊☆戯☆王GX",
+     "x",
+     "https://x.com/shonenjump_plus/status/2124065279625830783"
+    ],
+    [
+     "少年ジャンプ＋",
+     "Thisコミュニケーション",
+     "x",
+     "https://x.com/shonenjump_plus/status/2123733108155462117"
+    ],
+    [
+     "ゼブラック",
+     "ブスに花束を。",
+     "x",
+     "https://x.com/zebrack_comic/status/2123615582662828292"
+    ],
+    [
+     "ゼブラック",
+     "創造錬金術師は自由を謳歌する 故郷を追放されたら、魔王のお膝元で超絶効果のマジックアイテム作り放題になりました",
+     "x",
+     "https://x.com/zebrack_comic/status/2123562030514979096"
+    ],
+    [
+     "ゼブラック",
+     "ドラフトキング",
+     "x",
+     "https://x.com/zebrack_comic/status/2123441204197286023"
+    ],
+    [
+     "ゼブラック",
+     "ラジエーションハウス",
+     "x",
+     "https://x.com/zebrack_comic/status/2123011355888472435"
+    ],
+    [
+     "めちゃコミック",
+     "天上恋歌~金の皇女と火の薬師~",
+     "x",
+     "https://x.com/mechacomic/status/2123944588884967620"
+    ]
+   ]
+  },
+  "manual": {
+   "ok": true,
+   "count": 2
+  }
+ },
+ "not_covered": {
+  "Kindle": "amazon.co.jp は自動取得に対しロボット確認ページ（1.4KB）を返す。公式APIはアソシエイト審査が前提",
+  "BOOK☆WALKER": "/free/ に作品は並ぶが終了日がHTMLに無い。キャンペーン一覧URLは404",
+  "コミックシーモア": "/freecontents/ のHTMLに終了日が無い（作品ごとの期限は取得できず）",
+  "LINEマンガ": "ページ本体がJavaScriptで描画され、HTMLにキャンペーン期限が無い",
+  "少年ジャンプ＋": "トップ・作品ページに無料期間の構造化された記載が無い。完結記念などは manual.json で手動追加",
+  "ヤンマガWeb": "トップに巻無料の告知はあるが終了日の記載が無い",
+  "サンデーうぇぶり": "トップに期間限定無料の告知が無い（取得時点）",
+  "ヤンチャンWeb": "ynjn.jp / yanchan.jp が接続を返さない（取得時点）"
+ },
+ "total": 90,
+ "allFree": 1,
+ "written": true
+}
