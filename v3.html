@@ -43,11 +43,31 @@ h2 small{font-size:11px;font-weight:600;color:var(--sub)}
 .card .a{font-size:11px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 footer{padding:14px 10px 30px;font-size:11px;color:var(--sub)}
 #empty{font-size:13px}
+.about{flex:none;display:flex;align-items:center;gap:5px;font:inherit;font-size:12px;font-weight:700;line-height:1;color:var(--teal-d);background:none;border:0;padding:6px;margin-right:-6px;cursor:pointer;white-space:nowrap}
+.about .i{display:grid;place-items:center;width:22px;height:22px;border:1.5px solid var(--teal);border-radius:50%;font-size:13px;font-weight:800}
+.about .lb{display:none}@media (min-width:480px){.about .lb{display:inline}}
+#about{margin:auto;width:min(420px,calc(100% - 32px));border:0;border-radius:8px;padding:0;color:var(--ink);border-top:4px solid var(--teal)}
+#about::backdrop{background:rgba(22,24,29,.5)}
+#about form{position:relative;padding:20px 20px 18px}
+#about h2{background:none;padding:0 28px 0 0;font-size:16px;color:var(--teal-d)}
+#about ul{list-style:none;margin:12px 0 18px;font-size:13px;line-height:1.7}
+#about li{position:relative;padding-left:14px}#about li+li{margin-top:6px}
+#about li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--yel)}
+#about .x{position:absolute;top:10px;right:10px;width:32px;height:32px;font:inherit;font-size:20px;line-height:1;border:0;background:none;color:var(--sub);cursor:pointer}
+#about .close{display:block;width:100%;font:inherit;font-size:14px;font-weight:700;color:#fff;background:var(--teal);border:0;border-radius:6px;padding:10px;cursor:pointer}
 </style>
 </head>
 <body class="v3">
 <div class="wrap">
-<header><img src="assets/mark.png" alt="" width="67" height="36"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p></header>
+<header><img src="assets/mark.png" alt="" width="67" height="36"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p><button class="about" type="button" aria-haspopup="dialog" aria-label="サイトについて" onclick="document.getElementById('about').showModal()"><span class="i" aria-hidden="true">i</span><span class="lb">サイトについて</span></button></header>
+<dialog id="about" aria-labelledby="aboutH" onclick="if(event.target===this)this.close()"><form method="dialog"><button class="x" aria-label="閉じる">×</button><h2 id="aboutH">タダヨミについて</h2><ul>
+<li>タダヨミは、Webの公式マンガサービスで期間限定で無料公開されている作品を集めたポータルです。</li>
+<li>期間限定の全巻無料を優先して表示します。</li>
+<li>並び順は、無料期間の終了が近い順です。</li>
+<li>情報は毎朝1回更新します。</li>
+<li>掲載は各サービスの公式サイトと公式Xの告知をもとにしています。</li>
+<li>作品をタップすると、各公式サービスのページへ移動します。</li>
+</ul><button class="close">閉じる</button></form></dialog>
 <p class="proto"><span class="note">対応媒体のみ掲載・毎朝更新</span></p>
 <section id="pick"><h2>全巻無料<small>最後まで読める</small></h2><div class="strip" id="pickList"></div></section>
 <div class="filters"><div class="row" id="storeRow" aria-label="ストアで絞り込む"></div><div class="row vol" id="volRow" aria-label="無料巻数で絞り込む"></div></div>

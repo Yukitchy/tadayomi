@@ -17,7 +17,11 @@ let D,TODAY;
     const bad=h.filter(x=>x.scrollWidth>x.clientWidth+1||x.getClientRects().length>1||(cs=>(x.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom))/parseFloat(cs.lineHeight)>1.5)(getComputedStyle(x)));
     ok(!bad.length,`${v} ${w}px 見出し${h.length}本すべて1行${bad.length?" NG:"+bad.map(x=>x.textContent):""}`);
     ok(!/maru|rounded|丸/i.test([...d.querySelectorAll("*")].map(e=>getComputedStyle(e).fontFamily).join()),`${v} ${w}px 丸ゴシック不使用`);
-    if(v==="index"||v==="v3"){const hd=d.querySelector("header"),h1=hd.querySelector("h1");ok(hd.offsetHeight<=50&&h1&&h1.textContent==="タダヨミ"&&h1.getClientRects().length===1&&d.querySelector(".lead").getBoundingClientRect().top<hd.getBoundingClientRect().bottom,`${v} ${w}px ヘッダー1行 ${hd.offsetHeight}px`);}
+    if(v==="index"||v==="v3"){const hd=d.querySelector("header"),h1=hd.querySelector("h1");ok(hd.offsetHeight<=50&&h1&&h1.textContent==="タダヨミ"&&h1.getClientRects().length===1&&d.querySelector(".lead").getBoundingClientRect().top<hd.getBoundingClientRect().bottom,`${v} ${w}px ヘッダー1行 ${hd.offsetHeight}px`);
+      const ab=hd.querySelector(".about"),dl=d.getElementById("about"),r=ab&&ab.getBoundingClientRect();
+      ok(ab&&r.right<=w&&r.top>=hd.getBoundingClientRect().top&&r.bottom<=hd.getBoundingClientRect().bottom&&ab.getClientRects().length===1,`${v} ${w}px「サイトについて」ボタンがヘッダー行内`);
+      const t=[];ab.click();t.push(dl.open);dl.querySelector(".x").click();t.push(!dl.open);ab.click();dl.querySelector(".close").click();t.push(!dl.open);ab.click();dl.click();t.push(!dl.open);ab.click();dl.querySelector("li").click();t.push(dl.open);dl.close();
+      ok(t.every(Boolean)&&dl.querySelectorAll("li").length===6,`${v} ${w}px モーダル 開く/×/閉じる/背景で閉じる/本文タップでは閉じない ${t}`);}
     if(w!==390)continue;
     // 期待値は data.json から計算（実データは毎日変わるので件数は決め打ちしない）
     const live=D.items.map(i=>({...i,days:Math.round((Date.parse(i.endDate)-Date.parse(TODAY))/864e5)})).filter(i=>i.days>=0);
