@@ -13,8 +13,8 @@ HEAD='''<!doctype html>
 <meta property="og:url" content="{base}{path}">
 <meta property="og:image" content="{base}og5.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon-chara2.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara3.png">
+<link rel="icon" href="favicon.ico?v=3" sizes="any"><link rel="icon" href="favicon-chara3.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara4.png">
 <link rel="stylesheet" href="common.css">
 <style>{css}</style>
 </head>
@@ -147,7 +147,7 @@ footer{padding:14px 10px 30px;font-size:11px;color:var(--sub)}
 #about .x{position:absolute;top:10px;right:10px;width:32px;height:32px;font:inherit;font-size:20px;line-height:1;border:0;background:none;color:var(--sub);cursor:pointer}
 #about .close{display:block;width:100%;font:inherit;font-size:14px;font-weight:700;color:#fff;background:var(--teal);border:0;border-radius:6px;padding:10px;cursor:pointer}
 ''',top='''<div class="wrap">
-<header><img src="assets/mark.png" alt="" width="67" height="36"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p><button class="about" type="button" aria-haspopup="dialog" aria-label="サイトについて" onclick="document.getElementById('about').showModal()"><span class="i" aria-hidden="true">i</span><span class="lb">サイトについて</span></button></header>
+<header><img src="assets/mark2.png" alt="" width="35" height="36"><h1>タダヨミ</h1><p class="lead">いま<strong id="count">–</strong>作品が無料</p><button class="about" type="button" aria-haspopup="dialog" aria-label="サイトについて" onclick="document.getElementById('about').showModal()"><span class="i" aria-hidden="true">i</span><span class="lb">サイトについて</span></button></header>
 <dialog id="about" aria-labelledby="aboutH" onclick="if(event.target===this)this.close()"><form method="dialog"><button class="x" aria-label="閉じる">×</button><h2 id="aboutH">タダヨミについて</h2><ul>
 <li>タダヨミは、Webの公式マンガサービスで期間限定で無料公開されている作品を集めたポータルです。</li>
 <li>期間限定の全巻無料を優先して表示します。</li>
@@ -256,8 +256,8 @@ BOARD=r'''<!doctype html>
 <meta property="og:url" content="https://yukitchy.github.io/tadayomi/board.html">
 <meta property="og:image" content="https://yukitchy.github.io/tadayomi/og5.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon-chara2.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara3.png">
+<link rel="icon" href="favicon.ico?v=3" sizes="any"><link rel="icon" href="favicon-chara3.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-chara4.png">
 <link rel="stylesheet" href="common.css">
 <style>
 body{background:#fff}

@@ -36,8 +36,8 @@ let D,TODAY;
     const ww=D.items.find(i=>i.title==="ウィッチウォッチ");
     if(ww&&live.includes(live.find(i=>i.title==="ウィッチウォッチ"))){const c=cards.find(c=>/ウィッチウォッチ/.test(c.textContent));ok(c&&/54話分無料/.test(c.textContent)&&c.querySelector("a.cardlink").href===ww.url,`${v} 手動追加 ウィッチウォッチ 54話分無料・ジャンプ＋へのリンク`);}
     ok(!/試作版：掲載データはサンプルです/.test(d.body.textContent)&&/対応媒体のみ掲載/.test(d.body.textContent)&&D.sources.every(s=>d.querySelector("#srcList").textContent.includes(s)),`${v} 表記：試作サンプル表記なし・対応媒体と未対応媒体を明記`);
-    const logo=d.querySelector("header img");ok(logo&&logo.complete&&logo.naturalWidth>0&&/assets\/(logo|mark)\.png/.test(logo.src),`${v} ヘッダーロゴ画像 ${logo&&logo.src.split("/").pop()}`);
-    ok(d.querySelector('link[rel=icon]').href.endsWith("favicon-chara2.png")&&d.querySelector('link[rel=apple-touch-icon]').href.endsWith("apple-touch-icon-chara3.png")&&d.querySelector('meta[property="og:image"]').content.endsWith("/og5.png")&&d.querySelector('meta[property="og:url"]').content.endsWith(v==="index"?"/tadayomi/":`/${v}.html`),`${v} favicon/apple-touch-icon/og:image/og:url`);
+    const logo=d.querySelector("header img");ok(logo&&logo.complete&&logo.naturalWidth>0&&/assets\/(logo|mark2?)\.png/.test(logo.src),`${v} ヘッダーロゴ画像 ${logo&&logo.src.split("/").pop()}`);
+    ok([...d.querySelectorAll("link[rel=icon]")].some(l=>l.href.endsWith("favicon-chara3.png"))&&[...d.querySelectorAll("link[rel=icon]")].some(l=>/favicon\.ico/.test(l.href))&&d.querySelector('link[rel=apple-touch-icon]').href.endsWith("apple-touch-icon-chara4.png")&&d.querySelector('meta[property="og:image"]').content.endsWith("/og5.png")&&d.querySelector('meta[property="og:url"]').content.endsWith(v==="index"?"/tadayomi/":`/${v}.html`),`${v} favicon/apple-touch-icon/og:image/og:url`);
     const all=n(d);
     const pubN=live.filter(i=>i.category==="publisher").length;
     if(pubN){click(d,'[data-store="@publisher"]');ok(n(d)===pubN,`${v} 出版社Web → ${n(d)}件`);
