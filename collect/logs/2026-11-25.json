@@ -1,0 +1,114 @@
+{
+ "run": "2026-11-25T07:00:04+09:00",
+ "sources": {
+  "ebookjapan": {
+   "ok": true,
+   "count": 24
+  },
+  "ピッコマ": {
+   "ok": true,
+   "count": 40
+  },
+  "マガポケ": {
+   "ok": true,
+   "count": 7
+  },
+  "X告知": {
+   "ok": true,
+   "count": 12,
+   "failed": {},
+   "kept_from_previous": 0,
+   "items": [
+    [
+     "チャンピオンクロス",
+     "ちひろさん",
+     "site",
+     "https://x.com/championcross/status/2125061928565579804"
+    ],
+    [
+     "チャンピオンクロス",
+     "ヤクザにお風呂で働かされてます。",
+     "site",
+     "https://x.com/championcross/status/2123627573695619404"
+    ],
+    [
+     "チャンピオンクロス",
+     "光る君の妻に転生したのですが 呪われないために夜伽を拒否しています【心恋】",
+     "site",
+     "https://x.com/championcross/status/2123619911909962207"
+    ],
+    [
+     "チャンピオンクロス",
+     "Villainな奥さま",
+     "site",
+     "https://x.com/championcross/status/2123612375622324378"
+    ],
+    [
+     "少年ジャンプ＋",
+     "王様の仕立て屋~サルト・フィニート~",
+     "x",
+     "https://x.com/shonenjump_plus/status/2124827808727732634"
+    ],
+    [
+     "少年ジャンプ＋",
+     "Dr.DMAT~瓦礫の下のヒポクラテス~",
+     "x",
+     "https://x.com/shonenjump_plus/status/2124827804197879856"
+    ],
+    [
+     "少年ジャンプ＋",
+     "みえるひと",
+     "x",
+     "https://x.com/shonenjump_plus/status/2124820272192651353"
+    ],
+    [
+     "少年ジャンプ＋",
+     "PSYREN—サイレン—",
+     "x",
+     "https://x.com/shonenjump_plus/status/2124820261933338767"
+    ],
+    [
+     "少年ジャンプ＋",
+     "怨み屋本舗DIABLO",
+     "x",
+     "https://x.com/shonenjump_plus/status/2124805165488189787"
+    ],
+    [
+     "ゼブラック",
+     "マチネとソワレ",
+     "x",
+     "https://x.com/zebrack_comic/status/2124340129821339844"
+    ],
+    [
+     "ゼブラック",
+     "ブスに花束を。",
+     "x",
+     "https://x.com/zebrack_comic/status/2123615582662828292"
+    ],
+    [
+     "ゼブラック",
+     "創造錬金術師は自由を謳歌する 故郷を追放されたら、魔王のお膝元で超絶効果のマジックアイテム作り放題になりました",
+     "x",
+     "https://x.com/zebrack_comic/status/2123562030514979096"
+    ]
+   ]
+  },
+  "manual": {
+   "ok": true,
+   "count": 1
+  }
+ },
+ "not_covered": {
+  "Kindle": "amazon.co.jp は自動取得に対しロボット確認ページ（1.4KB）を返す。公式APIはアソシエイト審査が前提",
+  "BOOK☆WALKER": "/free/ に作品は並ぶが終了日がHTMLに無い。キャンペーン一覧URLは404",
+  "コミックシーモア": "/freecontents/ のHTMLに終了日が無い（作品ごとの期限は取得できず）",
+  "LINEマンガ": "ページ本体がJavaScriptで描画され、HTMLにキャンペーン期限が無い",
+  "少年ジャンプ＋": "トップ・作品ページに無料期間の構造化された記載が無い。完結記念などは manual.json で手動追加",
+  "ヤンマガWeb": "トップに巻無料の告知はあるが終了日の記載が無い",
+  "サンデーうぇぶり": "トップに期間限定無料の告知が無い（取得時点）",
+  "ヤンチャンWeb": "ynjn.jp / yanchan.jp が接続を返さない（取得時点）"
+ },
+ "total": 78,
+ "allFree": 0,
+ "written": true
+}
