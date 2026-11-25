@@ -1,0 +1,54 @@
+{
+ "run": "2026-11-26T07:00:05+09:00",
+ "sources": {
+  "ebookjapan": {
+   "ok": true,
+   "count": 25
+  },
+  "ピッコマ": {
+   "ok": true,
+   "count": 40
+  },
+  "マガポケ": {
+   "ok": true,
+   "count": 7
+  },
+  "X告知": {
+   "ok": true,
+   "count": 2,
+   "failed": {},
+   "kept_from_previous": 0,
+   "items": [
+    [
+     "チャンピオンクロス",
+     "ちひろさん",
+     "site",
+     "https://x.com/championcross/status/2125061928565579804"
+    ],
+    [
+     "ゼブラック",
+     "マチネとソワレ",
+     "x",
+     "https://x.com/zebrack_comic/status/2124340129821339844"
+    ]
+   ]
+  },
+  "manual": {
+   "ok": true,
+   "count": 1
+  }
+ },
+ "not_covered": {
+  "Kindle": "amazon.co.jp は自動取得に対しロボット確認ページ（1.4KB）を返す。公式APIはアソシエイト審査が前提",
+  "BOOK☆WALKER": "/free/ に作品は並ぶが終了日がHTMLに無い。キャンペーン一覧URLは404",
+  "コミックシーモア": "/freecontents/ のHTMLに終了日が無い（作品ごとの期限は取得できず）",
+  "LINEマンガ": "ページ本体がJavaScriptで描画され、HTMLにキャンペーン期限が無い",
+  "少年ジャンプ＋": "トップ・作品ページに無料期間の構造化された記載が無い。完結記念などは manual.json で手動追加",
+  "ヤンマガWeb": "トップに巻無料の告知はあるが終了日の記載が無い",
+  "サンデーうぇぶり": "トップに期間限定無料の告知が無い（取得時点）",
+  "ヤンチャンWeb": "ynjn.jp / yanchan.jp が接続を返さない（取得時点）"
+ },
+ "total": 72,
+ "allFree": 0,
+ "written": true
+}
