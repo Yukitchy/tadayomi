@@ -1,0 +1,90 @@
+{
+ "run": "2026-11-28T07:00:05+09:00",
+ "sources": {
+  "ebookjapan": {
+   "ok": true,
+   "count": 29
+  },
+  "ピッコマ": {
+   "ok": true,
+   "count": 40
+  },
+  "マガポケ": {
+   "ok": true,
+   "count": 6
+  },
+  "X告知": {
+   "ok": true,
+   "count": 8,
+   "failed": {},
+   "kept_from_previous": 0,
+   "items": [
+    [
+     "チャンピオンクロス",
+     "異世界でも女王様",
+     "site",
+     "https://x.com/championcross/status/2126164298393088305"
+    ],
+    [
+     "チャンピオンクロス",
+     "運送屋のおっさんがなぜか副業で絶対無敵剣士を務めることに~さえない人生を送ってた俺が魔王討伐の切り札に?~",
+     "site",
+     "https://x.com/championcross/status/2126156805910786549"
+    ],
+    [
+     "チャンピオンクロス",
+     "勇者殺しの元暗殺者。 ~無職のおっさんから始まるセカンドライフ~",
+     "site",
+     "https://x.com/championcross/status/2126149271791550809"
+    ],
+    [
+     "チャンピオンクロス",
+     "ちひろさん",
+     "site",
+     "https://x.com/championcross/status/2125061928565579804"
+    ],
+    [
+     "少年ジャンプ＋",
+     "タコピーの原罪",
+     "x",
+     "https://x.com/shonenjump_plus/status/2126269819884306853"
+    ],
+    [
+     "少年ジャンプ＋",
+     "一ノ瀬家の大罪",
+     "x",
+     "https://x.com/shonenjump_plus/status/2126269819301359939"
+    ],
+    [
+     "BOOK☆WALKER",
+     "王者の盤狂わせ",
+     "x",
+     "https://x.com/BOOK_WALKER/status/2125967835218194601"
+    ],
+    [
+     "ゼブラック",
+     "ダーウィンズゲーム",
+     "x",
+     "https://x.com/zebrack_comic/status/2126333488957911420"
+    ]
+   ]
+  },
+  "manual": {
+   "ok": true,
+   "count": 1
+  }
+ },
+ "not_covered": {
+  "Kindle": "amazon.co.jp は自動取得に対しロボット確認ページ（1.4KB）を返す。公式APIはアソシエイト審査が前提",
+  "BOOK☆WALKER": "/free/ に作品は並ぶが終了日がHTMLに無い。キャンペーン一覧URLは404",
+  "コミックシーモア": "/freecontents/ のHTMLに終了日が無い（作品ごとの期限は取得できず）",
+  "LINEマンガ": "ページ本体がJavaScriptで描画され、HTMLにキャンペーン期限が無い",
+  "少年ジャンプ＋": "トップ・作品ページに無料期間の構造化された記載が無い。完結記念などは manual.json で手動追加",
+  "ヤンマガWeb": "トップに巻無料の告知はあるが終了日の記載が無い",
+  "サンデーうぇぶり": "トップに期間限定無料の告知が無い（取得時点）",
+  "ヤンチャンWeb": "ynjn.jp / yanchan.jp が接続を返さない（取得時点）"
+ },
+ "total": 81,
+ "allFree": 0,
+ "written": true
+}
